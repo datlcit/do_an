@@ -22,13 +22,6 @@ export class UserInterfaceComponent implements OnInit {
   countPro: number = 0;
   proPrice: number = 0;
   data: any = [];
-  addToCart(componentRef:any) {
-    if(componentRef instanceof HomeComponent) {
-      componentRef.clickBuy.subscribe(() => {
-        this.countPro++;
-      })
-    }
-  }
 
   addToCartFromShop(componentRef:any) {
     if(componentRef instanceof StoreComponent) {
@@ -79,14 +72,6 @@ export class UserInterfaceComponent implements OnInit {
   //   }
   // }
 
-  addTotalFromHome(componentRef:any) {
-    if(componentRef instanceof HomeComponent) {
-      componentRef.clickTotal.subscribe((price) => {
-        this.proPrice = this.proPrice + price;
-      })
-    }
-  }
-
   addTotalFromShop(componentRef:any) {
     if(componentRef instanceof StoreComponent) {
       componentRef.clickTotal.subscribe((price) => {
@@ -104,14 +89,6 @@ export class UserInterfaceComponent implements OnInit {
   }
 
   countWishList: number = 0;
-
-  addToWishList(componentRef:any) {
-    if(componentRef instanceof HomeComponent) {
-      componentRef.clickWithlist.subscribe((p) => {
-        this.countWishList++;
-      })
-    }
-  }
 
   addToWishListFromShop(componentRef:any) {
     if(componentRef instanceof StoreComponent) {

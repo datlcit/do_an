@@ -58,6 +58,9 @@ public class Product {
 	@Column(name = "status")
 	private boolean status;
 	
+	@Column(name = "numberOfSales")
+	private int numberOfSales;
+	
 	@ManyToOne
 	@JoinColumn(name = "categoryId", referencedColumnName = "categoryId")
 	private Category category;
@@ -82,7 +85,8 @@ public class Product {
 
 	public Product(String productId, String productName, String productImage, double price, String ram, String storage,
 			String color, String description, Date createAt, Date updateAt, int quantity, boolean status,
-			Category category, List<FeedBack> feedBacks, List<OrderDetail> orderDetails, List<Cart> carts) {
+			int numberOfSales, Category category, List<FeedBack> feedBacks, List<OrderDetail> orderDetails,
+			List<Cart> carts) {
 		super();
 		this.productId = productId;
 		this.productName = productName;
@@ -96,6 +100,7 @@ public class Product {
 		this.updateAt = updateAt;
 		this.quantity = quantity;
 		this.status = status;
+		this.numberOfSales = numberOfSales;
 		this.category = category;
 		this.feedBacks = feedBacks;
 		this.orderDetails = orderDetails;
@@ -198,6 +203,14 @@ public class Product {
 		this.status = status;
 	}
 
+	public int getNumberOfSales() {
+		return numberOfSales;
+	}
+
+	public void setNumberOfSales(int numberOfSales) {
+		this.numberOfSales = numberOfSales;
+	}
+
 	public Category getCategory() {
 		return category;
 	}
@@ -230,5 +243,6 @@ public class Product {
 		this.carts = carts;
 	}
 
+		
 	
 }

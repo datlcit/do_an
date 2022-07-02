@@ -17,4 +17,6 @@ public interface ProductService {
 	List<Product> descProductName();
 	
 	List<Product> rangeProductByPrice(Integer lowCost, Integer highCost);
+	
+	List<Product> bestSeller();
 }

@@ -4,6 +4,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { OrderAdminService } from 'src/app/Modules/admin/adminServices/order-admin.service';
 import { OrderDetailAdminService } from 'src/app/Modules/admin/adminServices/order-detail-admin.service';
+import { ProductAdminService } from 'src/app/Modules/admin/adminServices/product-admin.service';
 import { CustomerUserService } from '../../userServices/customer-user.service';
 import { OrderDetailUserService } from '../../userServices/order-detail-user.service';
 
@@ -27,6 +28,7 @@ export class CheckoutComponent implements OnInit {
      private customerService: CustomerUserService,
      private orderService: OrderAdminService,
      private orderDetailService: OrderDetailAdminService,
+     private productService: ProductAdminService,
      private router: Router,
      private http: HttpClient) {  }
 
@@ -48,6 +50,7 @@ export class CheckoutComponent implements OnInit {
   customerAdded: any = null;
   customerOnlyId: any = null;
   promotionCode: any = null;
+
   addCustomer(){
     this.customerService.add(this.formAddCustomer.value).subscribe(res=>{
       this.customerAdded = res;
@@ -64,13 +67,11 @@ export class CheckoutComponent implements OnInit {
         }
       ).subscribe(res2=>{
         this.orderAdded = res2;
-        console.log(this.orderAdded)
 
 
 
         for(let c of this.data){
           let p = c.product;
-          console.log(p)
             this.orderDetailService.add(
               {
                 order: { orderId: this.orderAdded.orderId},
@@ -81,16 +82,13 @@ export class CheckoutComponent implements OnInit {
               }
             ).subscribe(res3=>{
               this.orderDetailAdded = res3;
-              console.log(this.orderDetailAdded)
             })
         }
-
-
-
         // this.router.navigateByUrl('/admin/listOrders')
       })
-      this.router.navigate(['congratulation']);
     })
+    this.calnumberOfSales();
+    // this.router.navigate(['congratulation']);
   }
 
   loadCart(){
@@ -101,9 +99,21 @@ export class CheckoutComponent implements OnInit {
   subtotal: number = 0;
   loadTotal(){
     for(let c of this.data){
-      console.log(c.product.price)
-      console.log(c.quantity)
       this.subtotal += (c.product.price * c.quantity);
+    }
+  }
+
+  calnumberOfSales(){
+    for(let c of this.data){
+      console.log(c);
+      this.productService.findById(c.product.productId).subscribe(pro => {
+        pro.numberOfSales += c.quantity;
+        this.productService.edit(c.product.productId, pro).subscribe(res=>{
+          console.log(res)
+        })
+        console.log(c.quantity);
+        console.log(pro.numberOfSales)
+      })
     }
   }
 

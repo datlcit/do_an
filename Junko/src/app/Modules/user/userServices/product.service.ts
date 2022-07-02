@@ -45,4 +45,8 @@ export class ProductService {
     descName(): Observable<any>{
       return this.http.get(this.base_url + '/descName');
     }
+
+    bestSeller(): Observable<any>{
+      return this.http.get(this.base_url + '/bestSeller');
+    }
 }

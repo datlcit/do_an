@@ -25,5 +25,8 @@ public interface ProductRepository extends JpaRepository<Product, String>{
 	
 	@Query(value = "{CALL rangePrice(:lowCost, :highCost)}", nativeQuery = true)
 	List<Product> rangeProductByPrice(@Param("lowCost") Integer lowCost, @Param("highCost") Integer highCost);
+	
+	@Query(value = "Select top(6) * from Product p order by p.numberOfSales desc", nativeQuery = true)
+	List<Product> bestSeller();
 
 }

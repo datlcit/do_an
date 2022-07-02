@@ -67,4 +67,11 @@ public class ProductServiceImpl implements ProductService {
 		return repository.rangeProductByPrice(lowCost, highCost);
 	}
 
+	@Override
+	public List<Product> bestSeller() {
+		// TODO Auto-generated method stub
+		return repository.bestSeller();
+	}
+
+
 }

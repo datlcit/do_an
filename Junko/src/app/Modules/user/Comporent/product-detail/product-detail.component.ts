@@ -33,6 +33,7 @@ export class ProductDetailComponent implements OnInit {
       this.dataProduct.productImage = this.dataProduct.productImage.split(" ");
       this.mainImg = this.dataProduct.productImage[0];
       this.dataProduct.color = this.dataProduct.color.split(";");
+      console.log(this.dataProduct)
     });
   }
 

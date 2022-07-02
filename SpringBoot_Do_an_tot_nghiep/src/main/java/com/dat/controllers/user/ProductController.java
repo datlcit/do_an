@@ -87,4 +87,10 @@ public class ProductController {
 		List<Product> rangePro = service.rangeProductByPrice(lowCost, highCost);
 		return new ResponseEntity<>(rangePro, HttpStatus.OK);
 	}
+	
+	@GetMapping(value = "/bestSeller")
+	@CrossOrigin(origins = "*", allowedHeaders = "*", methods = RequestMethod.GET)
+	public ResponseEntity<List<Product>> bestSeller(){
+		return new ResponseEntity<>(service.bestSeller(), HttpStatus.OK);
+	}
 }
