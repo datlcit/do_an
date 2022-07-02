@@ -1,0 +1,267 @@
+
+<!--header area start-->
+<header>
+  <div class="main_header">
+      <!--header top start-->
+      <div class="header_top">
+          <div class="container">
+              <div class="row align-items-center">
+                  <div class="col-lg-6 col-md-6">
+                      <div class="support_info">
+                          <p>Liên hệ: <a href="tel:0123456789">0123456789</a></p>
+                      </div>
+                  </div>
+                  <div class="col-lg-6 col-md-6">
+                      <div class="top_right text-right">
+                          <ul class="ul-ngang">
+                              <li style="display: flex; align-items: center;">
+                                <a routerLink="/login" *ngIf="currentUser == ''"> Đăng nhập</a>
+                                <p style="text-transform: lowercase; margin: 0" *ngIf="currentUser != ''"> {{currentUser}}</p>
+                                <ul *ngIf="currentUser != ''" class="menu-con">
+                                  <li> <a href="">Tài khoản của tôi</a> </li>
+                                  <li> <a (click)="logOut()" href="">Đăng xuất</a> </li>
+                                </ul>
+                              </li>
+                              <li *ngIf="currentUser != ''"><a routerLink="/checkout"> Thanh toán </a></li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!--header top start-->
+      <!--header middel start-->
+      <div class="header_middle">
+          <div class="container">
+              <div class="row align-items-center">
+                  <div class="col-lg-3 col-md-6">
+                      <div class="logo">
+                          <a href="{{local}}/home"><img src="assets/img/logo/logo.png" alt=""></a>
+                      </div>
+                  </div>
+                  <div class="col-lg-9 col-md-6">
+                      <div class="middel_right">
+                          <div class="search_container">
+                              <form action="#">
+                                  <!-- <div class="hover_category">
+                                      <select class="select_option" name="select" id="categori1">
+                                          <option selected value="1">All Categories</option>
+                                          <option value="2">Accessories</option>
+                                          <option value="3">Accessories & More</option>
+                                          <option value="4">Butters & Eggs</option>
+                                          <option value="5">Camera & Video </option>
+                                          <option value="6">Mornitors</option>
+                                          <option value="7">Tablets</option>
+                                          <option value="8">Laptops</option>
+                                          <option value="9">Handbags</option>
+                                          <option value="10">Headphone & Speaker</option>
+                                          <option value="11">Herbs & botanicals</option>
+                                          <option value="12">Vegetables</option>
+                                          <option value="13">Shop</option>
+                                          <option value="14">Laptops & Desktops</option>
+                                          <option value="15">Watchs</option>
+                                          <option value="16">Electronic</option>
+                                      </select>
+                                  </div> -->
+                                  <div class="search_box">
+                                      <input placeholder="Search product..." type="text">
+                                      <button type="submit">Search</button>
+                                  </div>
+                              </form>
+                          </div>
+                          <div class="middel_right_info">
+                              <!-- <div class="header_wishlist">
+                                  <a href="wishlist.html"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                                  <span class="wishlist_quantity">{{countWishList}}</span>
+                              </div> -->
+                              <div class="mini_cart_wrapper">
+                                  <a href="/cart"><i class="fa fa-shopping-bag"
+                                          aria-hidden="true"></i>{{total+proPrice}} VNĐ <i class="fa fa-angle-down"></i></a>
+                                  <span class="cart_quantity">{{countCart+countPro}}</span>
+
+                                  <!--mini cart-->
+                                   <div style="overflow: scroll;" class="mini_cart">
+                                      <div class="cart_item" *ngFor="let c of dataCart; let i = index;">
+                                          <div class="cart_img">
+                                              <a href="#"><img src="{{c.product.productImage}}" alt=""></a>
+                                          </div>
+                                          <div class="cart_info">
+                                              <a href="#">{{c.product.productName}}</a>
+                                              <p style="font-size: 13px; margin: 0">Màu: <span>{{c.product.color}}</span></p>
+                                              <p>SL: {{c.quantity}} X <span> {{c.product.price}} </span></p>
+                                          </div>
+                                      </div>
+                                      <div class="mini_cart_table">
+                                          <div class="cart_total mt-10">
+                                              <span>Tổng:</span>
+                                              <span class="price">{{total+proPrice}} VNĐ</span>
+                                          </div>
+                                      </div>
+
+                                      <div class="mini_cart_footer">
+                                          <div class="cart_button">
+                                              <a href="/cart">View cart</a>
+                                          </div>
+                                          <div class="cart_button">
+                                              <a (click)="checkUser()" href="javascript:void(0)">Checkout</a>
+                                          </div>
+
+                                      </div>
+
+                                  </div>
+                                  <!--mini cart end-->
+
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!--header middel end-->
+      <!--header bottom satrt-->
+      <div class="main_menu_area">
+          <div class="container">
+              <div class="row align-items-center">
+                  <div class="col-lg-3 col-md-12">
+                      <div class="categories_menu">
+                          <div class="categories_title">
+                              <h2 class="categori_toggle">Danh mục</h2>
+                          </div>
+                          <div class="categories_menu_toggle">
+                              <ul>
+                                  <li class="menu_item_children"><a href="javascript:void(0)">Iphone <i
+                                              class="fa fa-angle-right"></i></a>
+                                      <ul class="categories_mega_menu column_2">
+                                          <li class="menu_item_children"><a href="javascript:void(0)">Iphone 13 Series</a>
+                                              <ul class="categorie_sub_menu">
+                                                  <li><a href="/phoneModel/Iphone_13">Iphone 13</a></li>
+                                                  <li><a href="/phoneModel/Iphone_13_Pro_Max">Iphone 13 Pro Max</a></li>
+                                              </ul>
+                                          </li>
+                                          <li class="menu_item_children"><a href="javascript:void(0)">Iphone 12 Series</a>
+                                              <ul class="categorie_sub_menu">
+                                                  <li><a href="/phoneModel/Iphone_12">Iphone 12</a></li>
+                                                  <li><a href="/phoneModel/Iphone_12_Mini">Iphone 12 Mini</a></li>
+                                              </ul>
+                                          </li>
+                                      </ul>
+                                  </li>
+                                  <li class="menu_item_children"><a href="javascript:void(0)"> Samsung <i
+                                              class="fa fa-angle-right"></i></a>
+                                      <ul class="categories_mega_menu column_2">
+                                          <li class="menu_item_children"><a href="javascript:void(0)">Samsung Galaxy S22 Series</a>
+                                              <ul class="categorie_sub_menu">
+                                                  <li><a href="/phoneModel/Samsung_Galaxy_S22">Samsung Galaxy S22</a></li>
+                                                  <li><a href="/phoneModel/Samsung_Galaxy_S22_Ultra">Samsung_Galaxy_S22_Ultra</a></li>
+                                              </ul>
+                                          </li>
+                                          <li class="menu_item_children"><a href="javascript:void(0)">Samsung Galaxy Z Series</a>
+                                              <ul class="categorie_sub_menu">
+                                                  <li><a href="/phoneModel/Samsung_Galaxy_Z_Flip3_5G">Samsung Galaxy Z Flip3 5G</a></li>
+                                                  <li><a href="/phoneModel/Samsung_Galaxy_Z_Fold3_5G">Samsung Galaxy Z Fold3 5G</a></li>
+                                              </ul>
+                                          </li>
+                                      </ul>
+                                  </li>
+                                  <li class="menu_item_children"><a href="javascript:void(0)">Xiaomi <i
+                                              class="fa fa-angle-right"></i></a>
+                                      <ul class="categories_mega_menu column_2">
+                                          <li class="menu_item_children"><a href="javascript:void(0)">Xiaomi 12 Series</a>
+                                              <ul class="categorie_sub_menu">
+                                                  <li><a href="/phoneModel/Xiaomi_12">Xiaomi 12</a></li>
+                                                  <li><a href="/phoneModel/Xiaomi_12_Pro">Xiaomi 12 Pro</a></li>
+                                              </ul>
+                                          </li>
+                                          <li class="menu_item_children"><a href="javascript:void(0)">Redmi Note 11 Series</a>
+                                              <ul class="categorie_sub_menu">
+                                                  <li><a href="/phoneModel/Redmi_Note_11">Redmi Note 11</a></li>
+                                                  <li><a href="/phoneModel/Redmi_Note_11_Pro">Redmi Note 11 Pro</a></li>
+                                              </ul>
+                                          </li>
+                                      </ul>
+                                  </li>
+                                  <!-- <li class="menu_item_children"><a href="#"> Turbo System <i
+                                              class="fa fa-angle-right"></i></a>
+                                      <ul class="categories_mega_menu column_2">
+                                          <li class="menu_item_children"><a href="#">Check Trousers</a>
+                                              <ul class="categorie_sub_menu">
+                                                  <li><a href="#">Building</a></li>
+                                                  <li><a href="#">Electronics</a></li>
+                                                  <li><a href="#">action figures </a></li>
+                                                  <li><a href="#">specialty & boutique toy</a></li>
+                                              </ul>
+                                          </li>
+                                          <li class="menu_item_children"><a href="#">Calculators</a>
+                                              <ul class="categorie_sub_menu">
+                                                  <li><a href="#">Dolls for Girls</a></li>
+                                                  <li><a href="#">Girls' Learning Toys</a></li>
+                                                  <li><a href="#">Arts and Crafts for Girls</a></li>
+                                                  <li><a href="#">Video Games for Girls</a></li>
+                                              </ul>
+                                          </li>
+                                      </ul>
+                                  </li>
+                                  <li><a href="#"> Lighting</a></li>
+                                  <li><a href="#"> Accessories</a></li>
+                                  <li><a href="#">Body Parts</a></li>
+                                  <li><a href="#">Perfomance Filters</a></li>
+                                  <li><a href="#"> Engine Parts</a></li>
+                                  <li id="cat_toggle" class="has-sub"><a href="#"> More Categories</a>
+                                      <ul class="categorie_sub">
+                                          <li><a href="#">Hide Categories</a></li>
+                                      </ul>
+
+                                  </li> -->
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-lg-9 col-md-12">
+                      <div class="main_menu menu_position">
+                          <nav>
+                              <ul>
+                                  <li><a href="{{local}}/home" class="">Trang chủ</a>
+                                      <!-- <ul class="sub_menu">
+                                          <li><a href="index.html">Home shop 1</a></li>
+                                          <li><a href="index-2.html">Home shop 2</a></li>
+                                          <li><a href="index-3.html">Home shop 3</a></li>
+                                          <li><a href="index-4.html">Home shop 4</a></li>
+                                          <li><a href="index-5.html">Home shop 5</a></li>
+                                      </ul> -->
+                                  </li>
+                                  <li class="mega_items"><a  href="{{local}}/store">Cửa hàng</a>
+                                      <!-- <div class="mega_menu">
+                                          <ul class="mega_menu_inner">
+                                              <li><a href="#">Iphone</a>
+                                                  <ul>
+                                                      <li><a href="shop-fullwidth.html">Iphone 12 Series</a></li>
+                                                      <li><a href="shop-fullwidth-list.html">Iphone 12 Series</a></li>
+                                                  </ul>
+                                              </li>
+                                              <li><a href="#">Samsung</a>
+                                                  <ul>
+                                                      <li><a href="cart.html">Samsung Galaxy Z Series</a></li>
+                                                      <li><a href="wishlist.html">Samsung Galaxy S22 Series</a></li>
+                                                  </ul>
+                                              </li>
+                                              <li><a href="#">Xiaomi</a>
+                                                  <ul>
+                                                      <li><a href="product-details.html">Redmi Note 11 Series</a></li>
+                                                      <li><a href="product-sidebar.html">Xiaomi 12 Series</a></li>
+                                                  </ul>
+                                              </li>
+                                          </ul>
+                                      </div> -->
+                                  </li>
+                              </ul>
+                          </nav>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!--header bottom end-->
+  </div>
+</header>
+<!--header area end-->
