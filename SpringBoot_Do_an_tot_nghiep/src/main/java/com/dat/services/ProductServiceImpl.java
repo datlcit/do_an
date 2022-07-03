@@ -80,9 +80,15 @@ public class ProductServiceImpl implements ProductService {
 	}
 	
 	@Override
-	public List<Product> searchPro(String name) {
+	public List<Product> searchPro(String productName) {
 		// TODO Auto-generated method stub
-		return repository.searchPro(name);
+		return repository.searchPro(productName);
+	}
+
+	@Override
+	public List<Product> searchPro2(String productName) {
+		// TODO Auto-generated method stub
+		return repository.findByProductNameStartingWith(productName);
 	}
 
 

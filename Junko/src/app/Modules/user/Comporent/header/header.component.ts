@@ -23,7 +23,6 @@ export class HeaderComponent implements OnInit {
     });
     this.calTotal();
     this.loadCurrentUser();
-    this.searchProducts(this.keySearch);
   }
 
   currentUser: string = '';
@@ -31,7 +30,6 @@ export class HeaderComponent implements OnInit {
   loadCurrentUser(){
     if(localStorage['userName'] != null){
       this.currentUser = localStorage['userName']
-      console.log(this.currentUser)
     }
   }
 
@@ -47,8 +45,6 @@ export class HeaderComponent implements OnInit {
       }
 
     }
-    console.log(this.countCart)
-    console.log(this.total)
   }
 
   //Nút đăng xuất
@@ -74,15 +70,26 @@ export class HeaderComponent implements OnInit {
   @Input() countWishList:number = 0;
   @Input() proPrice:number = 0;
 
-  keySearch:string = 'Iphone';
+  keySearch:string = '';
   searchProduct: Array<any> = [];
   img: Array<any> = [];
   searchProducts(key:string){
-    this.productService.searchPro(key).subscribe(res =>{
-      console.log(res);
-      this.searchProduct = res;
-      console.log(this.searchProduct);
-    })
+    if(key != ''){
+      this.productService.searchPro(key).subscribe(res =>{
+        this.searchProduct = [];
+        this.searchProduct = res;
+        for(let i=0;i<this.searchProduct.length;i++){
+          this.img = this.searchProduct[i].productImage.split(" ");
+          this.searchProduct[i].productImage = this.img[0];
+        }
+        console.log(this.searchProduct);
+      })
+    } else {
+      this.searchProduct = [];
+    }
   }
 
+  clickToDetail(productId: any){
+    this.router.navigate(['productDetail/'+productId]);
+  }
 }

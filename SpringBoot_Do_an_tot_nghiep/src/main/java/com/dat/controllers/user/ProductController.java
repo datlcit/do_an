@@ -102,8 +102,15 @@ public class ProductController {
 	
 	@GetMapping(value = "/searchPro")
 	@CrossOrigin(origins = "*", allowedHeaders = "*", methods = RequestMethod.GET)
-	public ResponseEntity<List<Product>> searchPro(String name){
-		List<Product> searchPro = service.searchPro(name);
+	public ResponseEntity<List<Product>> searchPro(String productName){
+		List<Product> searchPro = service.searchPro(productName);
 		return new ResponseEntity<>(searchPro, HttpStatus.OK);
+	}
+	
+	@GetMapping(value = "/searchPro2")
+	@CrossOrigin(origins = "*", allowedHeaders = "*", methods = RequestMethod.GET)
+	public ResponseEntity<List<Product>> searchPro2(String productName){
+		List<Product> searchPro2 = service.searchPro2(productName);
+		return new ResponseEntity<>(searchPro2, HttpStatus.OK);
 	}
 }

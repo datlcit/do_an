@@ -55,6 +55,10 @@ export class ProductService {
     }
 
     searchPro(name:any): Observable<any>{
-      return this.http.get(this.base_url + '/searchPro', name);
+      return this.http.get(this.base_url + '/searchPro?productName='+name);
     }
+
+    // searchPro2(name:any): Observable<any>{
+    //   return this.http.get(this.base_url + '/searchPro2?productName='+name);
+    // }
 }

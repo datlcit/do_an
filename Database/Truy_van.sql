@@ -185,10 +185,10 @@ create proc searchPro
 @name varchar(100)
 as
 	select * from Product p
-	where p.productName  LIKE @name+'%'
+	where p.productName  LIKE '%'+@name+'%'
 go
 
 -- Thuc thi thu tuc
-exec searchPro 'i'
+exec searchPro 'iphone'
 
 drop PROCEDURE searchPro

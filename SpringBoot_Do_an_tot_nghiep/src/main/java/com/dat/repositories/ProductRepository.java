@@ -33,6 +33,8 @@ public interface ProductRepository extends JpaRepository<Product, String>{
 	List<Product> newProduct();
 	
 	@Query(value = "{CALL searchPro(:name)}", nativeQuery = true)
-	List<Product> searchPro(@Param("name") String name);
+	List<Product> searchPro(@Param("name") String productName);
+	
+	List<Product> findByProductNameStartingWith(String productName);
 
 }

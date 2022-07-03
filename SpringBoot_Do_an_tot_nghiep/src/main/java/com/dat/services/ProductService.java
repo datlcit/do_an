@@ -21,5 +21,7 @@ public interface ProductService {
 	List<Product> bestSeller();
 	List<Product> newProduct();
 	
-	List<Product> searchPro(String name);
+	List<Product> searchPro(String productName);
+	
+	List<Product> searchPro2(String productName);
 }
