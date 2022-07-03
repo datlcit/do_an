@@ -168,17 +168,27 @@ go
 -- Thuc thi thu tuc
 exec rangePrice '0', '10000000'
 
-create proc rangePrice2
-@url varchar(100),
-@lowCost int,
-@highCost int
-as
-	select * from Product p
-	where p.price >= @lowCost and p.price <= @highCost
-go
-
--- Thuc thi thu tuc
-exec rangePrice2 'http://localhost:8089/api/product/range', '0', '10000000'
+drop PROCEDURE rangePrice2
 
 select top(6) * from Product p
 order by p.numberOfSales desc
+
+select top(6) * from Product p
+order by p.createAt desc
+
+select * from OrderDetail
+
+select * from Product p
+where p.productName  LIKE 'iphone%'
+
+create proc searchPro
+@name varchar(100)
+as
+	select * from Product p
+	where p.productName  LIKE @name+'%'
+go
+
+-- Thuc thi thu tuc
+exec searchPro 'i'
+
+drop PROCEDURE searchPro

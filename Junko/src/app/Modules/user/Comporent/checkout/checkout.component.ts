@@ -102,10 +102,11 @@ export class CheckoutComponent implements OnInit {
       this.subtotal += (c.product.price * c.quantity);
     }
   }
-
+  co:number=0;
   calnumberOfSales(){
     for(let c of this.data){
       console.log(c);
+      this.co++;
       this.productService.findById(c.product.productId).subscribe(pro => {
         pro.numberOfSales += c.quantity;
         this.productService.edit(c.product.productId, pro).subscribe(res=>{
@@ -115,6 +116,7 @@ export class CheckoutComponent implements OnInit {
         console.log(pro.numberOfSales)
       })
     }
+    console.log(this.co)
   }
 
 }

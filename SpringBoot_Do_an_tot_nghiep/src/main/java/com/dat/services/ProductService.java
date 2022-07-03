@@ -19,4 +19,7 @@ public interface ProductService {
 	List<Product> rangeProductByPrice(Integer lowCost, Integer highCost);
 	
 	List<Product> bestSeller();
+	List<Product> newProduct();
+	
+	List<Product> searchPro(String name);
 }

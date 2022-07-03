@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserAdminService } from 'src/app/Modules/admin/adminServices/user-admin.service';
 import { LazyLoadServiceService } from '../../userServices/lazy-load-service.service';
+import { ProductService } from '../../userServices/product.service';
 
 @Component({
   selector: 'app-header',
@@ -12,6 +13,7 @@ export class HeaderComponent implements OnInit {
 
   constructor(private lazyLoad: LazyLoadServiceService,
     private userService: UserAdminService,
+    private productService: ProductService,
     private router: Router) { }
 
   countCart: number = 0;
@@ -21,6 +23,7 @@ export class HeaderComponent implements OnInit {
     });
     this.calTotal();
     this.loadCurrentUser();
+    this.searchProducts(this.keySearch);
   }
 
   currentUser: string = '';
@@ -70,5 +73,16 @@ export class HeaderComponent implements OnInit {
   @Input() dataCart: any[] = [];
   @Input() countWishList:number = 0;
   @Input() proPrice:number = 0;
+
+  keySearch:string = 'Iphone';
+  searchProduct: Array<any> = [];
+  img: Array<any> = [];
+  searchProducts(key:string){
+    this.productService.searchPro(key).subscribe(res =>{
+      console.log(res);
+      this.searchProduct = res;
+      console.log(this.searchProduct);
+    })
+  }
 
 }

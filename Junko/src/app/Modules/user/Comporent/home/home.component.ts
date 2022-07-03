@@ -26,15 +26,8 @@ export class HomeComponent implements OnInit {
   newProduct: any[] = [];
   img: Array<any> = [];
   loadNewProducts(){
-    this.service.get().subscribe(res =>{
-      //Lấy các sản phẩm ra
-      for(let i=0;i<=res.length;i++){
-        if(i<=5){
-          this.newProduct.push(res[i]);
-        } else {
-          break;
-        }
-      }
+    this.service.newProduct().subscribe(res =>{
+      this.newProduct = res;
       for(let i=0;i<this.newProduct.length;i++){
         this.img = this.newProduct[i].productImage.split(" ");
         this.newProduct[i].productImage = this.img[0];

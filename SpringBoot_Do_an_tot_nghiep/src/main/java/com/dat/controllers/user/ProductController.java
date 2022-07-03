@@ -93,4 +93,17 @@ public class ProductController {
 	public ResponseEntity<List<Product>> bestSeller(){
 		return new ResponseEntity<>(service.bestSeller(), HttpStatus.OK);
 	}
+	
+	@GetMapping(value = "/newProduct")
+	@CrossOrigin(origins = "*", allowedHeaders = "*", methods = RequestMethod.GET)
+	public ResponseEntity<List<Product>> newProduct(){
+		return new ResponseEntity<>(service.newProduct(), HttpStatus.OK);
+	}
+	
+	@GetMapping(value = "/searchPro")
+	@CrossOrigin(origins = "*", allowedHeaders = "*", methods = RequestMethod.GET)
+	public ResponseEntity<List<Product>> searchPro(String name){
+		List<Product> searchPro = service.searchPro(name);
+		return new ResponseEntity<>(searchPro, HttpStatus.OK);
+	}
 }

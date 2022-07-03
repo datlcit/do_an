@@ -73,5 +73,17 @@ public class ProductServiceImpl implements ProductService {
 		return repository.bestSeller();
 	}
 
+	@Override
+	public List<Product> newProduct() {
+		// TODO Auto-generated method stub
+		return repository.newProduct();
+	}
+	
+	@Override
+	public List<Product> searchPro(String name) {
+		// TODO Auto-generated method stub
+		return repository.searchPro(name);
+	}
+
 
 }

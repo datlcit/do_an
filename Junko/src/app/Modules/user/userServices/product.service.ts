@@ -49,4 +49,12 @@ export class ProductService {
     bestSeller(): Observable<any>{
       return this.http.get(this.base_url + '/bestSeller');
     }
+
+    newProduct(): Observable<any>{
+      return this.http.get(this.base_url + '/newProduct');
+    }
+
+    searchPro(name:any): Observable<any>{
+      return this.http.get(this.base_url + '/searchPro', name);
+    }
 }
