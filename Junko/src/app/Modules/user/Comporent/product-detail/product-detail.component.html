@@ -55,9 +55,6 @@
                           <span class="current_price">{{dataProduct.price}} đ </span> <br>
 
                       </div>
-                      <div class="product_desc">
-                          <p>{{dataProduct.description}} </p>
-                      </div>
                       <div class="product_variant color">
                           <h3>Lựa chọn màu</h3>
                           <ul class="ul-color">
@@ -83,11 +80,6 @@
                           <a (click)="buy(dataHasOneImg)" (click)="addTotal(dataProduct.price)" class="button">Thêm vào giỏ hàng</a>
 
                       </div>
-                      <div class=" product_d_action">
-                          <ul>
-                              <li><a (click)="addToWishList(dataProduct.productId)" title="Add to wishlist">+ Yêu thích</a></li>
-                          </ul>
-                      </div>
 
                   </form>
                   <div class="priduct_social">
@@ -106,6 +98,12 @@
                   </div>
 
               </div>
+          </div>
+          <div class="col-12">
+            <div style="margin-top: 20px" class="product_desc">
+              <strong style="font-size: 20px; text-align: center;">Mô tả sản phẩm</strong>
+              <p style="font-size: 20px; line-height: 1.8; margin-top: 20px;">{{dataProduct.description}} </p>
+          </div>
           </div>
       </div>
   </div>

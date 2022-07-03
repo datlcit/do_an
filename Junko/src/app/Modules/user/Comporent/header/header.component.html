@@ -52,7 +52,7 @@
                                 <div class="frame">
                                     <div (click)="clickToDetail(p.productId)" class="proSearch" style="display: flex; margin: 10px 0; justify-content: flex-start; border: 3px solid gray;" *ngFor="let p of searchProduct">
                                         <div class="productImageSearch">
-                                            <img style="width: 100px; height: 100px" src="{{p.productImage}}" alt="">
+                                            <img style="width: 100px; height: 100px; padding: 2px;" src="{{p.productImage}}" alt="">
                                         </div>
                                         <div class="productNameAndPrice" style="margin-left: 200px; padding-right: 20px;">
                                             <p style="margin-top: 20px">{{p.productName}}</p>

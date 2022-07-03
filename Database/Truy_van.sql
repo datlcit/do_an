@@ -192,3 +192,5 @@ go
 exec searchPro 'iphone'
 
 drop PROCEDURE searchPro
+
+select * from Product

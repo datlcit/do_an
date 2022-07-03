@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { OrderDetailAdminService } from 'src/app/Modules/admin/adminServices/order-detail-admin.service';
 import { LazyLoadServiceService } from '../../userServices/lazy-load-service.service';
 import { ProductService } from '../../userServices/product.service';
@@ -12,7 +13,8 @@ export class HomeComponent implements OnInit {
 
 
   constructor(private lazyLoad: LazyLoadServiceService,
-    private service: ProductService) { }
+    private service: ProductService,
+    private router: Router) { }
 
   ngOnInit(): void {
     // this.lazyLoad.loadScript('assets/js/plugins.js').subscribe(_ => {
@@ -44,5 +46,9 @@ export class HomeComponent implements OnInit {
         this.bestSellerProduct[i].productImage = this.img[0];
       }
     })
+  }
+
+  clickToDetail(productId: any){
+    this.router.navigate(['productDetail/'+productId]);
   }
 }
