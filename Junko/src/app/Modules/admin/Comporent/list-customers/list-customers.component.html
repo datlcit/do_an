@@ -21,12 +21,12 @@
                   <thead>
                   <tr style="text-align: center">
                       <th style="text-align: center"><a style="color: black">
-                          Id</a></th>
+                          Customer ID</a></th>
+                      <th style="text-align: center">Username</th>
                       <th style="text-align: center">Name</th>
                       <th style="text-align: center">Phone</th>
                       <th style="text-align: center">Address</th>
                       <th style="text-align: center">Gender</th>
-                      <th style="text-align: center">Birthday</th>
                       <th style="text-align: center">Email</th>
                       <th style="text-align: center">Actions</th>
                   </tr>
@@ -35,11 +35,11 @@
 
                   <tr *ngFor="let c of listCustomers">
                       <td>{{c.customerId}}</td>
+                      <td>{{c.userName}}</td>
                       <td>{{c.fullName}}</td>
                       <td>{{c.phone}}</td>
                       <td>{{c.address}}</td>
                       <td>{{c.gender ? 'Nữ':'Nam'}}</td>
-                      <td>{{c.birthday}}</td>
                       <td>{{c.email}}</td>
                       <thead class="editButton">
                         <a class="btn btn-primary btn-sm"

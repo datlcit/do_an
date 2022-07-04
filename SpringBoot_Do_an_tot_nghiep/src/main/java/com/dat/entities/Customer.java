@@ -27,6 +27,9 @@ public class Customer {
 	@Column(name = "customerId")
 	private int customerId;
 	
+	@Column(name = "userName")
+	private String userName;
+	
 	@Column(name = "fullName")
 	private String fullName;
 	
@@ -70,10 +73,11 @@ public class Customer {
 		this.updateAt = new Date(System.currentTimeMillis());
 	}
 
-	public Customer(int customerId, String fullName, String phone, String address, String email, Date createAt,
-			Date updateAt, boolean status, List<Cart> carts, List<Order> orders, List<FeedBack> feedBacks) {
+	public Customer(int customerId, String userName, String fullName, String phone, String address, String email,
+			Date createAt, Date updateAt, boolean status, List<Cart> carts, List<Order> orders, List<FeedBack> feedBacks) {
 		super();
 		this.customerId = customerId;
+		this.userName = userName;
 		this.fullName = fullName;
 		this.phone = phone;
 		this.address = address;
@@ -85,94 +89,103 @@ public class Customer {
 		this.orders = orders;
 		this.feedBacks = feedBacks;
 	}
-
+	
 	public int getCustomerId() {
 		return customerId;
 	}
-
+	
 	public void setCustomerId(int customerId) {
 		this.customerId = customerId;
 	}
-
+	
+	public String getUserName() {
+		return userName;
+	}
+	
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	
 	public String getFullName() {
 		return fullName;
 	}
-
+	
 	public void setFullName(String fullName) {
 		this.fullName = fullName;
 	}
-
+	
 	public String getPhone() {
 		return phone;
 	}
-
+	
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-
+	
 	public String getAddress() {
 		return address;
 	}
-
+	
 	public void setAddress(String address) {
 		this.address = address;
 	}
-
+	
 	public String getEmail() {
 		return email;
 	}
-
+	
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
+	
 	public Date getCreateAt() {
 		return createAt;
 	}
-
+	
 	public void setCreateAt(Date createAt) {
 		this.createAt = createAt;
 	}
-
+	
 	public Date getUpdateAt() {
 		return updateAt;
 	}
-
+	
 	public void setUpdateAt(Date updateAt) {
 		this.updateAt = updateAt;
 	}
-
+	
 	public boolean isStatus() {
 		return status;
 	}
-
+	
 	public void setStatus(boolean status) {
 		this.status = status;
 	}
-
+	
 	public List<Cart> getCarts() {
 		return carts;
 	}
-
+	
 	public void setCarts(List<Cart> carts) {
 		this.carts = carts;
 	}
-
+	
 	public List<Order> getOrders() {
 		return orders;
 	}
-
+	
 	public void setOrders(List<Order> orders) {
 		this.orders = orders;
 	}
-
+	
 	public List<FeedBack> getFeedBacks() {
 		return feedBacks;
 	}
-
+	
 	public void setFeedBacks(List<FeedBack> feedBacks) {
 		this.feedBacks = feedBacks;
 	}
-
+	
+		
 	
 }

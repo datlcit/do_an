@@ -59,8 +59,8 @@ ALTER TABLE Customer
 DROP COLUMN birthday;
 GO
 
-ALTER TABLE Product
-  ADD numberOfSales int default(0);
+ALTER TABLE Customer
+  ADD userName varchar(150);
 
   ALTER TABLE Customer
 DROP COLUMN password;

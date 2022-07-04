@@ -34,6 +34,7 @@ go
 -- Luu thong tin khach mua hang
 create table Customer(
 	customerId int primary key identity(1,1),
+	userName varchar(150),
 	fullName nvarchar(100) not null,
 	phone varchar(20) not null,
 	address nvarchar(250) not null,
@@ -111,7 +112,7 @@ create table Orders(
 	total float not null,
 	createAt DATETIME DEFAULT(CURRENT_TIMESTAMP) not null,
 	updateAt DATETIME DEFAULT(CURRENT_TIMESTAMP) not null,
-	status bit
+	status bit default(1)
 )
 go
 

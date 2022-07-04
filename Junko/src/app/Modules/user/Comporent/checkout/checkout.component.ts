@@ -20,6 +20,8 @@ export class CheckoutComponent implements OnInit {
     address: ['', Validators.required],
     phone: ['', Validators.required],
     email: ['', Validators.required],
+    status: [true],
+    userName: [localStorage.getItem('userName')]
   });
 
   submitted = false;
@@ -63,7 +65,8 @@ export class CheckoutComponent implements OnInit {
           email: this.customerAdded.email,
           total: this.subtotal + 50000,
           customer: this.customerOnlyId,
-          promotion: {promotionId: 1}
+          promotion: {promotionId: 1},
+          status: 1
         }
       ).subscribe(res2=>{
         this.orderAdded = res2;

@@ -22,7 +22,7 @@
           <div class="col-lg-6 col-md-6">
               <div class="product-details-tab">
                   <div style="display: flex; justify-content: center" id="img-1">
-                    <img style="height: 500px; width: auto" id="zoom1" src="{{mainImg}}">
+                    <img style="height: 500px; width: auto" id="" src="{{mainImg}}">
                   </div>
                   <div class="">
                       <ul style="display: flex; flex-wrap: wrap; justify-content: center" class="">
@@ -40,40 +40,15 @@
                   <form action="#">
 
                       <h1>{{dataProduct.productName}}</h1>
-                      <div class=" product_ratting">
-                          <ul>
-                              <li><a href="#"><i class="fa fa-star"></i></a></li>
-                              <li><a href="#"><i class="fa fa-star"></i></a></li>
-                              <li><a href="#"><i class="fa fa-star"></i></a></li>
-                              <li><a href="#"><i class="fa fa-star"></i></a></li>
-                              <li><a href="#"><i class="fa fa-star"></i></a></li>
-                              <li class="review"><a href="#"> (customer review ) </a></li>
-                          </ul>
-
-                      </div>
                       <div class="price_box">
                           <span class="current_price">{{dataProduct.price}} đ </span> <br>
 
                       </div>
                       <div class="product_variant color">
                           <h3>Lựa chọn màu</h3>
-                          <ul class="ul-color">
+                          <ul style="margin-top: 10px;" class="ul-color">
                             <li *ngFor="let c of dataProduct.color" (click)="chooseColor(c)"><p>{{c}}</p></li>
-                            <!-- [ngStyle]="{'background-color':c == dataHasOneImg.color ? 'gold' : ''}" -->
-                              <!-- <li (click)="chooseColor1(product.pColor)" class="color1"></li>
-                              <li (click)="chooseColor5(product.pColor)" class="color5"></li>
-                              <li (click)="chooseColor3(product.pColor)" class="color3"></li>
-                              <li (click)="chooseColor6(product.pColor)" class="color6"></li>
-                              <li (click)="chooseColor7(product.pColor)" class="color7"></li>
-                              <li (click)="chooseColor8(product.pColor)" class="color8"></li> -->
                           </ul>
-
-                          <!-- <h3>Lựa chọn phiên bản</h3>
-                          <ul>
-                              <li class="proStorage"><a href="">64 GB</a></li>
-                              <li class="proStorage"><a href="">128 GB</a></li>
-                              <li class="proStorage"><a href="">256 GB</a></li>
-                          </ul> -->
 
                       </div>
                       <div class="product_variant quantity">
@@ -84,15 +59,15 @@
                   </form>
                   <div class="priduct_social">
                       <ul>
-                          <li><a class="facebook" href="#" title="facebook"><i class="fa fa-facebook"></i>
+                          <li><a class="facebook" href="https://facebook.com" title="facebook"><i class="fa fa-facebook"></i>
                                   Like</a></li>
-                          <li><a class="twitter" href="#" title="twitter"><i class="fa fa-twitter"></i> tweet</a>
+                          <li><a class="twitter" href="https://twitter.com" title="twitter"><i class="fa fa-twitter"></i> tweet</a>
                           </li>
-                          <li><a class="pinterest" href="#" title="pinterest"><i class="fa fa-pinterest"></i>
+                          <li><a class="pinterest" href="https://pinterest.com" title="pinterest"><i class="fa fa-pinterest"></i>
                                   save</a></li>
-                          <li><a class="google-plus" href="#" title="google +"><i class="fa fa-google-plus"></i>
+                          <li><a class="google-plus" href="https://google.com" title="google +"><i class="fa fa-google-plus"></i>
                                   share</a></li>
-                          <li><a class="linkedin" href="#" title="linkedin"><i class="fa fa-linkedin"></i>
+                          <li><a class="linkedin" href="https://linkedin.com" title="linkedin"><i class="fa fa-linkedin"></i>
                                   linked</a></li>
                       </ul>
                   </div>

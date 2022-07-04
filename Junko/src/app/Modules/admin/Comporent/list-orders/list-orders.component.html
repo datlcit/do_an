@@ -6,9 +6,9 @@
               <div class="search_box pull-right" style="margin-bottom: 10px">
                   <div class="input-group">
                       <form action="" style="display: flex; justify-content: space-between">
-                          <div class="search-box form-group col-3"><h5>Receiver name:</h5>
+                          <div class="search-box form-group col-6"><h5>Receiver name:</h5>
                             <input style="width: 100%" type="text" name="keyword" id="keyword" size="50"/></div>
-                          <div class="search-box form-group col-4" style="width: 160px">
+                          <!-- <div class="search-box form-group col-4" style="width: 160px">
                               <h5>Start date</h5>
                               <input type="date" class="form-control"
                                      name="startDate" placeholder="Enter Start date" id="startDate">
@@ -17,7 +17,7 @@
                               <h5>End date</h5>
                               <input type="date" class="form-control"
                                      name="endDate" placeholder="Enter End date" id="endDate">
-                          </div>
+                          </div> -->
                           <button class="btn btn-primary btn-sm" style="height: 39px; margin-top: 29px">Submit</button>
 
                       </form>
@@ -27,6 +27,7 @@
                   <thead>
                   <tr style="text-align: center">
                       <th style="text-align: center">Order ID</th>
+                      <th style="text-align: center">Customer ID</th>
                       <th style="text-align: center">Name</th>
                       <th style="text-align: center">Address</th>
                       <th style="text-align: center">Phone</th>
@@ -40,6 +41,7 @@
                   <tbody>
                   <tr *ngFor="let o of listOrders">
                       <td>{{o.orderId}}</td>
+                      <td>{{o.customer.customerId}}</td>
                       <td>{{o.fullName}}</td>
                       <td>{{o.address}}</td>
                       <td>{{o.phone}}</td>

@@ -85,6 +85,7 @@ select * from Promotions
 insert into Orders(customerId, fullName, phone, address, email, total) values
 (5, N'Đào Trọng Nam', '0987654321', N'số 10, ngõ 123, đường Văn Chương, Đống Đa, Hà Nội', 'trongnam@gmail.com', 20480000)
 select * from Orders
+select * from Customer
 ------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------
 

@@ -37,7 +37,7 @@
                       <th style="text-align: center">Ram</th>
                       <th style="text-align: center">Storage</th>
                       <th style="text-align: center">Color</th>
-                      <th style="text-align: center">NumbleOfSales</th>
+                      <th style="text-align: center">Numble Of Sales</th>
                       <th style="text-align: center">Status</th>
                       <th style="text-align: center">Action</th>
                   </tr>
@@ -54,14 +54,17 @@
                       <td>{{p.storage}}</td>
                       <td>{{p.color}}</td>
                       <td>{{p.numberOfSales}}</td>
-                      <td>{{p.status}}</td>
+                      <!-- <td>{{p.status}}</td> -->
+                      <td>
+                        <input style="border: none; width: 50px" type="text" disabled [(ngModel)]="p.status" name="status">
+                      </td>
                       <td class="editButton">
                           <a class="btn btn-primary btn-sm"
-                             href="#" style="margin-top: 20px">Edit</a>
-                          <a class="btn btn-primary btn-sm"
-                             href="#" style="margin-top: 20px">Details</a>
-                          <a class="btn btn-danger btn-sm"
-                             href="#" style="margin-top: 20px">Disable</a>
+                             href="../admin/editProduct/{{p.productId}}" style="margin-top: 20px">Details</a>
+                          <a (click)="disable(p.productId)" class="btn btn-danger btn-sm"
+                             href="javascript:void(0)" style="margin-top: 20px">Disable</a>
+                          <a (click)="enable(p.productId)" class="btn btn-dark btn-sm"
+                             href="javascript:void(0)" style="margin-top: 20px">Enable</a>
                       </td>
                   </tr>
 

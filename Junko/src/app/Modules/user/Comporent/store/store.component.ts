@@ -23,8 +23,12 @@ export class StoreComponent implements OnInit {
   img: Array<any> = [];
   loadProducts(){
     this.service.get().subscribe(res =>{
-      //Lấy các sản phẩm ra
-      this.shop_product = res;
+      for(let p of res){
+        if(p.status == true){
+          this.shop_product.push(p);
+        }
+      }
+      // this.shop_product = res;
       for(let i=0;i<this.shop_product.length;i++){
         this.img = this.shop_product[i].productImage.split(" ");
         this.shop_product[i].productImage = this.img[0];
