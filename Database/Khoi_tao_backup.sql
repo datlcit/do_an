@@ -35,6 +35,7 @@ go
 create table Customer(
 	customerId int primary key identity(1,1),
 	userName varchar(150),
+	password varchar(100),
 	fullName nvarchar(100) not null,
 	phone varchar(20) not null,
 	address nvarchar(250) not null,
@@ -63,7 +64,8 @@ create table Users(
 	isAdmin bit default(0),
 	createAt DATETIME DEFAULT(CURRENT_TIMESTAMP) not null,
 	updateAt DATETIME DEFAULT(CURRENT_TIMESTAMP) not null,
-	status bit default(1)
+	status bit default(1),
+	customerId int
 )
 go
 
@@ -75,11 +77,13 @@ create table Roles(
 )
 go
 
+select * from Roles
+
 -- Luu cac quyen duoc gan cho tai khoan
 create table UserRoles(
 	userRoleId int primary key identity(1,1),
 	userId int foreign key references Users(userId),
-	roleId int foreign key references Roles(roleId)
+	roleId int foreign key references Roles(roleId) default(2)
 )
 go
 

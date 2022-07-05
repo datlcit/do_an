@@ -53,13 +53,12 @@ select * from Product
 ---------------------------------------------------------------------------------------------------
 
 --insert Customer
-insert into Customer(fullName, phone, address, email) values
-(N'Lý Chính Đạt', '0987654321', N'Hà Nội', 'lydat@gmail.com'),
-(N'Nguyễn Đức Du', '0987654321', N'Nam Định', 'ducdu@gmail.com'),
-(N'Ma Văn Hà', '0987654321', N'Lạng Sơn', 'vanha@gmail.com'),
-(N'Nguyễn Minh Hiếu', '0987654321', N'Nam Định', 'minhhieu@gmail.com'),
-(N'Đào Trọng Nam', '0987654321', N'Thái Bình', 'trongnam@gmail.com'),
-(N'Phan Thị Thúy', '0987654321', N'Hà Nội', 'thuy@gmail.com')
+insert into Customer(fullName, userName, password, phone, address, email) values
+(N'Lý Chính Đạt', 'lychinhdat', '$2a$12$fTMT68aQ9uMDghnwB5Mi9uPjfxmhqBtq50Zi3NLBzpduopc9p4R7O', '0987654321', N'Hà Nội', 'lydat@gmail.com'),
+(N'Nguyễn Đức Du', 'nguyenducdu', '$2a$12$b.r1Dnk5YLWHVE.MwnBN5O1gJW078EVCbn5gk0/t6I3GXjdp5xFv.', '0987654321', N'Nam Định', 'ducdu@gmail.com'),
+(N'Ma Văn Hà', 'mavanha', '$2a$12$b.r1Dnk5YLWHVE.MwnBN5O1gJW078EVCbn5gk0/t6I3GXjdp5xFv.', '0987654321', N'Lạng Sơn', 'vanha@gmail.com'),
+(N'Nguyễn Minh Hiếu', 'nguyenminhhieu', '$2a$12$b.r1Dnk5YLWHVE.MwnBN5O1gJW078EVCbn5gk0/t6I3GXjdp5xFv.', '0987654321', N'Nam Định', 'minhhieu@gmail.com'),
+(N'Đào Trọng Nam', 'daotrongnam', '$2a$12$b.r1Dnk5YLWHVE.MwnBN5O1gJW078EVCbn5gk0/t6I3GXjdp5xFv.', '0987654321', N'Thái Bình', 'trongnam@gmail.com')
 select * from Customer
 ---------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------
@@ -105,14 +104,14 @@ insert into Roles(roleName, status) values
 --insert Users
 --admin pass: admin#123
 --user pass: user#123
-insert into Users(userName, password) values
-('lychinhdat', '$2a$12$fTMT68aQ9uMDghnwB5Mi9uPjfxmhqBtq50Zi3NLBzpduopc9p4R7O'),
-('nguyenducdu', '$2a$12$b.r1Dnk5YLWHVE.MwnBN5O1gJW078EVCbn5gk0/t6I3GXjdp5xFv.'),
-('mavanha', '$2a$12$b.r1Dnk5YLWHVE.MwnBN5O1gJW078EVCbn5gk0/t6I3GXjdp5xFv.'),
-('nguyenminhhieu', '$2a$12$b.r1Dnk5YLWHVE.MwnBN5O1gJW078EVCbn5gk0/t6I3GXjdp5xFv.'),
-('daotrongnam', '$2a$12$b.r1Dnk5YLWHVE.MwnBN5O1gJW078EVCbn5gk0/t6I3GXjdp5xFv.')
+insert into Users(userName, password, isAdmin, customerId) values
+('lychinhdat', '$2a$12$fTMT68aQ9uMDghnwB5Mi9uPjfxmhqBtq50Zi3NLBzpduopc9p4R7O', 1, 1),
+('nguyenducdu', '$2a$12$b.r1Dnk5YLWHVE.MwnBN5O1gJW078EVCbn5gk0/t6I3GXjdp5xFv.', 0, 2),
+('mavanha', '$2a$12$b.r1Dnk5YLWHVE.MwnBN5O1gJW078EVCbn5gk0/t6I3GXjdp5xFv.', 0, 3),
+('nguyenminhhieu', '$2a$12$b.r1Dnk5YLWHVE.MwnBN5O1gJW078EVCbn5gk0/t6I3GXjdp5xFv.', 0, 4),
+('daotrongnam', '$2a$12$b.r1Dnk5YLWHVE.MwnBN5O1gJW078EVCbn5gk0/t6I3GXjdp5xFv.', 0, 5)
 select * from users
-
+select * from Customer
 --insert UserRoles
 insert into UserRoles(userId, roleId) values
 (1, 1),

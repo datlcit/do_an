@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -42,6 +43,9 @@ public class CustomerAdminController {
 	@PostMapping
 	@CrossOrigin(origins = "*", allowedHeaders = "*", methods = RequestMethod.POST)
 	public ResponseEntity<Customer> add(@RequestBody Customer customer) {
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+		String encodedPassword = encoder.encode(customer.getPassword());
+		customer.setPassword(encodedPassword);
 		return new ResponseEntity<Customer>(service.save(customer), HttpStatus.OK);
 	}
 	

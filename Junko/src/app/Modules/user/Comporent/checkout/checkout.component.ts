@@ -39,6 +39,7 @@ export class CheckoutComponent implements OnInit {
   ngOnInit(): void {
     this.loadCart();
     this.loadTotal();
+    this.loadCustomer();
     let id = this.route.snapshot.params['customerId'];
     this.customerService.findById(id).subscribe(res => console.log(res));
   }
@@ -53,45 +54,49 @@ export class CheckoutComponent implements OnInit {
   customerOnlyId: any = null;
   promotionCode: any = null;
 
+  currentCustomer:any = null;
+  loadCustomer(){
+    this.customerService.get().subscribe(res=>{
+      for(let p of res){
+        if(p.userName == localStorage.getItem('userName')){
+          this.currentCustomer = p;
+          break;
+        }
+      }
+      this.formAddCustomer.get('fullName')?.setValue(this.currentCustomer.fullName);
+      this.formAddCustomer.get('address')?.setValue(this.currentCustomer.address);
+      this.formAddCustomer.get('phone')?.setValue(this.currentCustomer.phone);
+      this.formAddCustomer.get('email')?.setValue(this.currentCustomer.email);
+    })
+  }
+
   addCustomer(){
-    this.customerService.add(this.formAddCustomer.value).subscribe(res=>{
-      this.customerAdded = res;
-      this.customerOnlyId = {customerId: this.customerAdded.customerId}
-      this.orderService.add(
-        {
-          fullName: this.customerAdded.fullName,
-          phone: this.customerAdded.phone,
-          address: this.customerAdded.address,
-          email: this.customerAdded.email,
-          total: this.subtotal + 50000,
-          customer: this.customerOnlyId,
-          promotion: {promotionId: 1},
-          status: 1
-        }
-      ).subscribe(res2=>{
-        this.orderAdded = res2;
-
-
-
-        for(let c of this.data){
-          let p = c.product;
-            this.orderDetailService.add(
-              {
-                order: { orderId: this.orderAdded.orderId},
-                product: { productId: p.productId},
-                color: p.color,
-                quantity: c.quantity,
-                price: p.price
-              }
-            ).subscribe(res3=>{
-              this.orderDetailAdded = res3;
-            })
-        }
-        // this.router.navigateByUrl('/admin/listOrders')
-      })
+    this.customerOnlyId = {customerId: this.currentCustomer.customerId}
+    let orderRaw = this.formAddCustomer.value;
+    orderRaw.total = this.subtotal + 50000;
+    orderRaw.customer = this.customerOnlyId;
+    orderRaw.promotion =  {promotionId: 1};
+    orderRaw.status = 1;
+    console.log(orderRaw)
+    this.orderService.add(orderRaw).subscribe(res2=>{
+      this.orderAdded = res2;
+      for(let c of this.data){
+        let p = c.product;
+          this.orderDetailService.add(
+            {
+              order: { orderId: this.orderAdded.orderId},
+              product: { productId: p.productId},
+              color: p.color,
+              quantity: c.quantity,
+              price: p.price
+            }
+          ).subscribe(res3=>{
+            this.orderDetailAdded = res3;
+          })
+      }
     })
     this.calnumberOfSales();
-    this.router.navigate(['congratulation']);
+    // this.router.navigate(['congratulation']);
   }
 
   loadCart(){

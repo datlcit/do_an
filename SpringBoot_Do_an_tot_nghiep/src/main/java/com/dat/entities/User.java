@@ -49,6 +49,9 @@ public class User {
 	@Column(name = "status")
 	private boolean status;
 	
+	@Column(name = "customerId")
+	private int customerId;
+	
 //	@JsonIgnore
 //	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
 //	
@@ -63,8 +66,10 @@ public class User {
 		this.updateAt = new Date(System.currentTimeMillis());
 	}
 
+	
+	
 	public User(int userId, String userName, String password, boolean isAdmin, Date createAt, Date updateAt,
-			boolean status, List<UserRole> userRoles) {
+			boolean status, int customerId, List<UserRole> userRoles) {
 		super();
 		this.userId = userId;
 		this.userName = userName;
@@ -73,74 +78,120 @@ public class User {
 		this.createAt = createAt;
 		this.updateAt = updateAt;
 		this.status = status;
+		this.customerId = customerId;
 		this.userRoles = userRoles;
 	}
 
+	
 
 	public int getUserId() {
 		return userId;
 	}
 
+
+
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
-	
+
+
+
 	public String getUserName() {
 		return userName;
 	}
+
+
 
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
 
+
+
 	public String getPassword() {
 		return password;
 	}
+
+
 
 	public void setPassword(String password) {
 		this.password = password;
 	}
 
+
+
 	public boolean isAdmin() {
 		return isAdmin;
 	}
+
+
 
 	public void setAdmin(boolean isAdmin) {
 		this.isAdmin = isAdmin;
 	}
 
+
+
 	public Date getCreateAt() {
 		return createAt;
 	}
+
+
 
 	public void setCreateAt(Date createAt) {
 		this.createAt = createAt;
 	}
 
-	public boolean isStatus() {
-		return status;
-	}
 
-	public void setStatus(boolean status) {
-		this.status = status;
-	}
-
-	public List<UserRole> getUserRoles() {
-		return userRoles;
-	}
-
-	public void setUserRoles(List<UserRole> userRoles) {
-		this.userRoles = userRoles;
-	}
 
 	public Date getUpdateAt() {
 		return updateAt;
 	}
 
+
+
 	public void setUpdateAt(Date updateAt) {
 		this.updateAt = updateAt;
 	}
-	
+
+
+
+	public boolean isStatus() {
+		return status;
+	}
+
+
+
+	public void setStatus(boolean status) {
+		this.status = status;
+	}
+
+
+
+	public int getCustomerId() {
+		return customerId;
+	}
+
+
+
+	public void setCustomerId(int customerId) {
+		this.customerId = customerId;
+	}
+
+
+
+	public List<UserRole> getUserRoles() {
+		return userRoles;
+	}
+
+
+
+	public void setUserRoles(List<UserRole> userRoles) {
+		this.userRoles = userRoles;
+	}
+
+
+
 	// Ham tra ve list cac quyen duoc gan cho user
 	@Transient
 	public List<GrantedAuthority> getAuthorities(){

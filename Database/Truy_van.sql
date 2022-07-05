@@ -59,11 +59,14 @@ ALTER TABLE Customer
 DROP COLUMN birthday;
 GO
 
-ALTER TABLE Customer
-  ADD userName varchar(150);
+ALTER TABLE Users
+ADD CONSTRAINT fk_delete
 
-  ALTER TABLE Customer
-DROP COLUMN password;
+ALTER TABLE Customer
+  ADD password varchar(100);
+
+  ALTER TABLE Users
+DROP COLUMN customerId;
 GO
 
 select p.productId, ps.storageId from Product p
@@ -81,6 +84,8 @@ GO
   select * from Customer
   select * from Users
   select * from Roles
+  select * from Orders
+  select * from OrderDetail
 
   select u.username, r.roleName from Users u
   join UserRoles ur on u.userId = ur.userId
@@ -153,6 +158,8 @@ drop table OrderDetail
 drop table Orders
 drop table Cart
 drop table Customer
+drop table UserRoles
+drop table Users
 
 select * from Product p
 order by p.productName desc

@@ -55,8 +55,28 @@
                         <label>Mật khẩu <span>*</span></label>
                           <input type="password" class="form-control" name="password" placeholder="Enter password" id="passwordForUR" formControlName="password">
                           <p style="color: red" *ngIf="formRegister.get('password')?.errors?.['required'] && formRegister.get('password')?.dirty">Vui lòng nhập mật khẩu</p>
+
+                          <label style="margin-top: 5px">Họ tên <span>*</span></label>
+                          <input field="" type="text" class="form-control"
+                               name="fullName" placeholder="Nhập tên người nhận hàng" id="fullNameForUR" formControlName="fullName">
+                          <p style="color: red" *ngIf="formRegister.get('fullName')?.errors?.['required'] && formRegister.get('fullName')?.dirty">Vui lòng nhập họ tên</p>
+
+                          <label style="margin-top: 25px;">Địa chỉ <span>*</span></label>
+                          <input field="" type="text" class="form-control"
+                               name="address" placeholder="Nhập địa chỉ người nhận hàng" id="addressForUR" formControlName="address">
+                          <p style="color: red" *ngIf="formRegister.get('address')?.errors?.['required'] && formRegister.get('address')?.dirty">Vui lòng nhập địa chỉ</p>
+
+                          <label style="margin-top: 25px;">Số điện thoại<span>*</span></label>
+                          <input field="" type="text" class="form-control"
+                               name="phone" placeholder="Nhập số điện thoại người nhận hàng" id="phoneForUR" formControlName="phone">
+                          <p style="color: red" *ngIf="formRegister.get('phone')?.errors?.['required'] && formRegister.get('phone')?.dirty">Vui lòng nhập số điện thoại</p>
+
+                          <label style="margin-top: 25px;"> Địa chỉ email <span>*</span></label>
+                          <input field="" type="text" class="form-control"
+                               name="email" placeholder="Nhập địa chỉ email" id="phoneForUR" formControlName="email">
+                          <p style="color: red" *ngIf="formRegister.get('email')?.errors?.['required'] && formRegister.get('email')?.dirty">Vui lòng nhập địa chỉ email</p>
                       <div class="login_submit">
-                          <button [disabled]="formRegister.invalid" type="submit">Đăng ký</button>
+                          <button style="margin-top: 10px;" *ngIf="formRegister.valid" type="submit">Đăng ký</button>
                       </div>
                   </form>
               </div>
