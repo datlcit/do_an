@@ -2,14 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CustomerAdminService } from '../../adminServices/customer-admin.service';
+import { CustomerAdminService } from 'src/app/Modules/admin/adminServices/customer-admin.service';
 
 @Component({
-  selector: 'app-edit-customer',
-  templateUrl: './edit-customer.component.html',
-  styleUrls: ['./edit-customer.component.css']
+  selector: 'app-user-information',
+  templateUrl: './user-information.component.html',
+  styleUrls: ['./user-information.component.css']
 })
-export class EditCustomerComponent implements OnInit {
+export class UserInformationComponent implements OnInit {
 
   formEditCustomer = this.fb.group({
     customerId: [''],
@@ -49,7 +49,8 @@ export class EditCustomerComponent implements OnInit {
     editCustomer(){
       console.log(this.data.customerId);
       this.customerService.edit(this.data.customerId, this.formEditCustomer.value).subscribe(res=>{
-        this.router.navigateByUrl('/admin/listCustomers')
+        alert("Sửa thông tin hoàn tất!")
+        this.router.navigateByUrl('/store')
       })
     }
 

@@ -13,6 +13,7 @@ import { OrderDetailComponent } from './Comporent/order-detail/order-detail.comp
 import { PhoneModelComponent } from './Comporent/phone-model/phone-model.component';
 import { ProductDetailComponent } from './Comporent/product-detail/product-detail.component';
 import { StoreComponent } from './Comporent/store/store.component';
+import { UserInformationComponent } from './Comporent/user-information/user-information.component';
 import { UserInterfaceComponent } from './Comporent/user-interface/user-interface.component';
 
 const routes: Routes = [
@@ -30,6 +31,7 @@ const routes: Routes = [
       {path: 'store', component: StoreComponent},
       {path: 'orderDetail', component: OrderDetailComponent},
       {path: 'congratulation', component: CongratulationComponent},
+      {path: 'userInformation/:customerId', component: UserInformationComponent},
 
       {path: 'phoneModel/:phoneName', component: PhoneModelComponent},
 

@@ -68,6 +68,7 @@ export class LoginComponent implements OnInit {
   check: any = null;
 
   register(){
+
     this.userAdminService.get().subscribe(listUsers =>{
       this.check = true;
       let checker = this.formRegister.value;
@@ -84,15 +85,27 @@ export class LoginComponent implements OnInit {
       this.customerService.add(this.formRegister.value).subscribe(res=>{
         this.customerAdded = res;
         console.log(this.customerAdded)
-        this.userAdminService.add(
-          {
-            userName: this.customerAdded.userName,
-            password: this.customerAdded.password,
-            status: 1
-          }
-        ).subscribe(res2=>{
+
+        let userRaw = this.formRegister.value;
+        delete userRaw.fullName;
+        delete userRaw.phone;
+        delete userRaw.address;
+        delete userRaw.email;
+        userRaw.customerId = this.customerAdded.customerId;
+
+        this.userAdminService.add(userRaw).subscribe(res2=>{
           this.userAdded = res2;
           console.log(this.userAdded)
+
+          // this.userRoleAdminService.add(
+          //   {
+          //     user: { userId: this.userAdded.userId },
+          //     role: { roleId: 2 }
+          //   }
+          // ).subscribe(res3=>{
+          //   this.userRoleAdded = res3;
+          //   console.log(this.userRoleAdded)
+          //   })
         })
       })
       alert('Đăng ký thành công, chúc bạn mua hàng vui vẻ!')

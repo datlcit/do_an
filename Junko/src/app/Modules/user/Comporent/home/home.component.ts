@@ -29,7 +29,12 @@ export class HomeComponent implements OnInit {
   img: Array<any> = [];
   loadNewProducts(){
     this.service.newProduct().subscribe(res =>{
-      this.newProduct = res;
+      for(let p of res){
+        if(p.status == true){
+          this.newProduct.push(p);
+        }
+      }
+      // this.shop_product = res;
       for(let i=0;i<this.newProduct.length;i++){
         this.img = this.newProduct[i].productImage.split(" ");
         this.newProduct[i].productImage = this.img[0];
@@ -40,7 +45,12 @@ export class HomeComponent implements OnInit {
   bestSellerProduct:any [] = [];
   loadBestSeller(){
     this.service.bestSeller().subscribe(res =>{
-      this.bestSellerProduct = res;
+      for(let p of res){
+        if(p.status == true){
+          this.bestSellerProduct.push(p);
+        }
+      }
+      // this.shop_product = res;
       for(let i=0;i<this.bestSellerProduct.length;i++){
         this.img = this.bestSellerProduct[i].productImage.split(" ");
         this.bestSellerProduct[i].productImage = this.img[0];

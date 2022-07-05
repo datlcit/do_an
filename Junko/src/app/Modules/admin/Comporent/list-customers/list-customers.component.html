@@ -27,6 +27,7 @@
                       <th style="text-align: center">Phone</th>
                       <th style="text-align: center">Address</th>
                       <th style="text-align: center">Email</th>
+                      <th style="text-align: center">Status</th>
                       <th style="text-align: center">Actions</th>
                   </tr>
                   </thead>
@@ -39,9 +40,10 @@
                       <td>{{c.phone}}</td>
                       <td>{{c.address}}</td>
                       <td>{{c.email}}</td>
+                      <td>{{c.status}}</td>
                       <thead class="editButton">
                         <a class="btn btn-primary btn-sm"
-                          href="#" style="margin-top: 0">Detail</a>
+                          href="/admin/editCustomer/{{c.customerId}}" style="margin-top: 0">Detail</a>
                         <a class="btn btn-primary btn-sm"
                           href="#" style="margin-top: 0">Enable</a>
                         <a class="btn btn-danger btn-sm"

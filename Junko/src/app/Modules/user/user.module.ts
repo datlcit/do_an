@@ -18,6 +18,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OrderDetailComponent } from './Comporent/order-detail/order-detail.component';
 import { CongratulationComponent } from './Comporent/congratulation/congratulation.component';
 import { PhoneModelComponent } from './Comporent/phone-model/phone-model.component';
+import { UserInformationComponent } from './Comporent/user-information/user-information.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { PhoneModelComponent } from './Comporent/phone-model/phone-model.compone
     NotFoundComponent,
     OrderDetailComponent,
     CongratulationComponent,
-    PhoneModelComponent
+    PhoneModelComponent,
+    UserInformationComponent
   ],
   imports: [
     CommonModule,

@@ -1,63 +1,68 @@
-<div class="wrapper row-offcanvas row-offcanvas-left">
+<div style="background-color: darkblue;" class="wrapper row-offcanvas row-offcanvas-left">
   <div style="display: flex">
       <div class="container" style="padding: 0; position: relative">
           <div class="container">
               <div class="row"
-                   style="border: 1px darkgrey solid; border-radius: 10px; width: 50%; margin: 30px auto; padding: 20px;">
+                   style="background-color: #fff;border: 1px darkgrey solid; border-radius: 10px; width: 50%; margin: 30px auto; padding: 20px;">
                   <div class="col-sm-12">
                       <form method="put" enctype="multipart/form-data" [formGroup]="formEditCustomer" (ngSubmit)="editCustomer()">
                           <div style="display: flex ; justify-content: space-between">
-                              <h2 class="myclass">Edit Customer</h2>
+                              <h2 style="padding-left: 120px; margin-bottom: 20px;" class="myclass">Thông tin cá nhân</h2>
                               <div>
                                   <img style="width: 100px">
                               </div>
                           </div>
                           <div class="form-group">
-                              <label>Customer ID</label>
+                              <label>Mã khách hàng</label>
                               <input type="text" class="form-control"
                                      name="customerId" placeholder="Id" readonly id="customerId" formControlName="customerId"/>
                               <input type="hidden"/>
                               <input type="hidden"/>
                           </div>
                           <div class="form-group">
-                            <label>Username</label>
+                            <label>Tên đăng nhập</label>
                             <input type="text" class="form-control"
-                                   name="username" placeholder="Enter username" id="username" formControlName="userName"/>
+                                   name="username" placeholder="Enter username" id="username" readonly formControlName="userName"/>
                           </div>
                           <div class="form-group">
-                            <label>Password</label>
+                            <label>Mật khẩu</label>
                             <input type="password" class="form-control"
                                    name="password" placeholder="Enter password" id="password" formControlName="password"/>
                           </div>
+                          <p style="color: red" *ngIf="formEditCustomer.get('password')?.errors?.['required'] && formEditCustomer.get('password')?.dirty">Vui lòng nhập mật khẩu</p>
                           <div class="form-group">
-                              <label>Customer Name</label>
+                              <label>Họ và tên</label>
                               <input type="text" class="form-control"
                                      name="fullName" placeholder="Enter name" id="fullName" formControlName="fullName">
                           </div>
+                          <p style="color: red" *ngIf="formEditCustomer.get('fullName')?.errors?.['required'] && formEditCustomer.get('fullName')?.dirty">Vui lòng nhập họ tên</p>
                           <div class="form-group">
                               <label>Email</label>
                               <input type="email" class="form-control"
                                      name="email" placeholder="Enter email" id="email" formControlName="email"/>
                           </div>
+                          <p style="color: red" *ngIf="formEditCustomer.get('email')?.errors?.['required'] && formEditCustomer.get('email')?.dirty">Vui lòng nhập email</p>
                           <div class="form-group">
-                              <label>Phone</label>
+                              <label>Số điện thoại</label>
                               <input type="text" class="form-control"
                                      name="phone" id="phone" formControlName="phone"/>
                           </div>
+                          <p style="color: red" *ngIf="formEditCustomer.get('phone')?.errors?.['required'] && formEditCustomer.get('phone')?.dirty">Vui lòng nhập số điện thoại</p>
                           <div class="form-group">
-                              <label>Address</label>
+                              <label>Địa chỉ</label>
                               <input type="text" class="form-control"
                                      name="address" placeholder="Enter Adrdress" id="address" formControlName="address">
                           </div>
+                          <p style="color: red" *ngIf="formEditCustomer.get('address')?.errors?.['required'] && formEditCustomer.get('address')?.dirty">Vui lòng nhập địa chỉ</p>
                           <div class="form-group">
-                              <label>Status</label>
-                              <input style="margin-left: 20px" name="status" type="radio" value="true" formControlName="status"> Enable |
-                              <input name="status" type="radio" value="false"  formControlName="status"> Disable
+                              <label>Trạng thái</label>
+                              <input type="text" class="form-control"
+                                     name="status" id="status" formControlName="status" readonly>
                           </div>
                           <br>
                           <div class="editButton">
-                            <button [disabled]="formEditCustomer.invalid" type="submit" class="btn btn-primary">Save Edit</button>
-                            <a class="btn btn-primary" routerLink="/admin/listCustomers">Display List Customer</a>
+                            <a class="btn btn-primary" href="/home">Về trang chủ</a>
+                            <button [disabled]="formEditCustomer.invalid" type="submit" class="btn btn-primary">Lưu chỉnh sửa</button>
                           </div>
                       </form>
                   </div>

@@ -24,11 +24,11 @@ export class AddCustomerComponent implements OnInit {
 
   formAddCustomer = this.fb.group({
     fullName: ['', Validators.required],
+    userName: ['', Validators.required],
+    password: ['', Validators.required],
     phone: ['', Validators.required],
     address: ['', Validators.required],
-    email: ['', Validators.required],
-    gender: ['', Validators.required],
-    birthday: ['', Validators.required]
+    email: ['', Validators.required]
   });
 
   submitted = false;

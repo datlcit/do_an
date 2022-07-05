@@ -18,7 +18,7 @@
                                 <a routerLink="/login" *ngIf="currentUser == ''"> Đăng nhập</a>
                                 <p style="text-transform: lowercase; margin: 0" *ngIf="currentUser != ''"> {{currentUser}}</p>
                                 <ul *ngIf="currentUser != ''" class="menu-con">
-                                  <li> <a href="">Tài khoản của tôi</a> </li>
+                                  <li (click)="findCustomer(currentUser)"> <a href="javascript:void(0)">Tài khoản của tôi</a> </li>
                                   <li> <a (click)="logOut()" href="">Đăng xuất</a> </li>
                                 </ul>
                               </li>

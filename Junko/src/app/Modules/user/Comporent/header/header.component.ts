@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CustomerAdminService } from 'src/app/Modules/admin/adminServices/customer-admin.service';
 import { UserAdminService } from 'src/app/Modules/admin/adminServices/user-admin.service';
 import { LazyLoadServiceService } from '../../userServices/lazy-load-service.service';
 import { ProductService } from '../../userServices/product.service';
@@ -14,6 +15,7 @@ export class HeaderComponent implements OnInit {
   constructor(private lazyLoad: LazyLoadServiceService,
     private userService: UserAdminService,
     private productService: ProductService,
+    private customerService: CustomerAdminService,
     private router: Router) { }
 
   countCart: number = 0;
@@ -91,5 +93,15 @@ export class HeaderComponent implements OnInit {
 
   clickToDetail(productId: any){
     this.router.navigate(['productDetail/'+productId]);
+  }
+
+  findCustomer(userName: any){
+    this.customerService.get().subscribe(res =>{
+      for(let p of res){
+        if(userName == p.userName){
+          this.router.navigateByUrl('/userInformation/' + p.customerId);
+        }
+      }
+    })
   }
 }
