@@ -23,14 +23,26 @@ export class ListUsersComponent implements OnInit {
     })
   }
 
-  // token: string = '';
-  // usernName: string = 'lychinhdat';
-  // password: string = 'admin#123';
-  // getTokenFromApi(){
-  //   this.userAdminService.getToken(this.usernName, this.password).subscribe(res => {
-  //     this.token = res;
-  //     console.log(this.token)
-  //   })
-  // }
+  disable(id:any){
+    this.userAdminService.findById(id).subscribe(res => {
+      if(res.status == true){
+        res.status = false;
+      }
+      this.userAdminService.edit(id, res).subscribe(res2=>{
+        this.loadUsers();
+      })
+    })
+  }
+
+  enable(id:any){
+    this.userAdminService.findById(id).subscribe(res => {
+      if(res.status == false){
+        res.status = true;
+      }
+      this.userAdminService.edit(id, res).subscribe(res2=>{
+        this.loadUsers();
+      })
+    })
+  }
 
 }

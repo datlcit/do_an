@@ -22,9 +22,9 @@
                   <tr style="text-align: center">
                       <th style="text-align: center">Product ID</th>
                       <th style="text-align: center">Name</th>
-                      <th style="text-align: center">Description</th>
                       <th style="text-align: center">Category</th>
-                      <th style="text-align: center">Image</th>
+                      <!-- <th style="text-align: center">Description</th>
+                      <th style="text-align: center">Image</th> -->
                       <th style="text-align: center">Price</th>
                       <th style="text-align: center">Ram</th>
                       <th style="text-align: center">Storage</th>
@@ -38,9 +38,9 @@
                   <tr *ngFor="let p of listProducts">
                       <td [ngStyle]="{'opacity':p.status == true ? 1 : 0.5}">{{p.productId}}</td>
                       <td [ngStyle]="{'opacity':p.status == true ? 1 : 0.5}">{{p.productName}}</td>
-                      <td [ngStyle]="{'opacity':p.status == true ? 1 : 0.5}">{{p.description}}</td>
                       <td [ngStyle]="{'opacity':p.status == true ? 1 : 0.5}">{{p.category.categoryName}}</td>
-                      <td [ngStyle]="{'opacity':p.status == true ? 1 : 0.5}" style="max-width: 100px;overflow: scroll;">{{p.productImage}}</td>
+                      <!-- <td [ngStyle]="{'opacity':p.status == true ? 1 : 0.5}" style="max-hight: 100px;overflow: scroll;">{{p.description}}</td>
+                      <td [ngStyle]="{'opacity':p.status == true ? 1 : 0.5}" style="max-width: 100px;overflow: scroll;">{{p.productImage}}</td> -->
                       <td [ngStyle]="{'opacity':p.status == true ? 1 : 0.5}">{{p.price}}</td>
                       <td [ngStyle]="{'opacity':p.status == true ? 1 : 0.5}">{{p.ram}}</td>
                       <td [ngStyle]="{'opacity':p.status == true ? 1 : 0.5}">{{p.storage}}</td>
@@ -53,9 +53,9 @@
                       <td class="editButton">
                           <a class="btn btn-primary btn-sm"
                              href="../admin/editProduct/{{p.productId}}" style="margin-top: 20px">Details</a>
-                          <a (click)="disable(p.productId)" class="btn btn-danger btn-sm"
+                          <a *ngIf="p.status == true" (click)="disable(p.productId)" class="btn btn-danger btn-sm"
                              href="javascript:void(0)" style="margin-top: 20px">Disable</a>
-                          <a (click)="enable(p.productId)" class="btn btn-dark btn-sm"
+                          <a *ngIf="p.status == false" (click)="enable(p.productId)" class="btn btn-dark btn-sm"
                              href="javascript:void(0)" style="margin-top: 20px">Enable</a>
                       </td>
                   </tr>

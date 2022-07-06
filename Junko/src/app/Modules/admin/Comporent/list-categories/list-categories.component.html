@@ -23,7 +23,6 @@
                         <th><a style="color: black"> Id</a></th>
                         <th>Name</th>
                         <th>Status</th>
-                        <th>Total Products</th>
                         <th style="text-align: center">Action</th>
                     </tr>
                   </thead>
@@ -32,7 +31,6 @@
                       <td>{{category.categoryId}}</td>
                       <td>{{category.categoryName}}</td>
                       <td>{{category.status}}</td>
-                      <td>{{category.getAllProducts}}</td>
                       <td class="td-button">
                           <a [routerLink]="['/admin/editCategory/' + category.categoryId]" class="btn btn-primary btn-sm">Detail & Edit</a>
                           <a routerLink="/admin/listCategories" (click)="deleteCategory(category.categoryId)" class="btn btn-danger btn-sm">Delete</a>

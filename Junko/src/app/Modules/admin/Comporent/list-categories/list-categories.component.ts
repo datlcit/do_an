@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CategoryAdminService } from '../../adminServices/category-admin.service';
 import { LazyLoadScriptService } from '../../adminServices/lazy-load-script.service';
+import { ProductAdminService } from '../../adminServices/product-admin.service';
 
 @Component({
   selector: 'app-list-categories',
@@ -10,7 +11,7 @@ import { LazyLoadScriptService } from '../../adminServices/lazy-load-script.serv
 })
 export class ListCategoriesComponent implements OnInit {
 
-  constructor(private categoryService: CategoryAdminService, private router: ActivatedRoute) { }
+  constructor(private categoryService: CategoryAdminService) { }
 
   ngOnInit(): void {
 
@@ -21,15 +22,12 @@ export class ListCategoriesComponent implements OnInit {
   loadCategories(){
     this.categoryService.get().subscribe(res =>{
       this.categories = res;
-      console.log(this.categories);
     })
   }
 
   category: any;
   deleteCategory(categoryId: any){
     this.categoryService.remove(categoryId).subscribe(res =>{
-      // this.category = res;
-      console.log(res);
       this.loadCategories();
     })
   }

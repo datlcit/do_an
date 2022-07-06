@@ -36,10 +36,10 @@
                       <td>{{c.customerId}}</td>
                       <td>{{c.status}}</td>
                       <thead class="editButton">
-                        <a class="btn btn-primary btn-sm"
-                          href="#" style="margin: 0 3px">Enable</a>
-                        <a class="btn btn-danger btn-sm"
-                          href="#" style="margin-top: 0">Disable</a>
+                        <a (click)="enable(c.userId)" *ngIf="c.admin != true && c.status == false" class="btn btn-primary btn-sm"
+                          href="javascript:void(0)" style="margin: 0 3px">Enable</a>
+                        <a (click)="disable(c.userId)" *ngIf="c.admin != true && c.status == true" class="btn btn-danger btn-sm"
+                          href="javascript:void(0)" style="margin-top: 0">Disable</a>
                       </thead>
                   </tr>
                   </tbody>

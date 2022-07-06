@@ -12,22 +12,22 @@
                                   <img style="width: 100px">
                               </div>
                           </div>
-                          <div class="form-group">
+                          <div style="display: none;" class="form-group">
                               <label>Mã khách hàng</label>
                               <input type="text" class="form-control"
                                      name="customerId" placeholder="Id" readonly id="customerId" formControlName="customerId"/>
                               <input type="hidden"/>
                               <input type="hidden"/>
                           </div>
-                          <div class="form-group">
+                          <div style="display: none;" class="form-group">
                             <label>Tên đăng nhập</label>
                             <input type="text" class="form-control"
                                    name="username" placeholder="Enter username" id="username" readonly formControlName="userName"/>
                           </div>
-                          <div class="form-group">
+                          <div style="display: none;" class="form-group">
                             <label>Mật khẩu</label>
                             <input type="password" class="form-control"
-                                   name="password" placeholder="Enter password" id="password" formControlName="password"/>
+                                   name="password" placeholder="Enter password" id="password" readonly formControlName="password"/>
                           </div>
                           <p style="color: red" *ngIf="formEditCustomer.get('password')?.errors?.['required'] && formEditCustomer.get('password')?.dirty">Vui lòng nhập mật khẩu</p>
                           <div class="form-group">
@@ -54,7 +54,7 @@
                                      name="address" placeholder="Enter Adrdress" id="address" formControlName="address">
                           </div>
                           <p style="color: red" *ngIf="formEditCustomer.get('address')?.errors?.['required'] && formEditCustomer.get('address')?.dirty">Vui lòng nhập địa chỉ</p>
-                          <div class="form-group">
+                          <div style="display: none;" class="form-group">
                               <label>Trạng thái</label>
                               <input type="text" class="form-control"
                                      name="status" id="status" formControlName="status" readonly>

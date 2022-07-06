@@ -34,7 +34,7 @@ export class ListProductsComponent implements OnInit {
         res.status = false;
       }
       this.productAdminService.edit(id, res).subscribe(res2=>{
-        console.log(res2)
+        this.loadProducts();
       })
     })
   }
@@ -45,7 +45,7 @@ export class ListProductsComponent implements OnInit {
         res.status = true;
       }
       this.productAdminService.edit(id, res).subscribe(res2=>{
-        console.log(res2)
+        this.loadProducts();
       })
     })
   }

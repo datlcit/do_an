@@ -1,1 +1,27 @@
-<p>home</p>
+<div style="padding-top: 40px;margin-bottom: 40px;" class="title">
+  <h1 style="font-size: 80px; text-align: center; color: brown">Trang thống kê</h1>
+</div>
+
+<div class="general" style="display: flex; justify-content: space-around; padding-top: 20px;">
+  <div style="padding: 30px 50px; background-color: gold; border-radius: 15px; border: 5px solid silver;" class="total-customers">
+    <div class="zoom" style="display: flex; justify-content: center;; align-items: center; margin-bottom: 30px;">
+      <i style="font-size: 80px; color: navy; text-shadow: -1px 0 white, 0 1px white,1px 0 white, 0 -1px white" class="fas fa-users"></i>
+    </div>
+    <p style="font-size: 30px; color: red; font-weight: bold;text-shadow: -1px 0 white, 0 1px white,1px 0 white, 0 -1px white ">Tổng số khách hàng</p><br>
+    <p style="text-align: center; font-size: 35px; font-weight: bold; text-shadow: -1px 0 white, 0 1px white,1px 0 white, 0 -1px white ">{{countCustomer}}</p>
+  </div>
+  <div style="padding: 30px 50px; background-color: deepskyblue; border-radius: 15px; border: 5px solid silver;" class="total-sales">
+    <div class="zoom" style="display: flex; justify-content: center; align-items: center; margin-bottom: 30px;">
+      <i style="font-size: 80px; color: darkgreen; text-shadow: -1px 0 white, 0 1px white,1px 0 white, 0 -1px white" class="fas fa-mobile-alt"></i>
+    </div>
+    <p style="font-size: 30px; color: red; font-weight: bold; text-shadow: -1px 0 white, 0 1px white,1px 0 white, 0 -1px white ">Tổng số đơn hàng</p><br>
+    <p style="text-align: center; font-size: 35px; font-weight: bold; text-shadow: -1px 0 white, 0 1px white,1px 0 white, 0 -1px white ">{{countOrder}}</p>
+  </div>
+  <div style="padding: 30px 50px; background-color: yellowgreen; border-radius: 15px; border: 5px solid silver;" class="total-income">
+    <div class="zoom" style="display: flex; justify-content: center;; align-items: center; margin-bottom: 30px;">
+      <i style="font-size: 80px; color: crimson; text-shadow: -1px 0 white, 0 1px white,1px 0 white, 0 -1px white" class="fas fa-hand-holding-usd"></i>
+    </div>
+    <p style="text-align: center; font-size: 30px; color: red; font-weight: bold; text-shadow: -1px 0 white, 0 1px white,1px 0 white, 0 -1px white ">Tổng thu nhập</p><br>
+    <p style="text-align: center; font-size: 35px; font-weight: bold; text-shadow: -1px 0 white, 0 1px white,1px 0 white, 0 -1px white ">{{totalPrice}} VNĐ</p>
+  </div>
+</div>

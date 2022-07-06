@@ -3,6 +3,7 @@ package com.dat.controllers.admin;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -22,6 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.dat.entities.LoginRequest;
 import com.dat.entities.LoginResponse;
+import com.dat.entities.Product;
 import com.dat.entities.User;
 import com.dat.entities.UserDetail;
 import com.dat.services.UserService;
@@ -86,8 +88,8 @@ public class UserController {
 	
 	@PutMapping(value = "/{id}")
 	@CrossOrigin(origins = "*", allowedHeaders = "*", methods = RequestMethod.PUT)
-	public User edit(@PathVariable("id") int id, @RequestBody User user) {
-		return userService.save(user);
+	public ResponseEntity<User> edit(@PathVariable("id") int id, @RequestBody User user) {
+		return new ResponseEntity<>(userService.save(user), HttpStatus.OK);
 	}
 	
 	@DeleteMapping(value = "/{id}")
