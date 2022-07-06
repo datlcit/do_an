@@ -96,7 +96,7 @@ export class CheckoutComponent implements OnInit {
       }
     })
     this.calnumberOfSales();
-    // this.router.navigate(['congratulation']);
+    this.router.navigate(['congratulation']);
   }
 
   loadCart(){

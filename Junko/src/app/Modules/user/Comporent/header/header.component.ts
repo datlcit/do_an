@@ -28,11 +28,21 @@ export class HeaderComponent implements OnInit {
   }
 
   currentUser: string = '';
+  authority:any = '';
 
   loadCurrentUser(){
     if(localStorage['userName'] != null){
       this.currentUser = localStorage['userName']
     }
+    this.userService.get().subscribe(res=>{
+      for(let u of res){
+        if(u.userName == this.currentUser){
+          this.authority = u.authorities[0].authority;
+          console.log(this.authority);
+          break;
+        }
+      }
+    })
   }
 
   calTotal(){

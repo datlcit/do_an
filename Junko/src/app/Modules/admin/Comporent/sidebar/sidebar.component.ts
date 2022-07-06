@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { LazyLoadScriptService } from '../../adminServices/lazy-load-script.service';
 import { ListOrdersComponent } from '../list-orders/list-orders.component';
 
@@ -9,21 +10,20 @@ import { ListOrdersComponent } from '../list-orders/list-orders.component';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor(private lazyLoad: LazyLoadScriptService) { }
+  constructor(private lazyLoad: LazyLoadScriptService, private router: Router) {}
 
   ngOnInit(): void {
     this.lazyLoad.loadScript('assets/dist/js/adminlte.min.js').subscribe(_ => {
     });
+    this.admin;
   }
 
-  // orderId:number = 0;
-  // details(componentRef:any) {
-  //   if(componentRef instanceof ListOrdersComponent) {
-  //     componentRef.clickOrderDetail.subscribe((orderId) => {
-  //       this.orderId = orderId;
-  //       console.log( this.orderId)
-  //     })
-  //   }
-  // }
+  admin:any = localStorage.getItem('userName');
+
+  //Nút đăng xuất
+  logOut(){
+    localStorage.removeItem('userName');
+    this.router.navigate(['']);
+  }
 
 }

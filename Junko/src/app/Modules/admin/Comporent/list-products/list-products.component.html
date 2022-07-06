@@ -36,19 +36,19 @@
                   </thead>
                   <tbody>
                   <tr *ngFor="let p of listProducts">
-                      <td>{{p.productId}}</td>
-                      <td>{{p.productName}}</td>
-                      <td>{{p.description}}</td>
-                      <td>{{p.category.categoryName}}</td>
-                      <td style="max-width: 100px;overflow: scroll;">{{p.productImage}}</td>
-                      <td>{{p.price}}</td>
-                      <td>{{p.ram}}</td>
-                      <td>{{p.storage}}</td>
-                      <td>{{p.color}}</td>
-                      <td>{{p.numberOfSales}}</td>
+                      <td [ngStyle]="{'opacity':p.status == true ? 1 : 0.5}">{{p.productId}}</td>
+                      <td [ngStyle]="{'opacity':p.status == true ? 1 : 0.5}">{{p.productName}}</td>
+                      <td [ngStyle]="{'opacity':p.status == true ? 1 : 0.5}">{{p.description}}</td>
+                      <td [ngStyle]="{'opacity':p.status == true ? 1 : 0.5}">{{p.category.categoryName}}</td>
+                      <td [ngStyle]="{'opacity':p.status == true ? 1 : 0.5}" style="max-width: 100px;overflow: scroll;">{{p.productImage}}</td>
+                      <td [ngStyle]="{'opacity':p.status == true ? 1 : 0.5}">{{p.price}}</td>
+                      <td [ngStyle]="{'opacity':p.status == true ? 1 : 0.5}">{{p.ram}}</td>
+                      <td [ngStyle]="{'opacity':p.status == true ? 1 : 0.5}">{{p.storage}}</td>
+                      <td [ngStyle]="{'opacity':p.status == true ? 1 : 0.5}">{{p.color}}</td>
+                      <td [ngStyle]="{'opacity':p.status == true ? 1 : 0.5}">{{p.numberOfSales}}</td>
                       <!-- <td>{{p.status}}</td> -->
                       <td>
-                        <input style="border: none; width: 50px" type="text" disabled [(ngModel)]="p.status" name="status">
+                        <input [ngStyle]="{'color':p.status == true ? 'black' : 'red'}" style="border: none; width: 50px" type="text" disabled [(ngModel)]="p.status" name="status">
                       </td>
                       <td class="editButton">
                           <a class="btn btn-primary btn-sm"

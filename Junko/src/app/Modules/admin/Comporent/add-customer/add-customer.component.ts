@@ -28,7 +28,8 @@ export class AddCustomerComponent implements OnInit {
     password: ['', Validators.required],
     phone: ['', Validators.required],
     address: ['', Validators.required],
-    email: ['', Validators.required]
+    email: ['', Validators.required],
+    status: [true]
   });
 
   submitted = false;

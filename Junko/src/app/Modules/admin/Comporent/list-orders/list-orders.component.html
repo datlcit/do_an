@@ -26,16 +26,16 @@
               <table class="table table-bordered">
                   <thead>
                   <tr style="text-align: center">
-                      <th style="text-align: center">Order ID</th>
-                      <th style="text-align: center">Customer ID</th>
-                      <th style="text-align: center">Name</th>
-                      <th style="text-align: center">Address</th>
-                      <th style="text-align: center">Phone</th>
-                      <th style="text-align: center">Promotion</th>
-                      <th style="text-align: center">Total</th>
-                      <th style="text-align: center">Status</th>
-                      <th style="text-align: center">Created At</th>
-                      <th style="text-align: center">Actions</th>
+                      <th style="text-align: center">Mã đơn hàng</th>
+                      <th style="text-align: center">Mã khách hàng</th>
+                      <th style="text-align: center">Tên người nhận</th>
+                      <th style="text-align: center">Địa chỉ</th>
+                      <th style="text-align: center">Số điện thoại</th>
+                      <th style="text-align: center">Mã giảm giá</th>
+                      <th style="text-align: center">Tổng tiền</th>
+                      <th style="text-align: center">Trạng thái</th>
+                      <th style="text-align: center">Ngày tạo</th>
+                      <th style="text-align: center">Chi tiết đơn hàng</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -46,7 +46,7 @@
                       <td>{{o.address}}</td>
                       <td>{{o.phone}}</td>
                       <td>{{o.promotion.code}}</td>
-                      <td>{{o.total}}</td>
+                      <td>{{o.total}} VNĐ</td>
                       <td>{{o.status}}</td>
                       <td>{{o.createAt}}</td>
                       <td style="text-align: center">
