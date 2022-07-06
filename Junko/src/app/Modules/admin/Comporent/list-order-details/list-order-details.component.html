@@ -1,18 +1,3 @@
-<div class="breadcrumbs_area">
-  <div class="container">
-      <div class="row">
-          <div class="col-12">
-              <div class="breadcrumb_content">
-                  <ul>
-                      <li><a href="index.html">home</a></li>
-                      <li>Chi tiết đơn hàng</li>
-                  </ul>
-              </div>
-          </div>
-      </div>
-  </div>
-</div>
-<!--breadcrumbs area end-->
 
 <!--shopping cart area start -->
 <div class="shopping_cart_area mt-60">
@@ -45,7 +30,8 @@
                                       <td>{{od.createAt}}</td>
                                   </tr>
                                   <tr><td colspan="7" style="text-align: center; color: blue">Phí vận chuyển: 50000 VNĐ</td></tr>
-                                  <tr><td colspan="7" style="text-align: center; color: red">TỔNG CỘNG: {{total}} VNĐ</td></tr>
+                                  <tr><td colspan="7" style="text-align: center; color: blue">Giảm giá: - {{order.promotion.maxDiscount}} VNĐ</td></tr>
+                                  <tr><td colspan="7" style="text-align: center; color: red">TỔNG CỘNG: {{total - order.promotion.maxDiscount}} VNĐ</td></tr>
                               </tbody>
                           </table>
                       </div>

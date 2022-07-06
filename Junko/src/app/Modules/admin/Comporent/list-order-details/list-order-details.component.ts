@@ -13,12 +13,13 @@ export class ListOrderDetailsComponent implements OnInit {
   constructor(private orderService: OrderAdminService ,private orderDetailService: OrderDetailAdminService, private router: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.loadOrders();
+    this.loadOrder();
+    this.loadOrderDetails();
   }
 
   listOrderDetails: Array<any> = [];
   total: number = 0;
-  loadOrders(){
+  loadOrderDetails(){
     this.orderDetailService.get().subscribe(res => {
 
       for(let od of res){
@@ -33,6 +34,14 @@ export class ListOrderDetailsComponent implements OnInit {
         this.total += od.price*od.quantity;
       }
       this.total += 50000;
+    })
+  }
+
+  order: any = null;
+  loadOrder(){
+    this.orderService.findById(this.router.snapshot.params['orderId']).subscribe(res =>{
+      this.order = res;
+      console.log(this.order.promotion.maxDiscount);
     })
   }
 }

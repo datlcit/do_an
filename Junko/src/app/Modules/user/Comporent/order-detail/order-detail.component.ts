@@ -11,12 +11,12 @@ export class OrderDetailComponent implements OnInit {
   constructor(private orderDetailService: OrderDetailUserService) { }
 
   ngOnInit(): void {
-    this.loadOrders();
+    this.loadOrderDetails();
   }
 
   listOrderDetails: Array<any> = [];
   total: number = 0;
-  loadOrders(){
+  loadOrderDetails(){
     this.orderDetailService.get().subscribe(res => {
 
       this.listOrderDetails = res;

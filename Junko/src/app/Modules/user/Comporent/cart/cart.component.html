@@ -41,11 +41,11 @@
                                       <td class="product_remove"><a><i (click)="deleteCart(i)" class="fa fa-trash-o"></i></a>
                                       </td>
                                       <td class="product_thumb">
-                                        <a href="#">
+                                        <a href="/productDetail/{{c.product.productId}}">
                                           <img src="{{c.product.productImage}}" alt="">
                                         </a>
                                       </td>
-                                      <td class="product_name"><a href="#">{{c.product.productName}}</a></td>
+                                      <td class="product_name"><a href="/productDetail/{{c.product.productId}}">{{c.product.productName}}</a></td>
                                       <td class="product-price">{{c.product.price}}</td>
                                       <td class="product-color">{{c.product.color}}</td>
                                       <td class="product_quantity">
@@ -59,7 +59,6 @@
                                   <tr *ngIf="data.length==0">
                                     <td colspan="6">Chưa có sản phẩm trong giỏ</td>
                                   </tr>
-
                               </tbody>
                           </table>
                       </div>
@@ -77,8 +76,11 @@
                           <h3>Mã giảm giá</h3>
                           <div class="coupon_inner">
                               <p>Nhập mã giảm giá mà bạn có.</p>
-                              <input placeholder="Coupon code" type="text">
-                              <button type="submit">Sử dụng</button>
+                              <form method="get" enctype="multipart/form-data" [formGroup]="formUsePromotion" (ngSubmit)="userPromotion()">
+                                <input [(ngModel)]="emptyText" placeholder="Coupon code" type="text" name="code" formControlName="code">
+                                <button type="submit">Sử dụng</button>
+                                <button (click)="cancelCode()" class="bg-gradient-red" style="margin-left: 5px;">Hủy mã</button>
+                              </form>
                           </div>
                       </div>
                   </div>
@@ -95,9 +97,14 @@
                                   <p class="cart_amount"><span>Phí giao hàng:</span> 50000 VNĐ</p>
                               </div>
 
+                              <div *ngIf="codePromotion != 0 && codePromotion.code != 'NONE' && emptyText != ''" class="cart_subtotal ">
+                                <p>Giảm giá</p>
+                                <p class="cart_amount"><span>Mã {{codePromotion.code}}:</span>-{{codePromotion.maxDiscount}} VNĐ</p>
+                              </div>
+
                               <div *ngIf="subtotal != 0" class="cart_subtotal">
                                   <p>Đơn giá</p>
-                                  <p class="cart_amount">{{subtotal + 50000}} VNĐ</p>
+                                  <p class="cart_amount">{{subtotal + 50000 - lastSalePrice}} VNĐ</p>
                               </div>
                               <div *ngIf="subtotal != 0" class="checkout_btn">
                                   <a href="javascript:void(0)" (click)="checkUser()">Tới trang thanh toán </a>

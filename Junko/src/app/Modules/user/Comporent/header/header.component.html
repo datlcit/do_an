@@ -23,7 +23,7 @@
                                   <li> <a (click)="logOut()" href="">Đăng xuất</a> </li>
                                 </ul>
                               </li>
-                              <li *ngIf="currentUser != ''"><a routerLink="/checkout"> Thanh toán </a></li>
+                              <li *ngIf="currentUser != ''"><a href="/checkout"> Thanh toán </a></li>
                           </ul>
                       </div>
                   </div>
@@ -77,7 +77,7 @@
                                    <div style="overflow: scroll;" class="mini_cart">
                                       <div class="cart_item" *ngFor="let c of dataCart; let i = index;">
                                           <div class="cart_img">
-                                              <a href="#"><img src="{{c.product.productImage}}" alt=""></a>
+                                              <a href="/productDetail/{{c.product.productId}}"><img src="{{c.product.productImage}}" alt=""></a>
                                           </div>
                                           <div class="cart_info">
                                               <a href="#">{{c.product.productName}}</a>

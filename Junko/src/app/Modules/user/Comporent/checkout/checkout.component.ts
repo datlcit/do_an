@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { OrderAdminService } from 'src/app/Modules/admin/adminServices/order-admin.service';
 import { OrderDetailAdminService } from 'src/app/Modules/admin/adminServices/order-detail-admin.service';
 import { ProductAdminService } from 'src/app/Modules/admin/adminServices/product-admin.service';
+import { PromotionAdminService } from 'src/app/Modules/admin/adminServices/promotion-admin.service';
 import { CustomerUserService } from '../../userServices/customer-user.service';
 import { OrderDetailUserService } from '../../userServices/order-detail-user.service';
 
@@ -31,12 +32,14 @@ export class CheckoutComponent implements OnInit {
      private orderService: OrderAdminService,
      private orderDetailService: OrderDetailAdminService,
      private productService: ProductAdminService,
+     private promotionService: PromotionAdminService,
      private router: Router,
      private http: HttpClient) {  }
 
   data: any[] = [];
 
   ngOnInit(): void {
+    this.getPromotion()
     this.loadCart();
     this.loadTotal();
     this.loadCustomer();
@@ -73,9 +76,9 @@ export class CheckoutComponent implements OnInit {
   addCustomer(){
     this.customerOnlyId = {customerId: this.currentCustomer.customerId}
     let orderRaw = this.formAddCustomer.value;
-    orderRaw.total = this.subtotal + 50000;
+    orderRaw.total = this.subtotal + 50000 - this.lastDiscount;
     orderRaw.customer = this.customerOnlyId;
-    orderRaw.promotion =  {promotionId: 1};
+    orderRaw.promotion =  {promotionId: this.promotionCurrent.promotionId};
     orderRaw.status = 1;
     console.log(orderRaw)
     this.orderService.add(orderRaw).subscribe(res2=>{
@@ -125,6 +128,24 @@ export class CheckoutComponent implements OnInit {
       })
     }
     console.log(this.co)
+  }
+
+  promotionCurrent:any = {promotionId: 1};
+  lastDiscount: any = 0;
+  getPromotion(){
+    if(localStorage['code'] != undefined){
+      this.promotionService.get().subscribe(res=>{
+        for(let p of res){
+          if(p.code == localStorage.getItem('code')){
+            console.log(p);
+            this.promotionCurrent = p;
+            this.lastDiscount = this.promotionCurrent.maxDiscount;
+            console.log(this.lastDiscount);
+            console.log(this.promotionCurrent);
+          }
+        }
+      })
+    }
   }
 
 }
