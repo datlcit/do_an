@@ -33,7 +33,8 @@
                           <label>Mật khẩu <span>*</span></label>
                           <input type="password" class="form-control" name="password" placeholder="Enter password" id="password" formControlName="password">
                           <p style="color: red" *ngIf="formLogin.get('password')?.errors?.['required'] && formLogin.get('password')?.dirty">Vui lòng nhập mật khẩu</p>
-                        <div class="login_submit">
+                        <div class="login_submit" style="display: flex; justify-content: space-between">
+                          <p style="color: red; font-weight: bold;" [ngStyle]="{'visibility':checkLogin == true ? 'hidden' : 'visible'}">Sai tài khoản mật khẩu</p>
                           <button [disabled]="formLogin.invalid" >Đăng nhập</button>
                         </div>
                       </div>

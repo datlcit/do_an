@@ -3,25 +3,19 @@
       <div class="container" style="padding: 0; position: relative">
           <div class="container">
               <h1 class="title">List Order</h1>
-              <div class="search_box pull-right" style="margin-bottom: 10px">
-                  <div class="input-group">
-                      <form action="" style="display: flex; justify-content: space-between">
-                          <div class="search-box form-group col-6"><h5>Receiver name:</h5>
-                            <input style="width: 100%" type="text" name="keyword" id="keyword" size="50"/></div>
-                          <!-- <div class="search-box form-group col-4" style="width: 160px">
-                              <h5>Start date</h5>
-                              <input type="date" class="form-control"
-                                     name="startDate" placeholder="Enter Start date" id="startDate">
-                          </div>
-                          <div class="search-box form-group col-4" style="width: 160px">
-                              <h5>End date</h5>
-                              <input type="date" class="form-control"
-                                     name="endDate" placeholder="Enter End date" id="endDate">
-                          </div> -->
-                          <button class="btn btn-primary btn-sm" style="height: 39px; margin-top: 29px">Submit</button>
-
-                      </form>
+              <div style="display: flex; justify-content: space-between">
+                <div class="add-button">
+                    <a class="btn btn-primary" routerLink="/admin/addCategory">ADD ORDER</a>
+                </div>
+                <div class="search_box pull-right">
+                  <div class="input-group" style="justify-content: space-around">
+                    <form>
+                        <p>Search:</p> <input type="text" name="keyword" id="keyword" [(ngModel)]="keyword"/>
+                    </form>
+                    <button (click)="loadSearching(keyword)" style="margin-right: 150px;">Tìm</button>
+                    <button (click)="loadOrders()" >Xem danh sách</button>
                   </div>
+                </div>
               </div>
               <table class="table table-bordered">
                   <thead>
@@ -55,7 +49,7 @@
                   </tr>
                   </tbody>
               </table>
-              <div class="text-center">
+              <!-- <div class="text-center">
                   <div class="text-center">
                       <span>Total Items: </span>
                   </div>
@@ -95,7 +89,7 @@
                               <a class="page-link">Last</a>
                           </li>
                   </nav>
-              </div>
+              </div> -->
           </div>
       </div>
   </div>

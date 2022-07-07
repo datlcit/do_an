@@ -49,4 +49,18 @@ export class ListProductsComponent implements OnInit {
       })
     })
   }
+
+  keyword: any = '';
+  loadSearching(key: any){
+    this.listProducts = [];
+    this.productAdminService.get().subscribe(res =>{
+      for(let p of res){
+        if(key.toLowerCase() == p.productId.toLowerCase() || (p.productName.toLowerCase()).includes(key.toLowerCase()) || (p.category.categoryName.toLowerCase()).includes(key.toLowerCase()) || key.toLowerCase() == p.status.toString().toLowerCase()){
+          this.listProducts.push(p);
+        }
+      }
+      console.log(this.listProducts);
+      return this.listProducts;
+    })
+  }
 }

@@ -42,14 +42,18 @@ export class LoginComponent implements OnInit {
     return this.http.post('http://localhost:8089/api/userAdmin/token',{"userName": userName,"password": password},{responseType: 'text'});
   }
 
+  checkLogin:any = true;
   login(){
+    this.checkLogin = false;
     this.userAdminService.userLogin(this.formLogin.value).subscribe(res=>{
       if(res != null) {
-        alert('Đăng nhập thành công');
+        this.checkLogin = true;
+        console.log(this.checkLogin)
         localStorage.setItem('userName', this.formLogin.get('userName')?.value);
         this.router.navigate(['/store']);
       }
     })
+    console.log(this.checkLogin)
   }
 
   formRegister: FormGroup = this.fb.group({

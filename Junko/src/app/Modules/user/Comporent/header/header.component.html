@@ -15,7 +15,7 @@
                       <div class="top_right text-right">
                           <ul class="ul-ngang">
                               <li style="display: flex; align-items: center;">
-                                <a routerLink="/login" *ngIf="currentUser == ''"> Đăng nhập</a>
+                                <a href="/login" *ngIf="currentUser == ''"> Đăng nhập</a>
                                 <p style="text-transform: lowercase; margin: 0" *ngIf="currentUser != ''"> {{currentUser}}</p>
                                 <ul *ngIf="currentUser != ''" class="menu-con">
                                   <li *ngIf="authority == 'ROLE_ADMIN'"> <a href="/admin">Tới trang quản trị</a> </li>

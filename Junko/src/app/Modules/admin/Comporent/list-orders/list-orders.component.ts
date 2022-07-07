@@ -29,4 +29,17 @@ export class ListOrdersComponent implements OnInit {
     console.log(orderId);
   }
 
+  keyword: any = '';
+  loadSearching(key: any){
+    this.listOrders = [];
+    this.orderAdminService.get().subscribe(res =>{
+      for(let o of res){
+        if(key == o.orderId || key == o.customer.customerId || (o.fullName.toLowerCase()).includes(key.toLowerCase()) || (o.address.toLowerCase()).includes(key.toLowerCase()) || o.phone.includes(key) || o.promotion.promotionId.includes(key.toLowerCase()) || o.total == key || o.status.toString() == key.toLowerCase()){
+          this.listOrders.push(o);
+        }
+      }
+      return this.listOrders;
+    })
+  }
+
 }

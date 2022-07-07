@@ -10,10 +10,12 @@
                       </p>
                   </div>
                   <div class="search_box pull-right">
-                      <div class="input-group">
+                      <div class="input-group" style="justify-content: space-around">
                           <form>
-                              Search: <input type="text" name="keyword" id="keyword" size="50"/>
+                              Search: <input type="text" name="keyword" id="keyword" [(ngModel)]="keyword"/>
                           </form>
+                          <button (click)="loadSearching(keyword)" style="margin-right: 150px;">Tìm</button>
+                          <button (click)="loadProducts()" >Xem danh sách</button>
                       </div>
                   </div>
               </div>
@@ -62,11 +64,11 @@
 
                   </tbody>
               </table>
-              <div class="text-center">
+              <!-- <div class="text-center">
                   <div class="text-center">
                       <span></span>
                   </div>
-                  <!-- <nav class="pagination justify-content-center flex-wrap">
+                  <nav class="pagination justify-content-center flex-wrap">
                           <li>
                               <a class="page-link">First</a>
                           </li>
@@ -100,8 +102,8 @@
                           <li>
                               <a class="page-link">Last</a>
                           </li>
-                  </nav> -->
-              </div>
+                  </nav>
+              </div> -->
           </div>
       </div>
   </div>

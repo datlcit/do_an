@@ -27,8 +27,27 @@ export class ListCategoriesComponent implements OnInit {
 
   category: any;
   deleteCategory(categoryId: any){
-    this.categoryService.remove(categoryId).subscribe(res =>{
-      this.loadCategories();
+    let cf = confirm("Bạn xác nhận muốn xóa danh mục này chứ?");
+    if(cf == true){
+      this.categoryService.remove(categoryId).subscribe(res =>{
+        this.loadCategories();
+      })
+    }
+    else{
+      return this.loadCategories();
+    }
+  }
+
+  keyword: any = '';
+  loadSearching(key: any){
+    this.categories = [];
+    this.categoryService.get().subscribe(res =>{
+      for(let c of res){
+        if(key == c.categoryId || (c.categoryName.toLowerCase()).includes(key.toLowerCase())){
+          this.categories.push(c);
+        }
+      }
+      return this.categories;
     })
   }
 }
