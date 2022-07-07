@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
     return this.http.post('http://localhost:8089/api/userAdmin/token',{"userName": userName,"password": password},{responseType: 'text'});
   }
 
-  checkLogin:any = true;
+  checkLogin:any = null;
   login(){
     this.checkLogin = false;
     this.userAdminService.userLogin(this.formLogin.value).subscribe(res=>{
@@ -53,7 +53,6 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/store']);
       }
     })
-    console.log(this.checkLogin)
   }
 
   formRegister: FormGroup = this.fb.group({

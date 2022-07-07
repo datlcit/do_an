@@ -20,3 +20,15 @@
   background-color: gold;
   color: #000;
 }
+
+/* ---------------------------------- */
+.provider_button{
+  background-color: purple;
+  transform: scale(1);
+  transition: 0.5s;
+}
+
+.provider_button:hover{
+  background-color: teal;
+  transform: scale(1.2);
+}

@@ -5,7 +5,7 @@
           <div class="col-12">
               <div class="breadcrumb_content">
                   <ul>
-                      <li><a routerLink="home">Trang chủ</a></li>
+                      <li><a href="home">Trang chủ</a></li>
                       <li>Cửa hàng</li>
                   </ul>
               </div>
@@ -15,8 +15,21 @@
 </div>
 <!--breadcrumbs area end-->
 
+<div style="margin-top: 20px; margin-left: 10px;" class="providers">
+  <div class="container">
+    <div style="display: flex; justify-content: flex-start;" class="row_custom">
+      <p style="font-weight: bold; margin-right: 20px; margin-bottom: 0; font-size: 14px;">Lọc theo nhà cung cấp:</p>
+      <div *ngFor="let c of categories">
+        <div style="margin-right: 20px;" class="single_provider">
+          <button (click)="getProByCate(c.categoryId)" class="provider_button" style="border-radius: 5px; padding: 5px 10px; color: #fff; font-weight: bold;">{{c.categoryName}}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!--shop  area start-->
-<div class="shop_area shop_fullwidth mt-60 mb-60">
+<div style="margin-top: 20px;" class="shop_area shop_fullwidth mt-60 mb-60">
   <div class="container">
       <div class="row">
           <div class="col-12">
@@ -66,23 +79,6 @@
                               <div class="product_thumb editProductThumb">
                                   <a href="../productDetail/{{p.productId}}" class="primary_img" href="">
                                     <img src="{{p.productImage}}" alt=""></a>
-                                  <!-- <a class="secondary_img" href="product-details.html"><img
-                                          src="assets/img/product/product2.jpg" alt=""></a> -->
-                                  <!-- <div class="label_product" *ngIf="p.oldPrice != null">
-                                      <span class="label_sale">sale</span>
-                                  </div> -->
-                                  <!-- <div class="action_links editActionLinks">
-                                      <ul>
-                                          <li (click)="addToWishList(p.productId)" class="wishlist"><button href="wishlist.html" title="Add to Wishlist"><i
-                                                      class="fa fa-heart-o" aria-hidden="true"></i></button></li>
-                                          <li class="quick_button"><a href="#" data-bs-toggle="modal"
-                                                  data-bs-target="#modal_box" title="quick view"> <span
-                                                      class="ion-ios-search-strong"></span></a></li>
-                                      </ul>
-                                  </div>
-                                  <div (click)="buy(p)" (click)="addTotal(p.price)" class="add_to_cart">
-                                      <button title="add to cart">Thêm vào giỏ hàng</button>
-                                  </div> -->
                               </div>
                               <div class="product_content grid_content">
                                   <div class="price_box">

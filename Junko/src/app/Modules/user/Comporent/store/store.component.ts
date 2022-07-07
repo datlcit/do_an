@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { CategoryAdminService } from 'src/app/Modules/admin/adminServices/category-admin.service';
 import { LazyLoadServiceService } from '../../userServices/lazy-load-service.service';
 import { ProductService } from '../../userServices/product.service';
 
@@ -9,7 +10,7 @@ import { ProductService } from '../../userServices/product.service';
 })
 export class StoreComponent implements OnInit {
 
-  constructor(private lazyLoad: LazyLoadServiceService, private service: ProductService) { }
+  constructor(private lazyLoad: LazyLoadServiceService, private service: ProductService, private categoryService: CategoryAdminService) { }
 
   ngOnInit(): void {
     // this.lazyLoad.loadScript('assets/js/plugins.js').subscribe(_ => {
@@ -18,6 +19,7 @@ export class StoreComponent implements OnInit {
     });
 
     this.loadProducts();
+    this.loadCategories();
   }
   shop_product: Array<any> = [];
   img: Array<any> = [];
@@ -149,6 +151,31 @@ export class StoreComponent implements OnInit {
         this.img = this.shop_product[i].productImage.split(" ");
         this.shop_product[i].productImage = this.img[0];
       }
+    })
+  }
+
+  categories: Array<any> = [];
+  loadCategories(){
+    this.categoryService.get().subscribe(res =>{
+      this.categories = res;
+    })
+  }
+
+  // Loc theo nha cung cap
+  getProByCate(categoryId: any){
+    this.shop_product = [];
+    this.service.get().subscribe(res =>{
+      for(let p of res){
+        if(p.category.categoryId == categoryId){
+          console.log(p.category.categoryId);
+          this.shop_product.push(p);
+        }
+      }
+      for(let i=0;i<this.shop_product.length;i++){
+        this.img = this.shop_product[i].productImage.split(" ");
+        this.shop_product[i].productImage = this.img[0];
+      }
+      return this.shop_product;
     })
   }
 
