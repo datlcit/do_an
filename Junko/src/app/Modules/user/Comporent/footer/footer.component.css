@@ -1,0 +1,13 @@
+.borderMap{
+  border: 5px solid #000;
+  width: 240px;
+  height: 160px;
+  border-radius: 5px;
+  transform: scale(1);
+  transition: 0.5s;
+}
+
+.borderMap:hover{
+  border: 5px solid gold;
+  transform: scale(1.1);
+}

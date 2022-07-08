@@ -17,12 +17,11 @@
                   <tr style="text-align: center">
                       <th>Mã tài khoản</th>
                       <th>Tên tài khoản</th>
-                      <th>Mật khẩu</th>
                       <th>Là admin</th>
                       <th>Ngày tạo</th>
                       <th>Mã khách hàng</th>
                       <th>Trạng thái</th>
-                      <th>Actions</th>
+                      <th>Trạng thái</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -30,16 +29,15 @@
                   <tr *ngFor="let c of listUsers">
                       <td>{{c.userId}}</td>
                       <td>{{c.userName}}</td>
-                      <td>{{c.password}}</td>
                       <td>{{c.admin}}</td>
                       <td>{{c.createAt}}</td>
                       <td>{{c.customerId}}</td>
                       <td>{{c.status}}</td>
                       <thead class="editButton">
                         <a (click)="enable(c.userId)" *ngIf="c.admin != true && c.status == false" class="btn btn-primary btn-sm"
-                          href="javascript:void(0)" style="margin: 0 3px">Enable</a>
+                          href="javascript:void(0)" style="margin: 0 3px">Kích hoạt</a>
                         <a (click)="disable(c.userId)" *ngIf="c.admin != true && c.status == true" class="btn btn-danger btn-sm"
-                          href="javascript:void(0)" style="margin-top: 0">Disable</a>
+                          href="javascript:void(0)" style="margin-top: 0">Hủy kích hoạt</a>
                       </thead>
                   </tr>
                   </tbody>

@@ -2,11 +2,11 @@
   <div style="display: flex">
       <div class="container" style="padding: 0; position: relative">
           <div class="container">
-              <h1 class="title">List Products</h1>
+              <h1 class="title">Danh sách sản phẩm</h1>
               <div style="display: flex; justify-content: space-between">
                   <div>
                       <p>
-                          <a class="btn btn-primary" routerLink="/admin/addProduct">ADD PRODUCT</a>
+                          <a class="btn btn-primary" routerLink="/admin/addProduct">Thêm sản phẩm</a>
                       </p>
                   </div>
                   <div class="search_box pull-right">
@@ -14,7 +14,7 @@
                           <form>
                               Search: <input type="text" name="keyword" id="keyword" [(ngModel)]="keyword"/>
                           </form>
-                          <button (click)="loadSearching(keyword)" style="margin-right: 150px;">Tìm</button>
+                          <button (click)="loadSearching(keyword)" style="margin-right: 150px;">Tìm kiếm</button>
                           <button (click)="loadProducts()" >Xem danh sách</button>
                       </div>
                   </div>
@@ -22,18 +22,18 @@
               <table class="table table-bordered">
                   <thead>
                   <tr style="text-align: center">
-                      <th style="text-align: center">Product ID</th>
-                      <th style="text-align: center">Name</th>
-                      <th style="text-align: center">Category</th>
+                      <th style="text-align: center">Mã sản phẩm</th>
+                      <th style="text-align: center">Tên sản phảm</th>
+                      <th style="text-align: center">Danh mục</th>
                       <!-- <th style="text-align: center">Description</th>
                       <th style="text-align: center">Image</th> -->
-                      <th style="text-align: center">Price</th>
+                      <th style="text-align: center">Giá tiền</th>
                       <th style="text-align: center">Ram</th>
-                      <th style="text-align: center">Storage</th>
-                      <th style="text-align: center">Color</th>
-                      <th style="text-align: center">Numble Of Sales</th>
-                      <th style="text-align: center">Status</th>
-                      <th style="text-align: center">Action</th>
+                      <th style="text-align: center">Dung lượng</th>
+                      <th style="text-align: center">Các màu</th>
+                      <th style="text-align: center">Đã bán</th>
+                      <th style="text-align: center">Trạng thái</th>
+                      <th style="text-align: center">Tùy chỉnh</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -47,18 +47,18 @@
                       <td [ngStyle]="{'opacity':p.status == true ? 1 : 0.5}">{{p.ram}}</td>
                       <td [ngStyle]="{'opacity':p.status == true ? 1 : 0.5}">{{p.storage}}</td>
                       <td [ngStyle]="{'opacity':p.status == true ? 1 : 0.5}">{{p.color}}</td>
-                      <td [ngStyle]="{'opacity':p.status == true ? 1 : 0.5}">{{p.numberOfSales}}</td>
+                      <td [ngStyle]="{'opacity':p.status == true ? 1 : 0.5}">{{p.numberOfSales}} sản phẩm</td>
                       <!-- <td>{{p.status}}</td> -->
                       <td>
                         <input [ngStyle]="{'color':p.status == true ? 'black' : 'red'}" style="border: none; width: 50px" type="text" disabled [(ngModel)]="p.status" name="status">
                       </td>
                       <td class="editButton">
                           <a class="btn btn-primary btn-sm"
-                             href="../admin/editProduct/{{p.productId}}" style="margin-top: 20px">Details</a>
+                             href="../admin/editProduct/{{p.productId}}" style="margin-top: 20px">Xem chi tiết</a>
                           <a *ngIf="p.status == true" (click)="disable(p.productId)" class="btn btn-danger btn-sm"
-                             href="javascript:void(0)" style="margin-top: 20px">Disable</a>
+                             href="javascript:void(0)" style="margin-top: 20px">Hủy kích hoạt</a>
                           <a *ngIf="p.status == false" (click)="enable(p.productId)" class="btn btn-dark btn-sm"
-                             href="javascript:void(0)" style="margin-top: 20px">Enable</a>
+                             href="javascript:void(0)" style="margin-top: 20px">Kích hoạt</a>
                       </td>
                   </tr>
 

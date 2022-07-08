@@ -45,8 +45,8 @@
                           <div class="search_container">
                               <form>
                                   <div class="search_box">
-                                      <input placeholder="Search product..." type="text" [(ngModel)]="keySearch" [ngModelOptions]="{standalone: true}">
-                                      <button (click)="searchProducts(keySearch)">Search</button>
+                                      <input placeholder="Nhập tên sản phẩm tìm kiếm..." type="text" [(ngModel)]="keySearch" [ngModelOptions]="{standalone: true}">
+                                      <button (click)="searchProducts(keySearch)">Tìm kiếm</button>
                                   </div>
                               </form>
                               <div *ngIf="keySearch != ''" class="row rowAb" [ngStyle]="{'visibility':searchProduct.length == 0 ? 'hidden' : 'visible'}">
@@ -74,15 +74,15 @@
                                   <span class="cart_quantity">{{countCart+countPro}}</span>
 
                                   <!--mini cart-->
-                                   <div style="overflow: scroll;" class="mini_cart">
+                                   <div style="overflow-y: scroll;" class="mini_cart">
                                       <div class="cart_item" *ngFor="let c of dataCart; let i = index;">
                                           <div class="cart_img">
                                               <a href="/productDetail/{{c.product.productId}}"><img src="{{c.product.productImage}}" alt=""></a>
                                           </div>
                                           <div class="cart_info">
-                                              <a href="#">{{c.product.productName}}</a>
+                                              <a href="/productDetail/{{c.product.productId}}">{{c.product.productName}}</a>
                                               <p style="font-size: 13px; margin: 0">Màu: <span>{{c.product.color}}</span></p>
-                                              <p>SL: {{c.quantity}} X <span> {{c.product.price}} </span></p>
+                                              <p>Số lượng: {{c.quantity}} X <span> {{c.product.price}} </span></p>
                                           </div>
                                       </div>
                                       <div class="mini_cart_table">
@@ -94,10 +94,10 @@
 
                                       <div class="mini_cart_footer">
                                           <div class="cart_button">
-                                              <a href="/cart">View cart</a>
+                                              <a href="/cart">XEM GIỎ HÀNG</a>
                                           </div>
                                           <div class="cart_button">
-                                              <a (click)="checkUser()" href="javascript:void(0)">Checkout</a>
+                                              <a (click)="checkUser()" href="javascript:void(0)">THANH TOÁN</a>
                                           </div>
 
                                       </div>

@@ -2,15 +2,15 @@
   <div style="display: flex">
       <div class="container" style="padding: 0; position: relative">
           <div class="container">
-              <h1 class="title">List Order</h1>
+              <h1 class="title">Danh sách đơn hàng</h1>
               <div style="display: flex; justify-content: space-between">
                 <div class="add-button">
-                    <a class="btn btn-primary" routerLink="/admin/addCategory">ADD ORDER</a>
+                    <a class="btn btn-primary" routerLink="/admin/addCategory">Thêm đơn hàng</a>
                 </div>
                 <div class="search_box pull-right">
                   <div class="input-group" style="justify-content: space-around">
                     <form>
-                        <p>Search:</p> <input type="text" name="keyword" id="keyword" [(ngModel)]="keyword"/>
+                        <p>Tìm kiếm:</p> <input type="text" name="keyword" id="keyword" [(ngModel)]="keyword"/>
                     </form>
                     <button (click)="loadSearching(keyword)" style="margin-right: 150px;">Tìm</button>
                     <button (click)="loadOrders()" >Xem danh sách</button>
@@ -19,7 +19,7 @@
               </div>
               <table class="table table-bordered">
                   <thead>
-                  <tr style="text-align: center">
+                  <tr style="text-align: center;">
                       <th style="text-align: center">Mã đơn hàng</th>
                       <th style="text-align: center">Mã khách hàng</th>
                       <th style="text-align: center">Tên người nhận</th>
@@ -44,7 +44,7 @@
                       <td>{{o.status}}</td>
                       <td>{{o.createAt}}</td>
                       <td style="text-align: center">
-                          <a routerLink="../listOrderDetails/{{o.orderId}}" (click)="details(o.orderId)" class="btn btn-primary btn-sm" href="javascript:void(0)" style="margin-top: 0;">Detail</a>
+                          <a href="admin/listOrderDetails/{{o.orderId}}" (click)="details(o.orderId)" class="btn btn-primary btn-sm" href="javascript:void(0)" style="margin-top: 0;">Xem chi tiết</a>
                       </td>
                   </tr>
                   </tbody>

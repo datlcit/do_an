@@ -2,17 +2,17 @@
   <div style="display: flex">
       <div class="container" style="padding: 0; position: relative">
           <div class="container">
-              <h1 class="title">List Customers</h1>
+              <h1 class="title">Danh sách khách hàng</h1>
               <div style="display: flex; justify-content: space-between">
                   <div sec:authorize="hasAnyRole('ADMIN','MANAGER')">
                   <p>
-                      <a class="btn btn-primary" routerLink="/admin/addCustomer">ADD CUSTOMER</a>
+                      <a class="btn btn-primary" routerLink="/admin/addCustomer">Thêm khách hàng</a>
                   </p>
                   </div>
                   <div class="search_box pull-right">
                     <div class="input-group" style="justify-content: space-around">
                       <form>
-                          <p>Search:</p> <input type="text" name="keyword" id="keyword" [(ngModel)]="keyword"/>
+                          <p>Tìm kiếm:</p> <input type="text" name="keyword" id="keyword" [(ngModel)]="keyword"/>
                       </form>
                       <button (click)="loadSearching(keyword)" style="margin-right: 150px;">Tìm</button>
                       <button (click)="loadCustomers()" >Xem danh sách</button>
@@ -23,14 +23,14 @@
                   <thead>
                   <tr style="text-align: center">
                       <th style="text-align: center"><a style="color: black">
-                          Customer ID</a></th>
-                      <th style="text-align: center">Username</th>
-                      <th style="text-align: center">Name</th>
-                      <th style="text-align: center">Phone</th>
-                      <th style="text-align: center">Address</th>
+                          Mã khách hàng</a></th>
+                      <th style="text-align: center">Tên đăng nhập</th>
+                      <th style="text-align: center">Tên khách hàng</th>
+                      <th style="text-align: center">Số điện thoại</th>
+                      <th style="text-align: center">Địa chỉ</th>
                       <th style="text-align: center">Email</th>
-                      <th style="text-align: center">Status</th>
-                      <th style="text-align: center">Actions</th>
+                      <th style="text-align: center">Trạng thái</th>
+                      <th style="text-align: center">Tùy chỉnh</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -47,9 +47,9 @@
                         <a class="btn btn-primary btn-sm"
                           href="/admin/editCustomer/{{c.customerId}}" style="margin-top: 0">Detail</a>
                         <a class="btn btn-primary btn-sm"
-                          href="#" style="margin-top: 0">Enable</a>
+                          href="#" style="margin-top: 0">Kích hoạt</a>
                         <a class="btn btn-danger btn-sm"
-                          href="#" style="margin-top: 0">Disable</a>
+                          href="#" style="margin-top: 0">Hủy kích hoạt</a>
                       </thead>
                   </tr>
                   </tbody>

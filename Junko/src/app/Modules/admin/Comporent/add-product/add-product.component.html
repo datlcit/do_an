@@ -6,87 +6,87 @@
               <div class="row"
                    style="border: 1px darkgrey solid; border-radius: 10px; width: 50%; margin: 30px auto; padding: 20px;">
                   <div class="col-sm-12">
-                      <h2 class="myclass">Add Product</h2>
+                      <h2 class="myclass">Thêm sản phẩm</h2>
                       <form method="post" enctype="multipart/form-data" [formGroup]="formAddProduct" (ngSubmit)="addProduct()">
                         <div class="form-group">
-                          <label>Product ID</label>
-                          <input class="form-control" name="productId" placeholder="Enter ID" id="productId" value="" formControlName="productId">
+                          <label>Mã sản phẩm</label>
+                          <input class="form-control" name="productId" placeholder="Nhập mã sản phảm" id="productId" value="" formControlName="productId">
                           <p style="color: red" *ngIf="formAddProduct.get('productId')?.errors?.['required'] && formAddProduct.get('productId')?.dirty">Vui lòng nhập ID sản phẩm</p>
                         </div>
 
                           <div class="form-group">
-                              <label>Product Name</label>
-                              <input class="form-control" name="productName" placeholder="Enter name" id="productName" value="" formControlName="productName">
+                              <label>Tên sản phẩm</label>
+                              <input class="form-control" name="productName" placeholder="Nhập tên sản phảm" id="productName" value="" formControlName="productName">
                               <p style="color: red" *ngIf="formAddProduct.get('productName')?.errors?.['required'] && formAddProduct.get('productName')?.dirty">Vui lòng nhập tên sản phẩm</p>
                           </div>
 
 
                           <div class="form-group">
-                              <label>Desciption</label>
-                              <input type="text" class="form-control" name="description" placeholder="Enter description" id="description" value="" formControlName="description">
+                              <label>Mô tả</label>
+                              <input type="text" class="form-control" name="description" placeholder="Nhập mô tả sản phảm" id="description" value="" formControlName="description">
                               <p style="color: red" *ngIf="formAddProduct.get('description')?.errors?.['required'] && formAddProduct.get('description')?.dirty">Vui lòng nhập mô tả sản phẩm</p>
                           </div>
 
 
                           <div class="form-group">
-                              <label>Image</label>
-                              <input type="text" class="form-control" name="productImage" placeholder="Enter images" id="productImage" value="" formControlName="productImage">
+                              <label>Ảnh sản phẩm</label>
+                              <input type="text" class="form-control" name="productImage" placeholder="Đưa link ảnh sản phảm" id="productImage" value="" formControlName="productImage">
                               <p style="color: red" *ngIf="formAddProduct.get('productImage')?.errors?.['required'] && formAddProduct.get('productImage')?.dirty">Vui lòng nhập ảnh sản phẩm</p>
                           </div>
 
 
                           <div class="form-group">
-                              <label>Price</label>
-                              <input type="text" class="form-control" name="price" placeholder="Enter price" id="price" value="" formControlName="price">
+                              <label>Giá tiền</label>
+                              <input type="text" class="form-control" name="price" placeholder="Nhập giá sản phẩm" id="price" value="" formControlName="price">
                               <p style="color: red" *ngIf="formAddProduct.get('price')?.errors?.['required'] && formAddProduct.get('price')?.dirty">Vui lòng nhập giá sản phẩm</p>
                           </div>
 
 
                           <div class="form-group">
                             <label>Ram</label>
-                            <input type="text" class="form-control" name="ram" placeholder="Enter ram" id="ram" value="" formControlName="ram">
+                            <input type="text" class="form-control" name="ram" placeholder="Nhập số RAM sản phẩm" id="ram" value="" formControlName="ram">
                             <p style="color: red" *ngIf="formAddProduct.get('ram')?.errors?.['required'] && formAddProduct.get('ram')?.dirty">Vui lòng nhập ram sản phẩm</p>
                           </div>
 
 
                         <div class="form-group">
-                          <label>Storage</label>
-                          <input type="text" class="form-control" name="storage" placeholder="Enter storage" id="storage" value="" formControlName="storage">
+                          <label>Dung lượng</label>
+                          <input type="text" class="form-control" name="storage" placeholder="Nhập dung lượng sản phẩm" id="storage" value="" formControlName="storage">
                           <p style="color: red" *ngIf="formAddProduct.get('storage')?.errors?.['required'] && formAddProduct.get('storage')?.dirty">Vui lòng nhập dung lượng sản phẩm</p>
                         </div>
 
 
                         <div class="form-group">
-                          <label>Color</label>
-                          <input type="text" class="form-control" name="color" placeholder="Enter color" id="color" value="" formControlName="color">
+                          <label>Màu</label>
+                          <input type="text" class="form-control" name="color" placeholder="Nhập màu của sản phảm" id="color" value="" formControlName="color">
                           <p style="color: red" *ngIf="formAddProduct.get('color')?.errors?.['required'] && formAddProduct.get('color')?.dirty">Vui lòng nhập màu sản phẩm</p>
                         </div>
 
 
                           <div class="form-group">
-                              <label>Quantity</label>
-                              <input type="text" class="form-control" name="quantity" placeholder="Enter quantity" id="quantity" value="" formControlName="quantity">
+                              <label>Số lượng</label>
+                              <input type="text" class="form-control" name="quantity" placeholder="Nhập số lượng sản phẩm" id="quantity" value="" formControlName="quantity">
                               <p style="color: red" *ngIf="formAddProduct.get('quantity')?.errors?.['required'] && formAddProduct.get('quantity')?.dirty">Vui lòng nhập số lượng sản phẩm</p>
                           </div>
 
                           <div class="form-group">
-                            <label>Status</label><br>
-                              <input name="status" type="radio" value="true" formControlName="status"> Enable |
-                              <input name="status" type="radio" value="false" formControlName="status"> Disable
+                            <label>Trạng thái</label><br>
+                              <input name="status" type="radio" value="true" formControlName="status"> Kích hoạt |
+                              <input name="status" type="radio" value="false" formControlName="status"> Hủy kích hoạt
                           </div>
                            <tr>
-                            <th>Category</th>
+                            <th>Danh mục của sản phẩm</th>
                             <td>
                               <select style="margin-left: 20px;" class="form-select" aria-label="Default select example"  formControlName="category">
-                                <option value="" disabled>Choose category</option>
+                                <option value="" disabled>Chọn danh mục cho sản phẩm</option>
                                 <option *ngFor="let c of categories" value="{{c.categoryId}}">{{c.categoryName}}</option>
                               </select>
                             </td>
                           </tr>
                           <br>
                           <div class="editButton">
-                            <button [disabled]="formAddProduct.invalid" type="submit" class="btn btn-primary">Save</button>
-                            <a class="btn btn-primary" routerLink="/admin/listProducts">Display List Product</a>
+                            <button [disabled]="formAddProduct.invalid" type="submit" class="btn btn-primary">Lưu sản phẩm</button>
+                            <a class="btn btn-primary" routerLink="/admin/listProducts">Xem danh sách sản phẩm</a>
                           </div>
                       </form>
                   </div>

@@ -4,8 +4,8 @@
           <div class="col-12">
               <div class="breadcrumb_content">
                   <ul>
-                      <li><a href="index.html">home</a></li>
-                      <li>Shopping Cart</li>
+                      <li><a href="index.html">Trang chủ</a></li>
+                      <li>Giỏ hàng</li>
                   </ul>
               </div>
           </div>
@@ -25,13 +25,13 @@
                           <table>
                               <thead>
                                   <tr>
-                                      <th class="product_remove">Delete</th>
-                                      <th class="product_thumb">Image</th>
-                                      <th class="product_name">Product</th>
-                                      <th class="product-price">Price</th>
-                                      <th class="product-color">Color</th>
-                                      <th class="product_quantity">Quantity</th>
-                                      <th class="product_total">Total</th>
+                                      <th class="product_remove">Xóa sản phẩm khỏi giỏ</th>
+                                      <th class="product_thumb">Ảnh</th>
+                                      <th class="product_name">Tên sản phẩm</th>
+                                      <th class="product-price">Giá</th>
+                                      <th class="product-color">Màu</th>
+                                      <th class="product_quantity">Số lượng</th>
+                                      <th class="product_total">Tổng giá</th>
                                   </tr>
                               </thead>
                               <tbody>
@@ -63,7 +63,7 @@
                           </table>
                       </div>
                       <div class="cart_submit">
-                        <button (click)="reloadCurrentPage()" type="submit">update cart</button>
+                        <button (click)="reloadCurrentPage()" type="submit">Cập nhật giỏ hàng</button>
                       </div>
                   </div>
               </div>
@@ -77,7 +77,7 @@
                           <div class="coupon_inner">
                               <p>Nhập mã giảm giá mà bạn có.</p>
                               <form method="get" enctype="multipart/form-data" [formGroup]="formUsePromotion" (ngSubmit)="userPromotion()">
-                                <input [(ngModel)]="emptyText" placeholder="Coupon code" type="text" name="code" formControlName="code">
+                                <input [(ngModel)]="emptyText" placeholder="Nhập mã giảm giá" type="text" name="code" formControlName="code">
                                 <button type="submit">Sử dụng</button>
                                 <button (click)="cancelCode()" class="bg-gradient-red" style="margin-left: 5px;">Hủy mã</button>
                               </form>

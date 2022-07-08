@@ -27,11 +27,11 @@
                       <div class="form-group">
                         <p>
                           <label>Tên đăng nhập <span>*</span></label>
-                          <input type="text" class="form-control" name="userName" placeholder="Enter username" id="userName" formControlName="userName">
+                          <input type="text" class="form-control" name="userName" placeholder="Nhập tên đăng nhập" id="userName" formControlName="userName">
                           <p style="color: red" *ngIf="formLogin.get('userName')?.errors?.['required'] && formLogin.get('userName')?.dirty">Vui lòng nhập tên đăng nhập</p>
                         <p>
                           <label>Mật khẩu <span>*</span></label>
-                          <input type="password" class="form-control" name="password" placeholder="Enter password" id="password" formControlName="password">
+                          <input type="password" class="form-control" name="password" placeholder="Nhập mật khẩu" id="password" formControlName="password">
                           <p style="color: red" *ngIf="formLogin.get('password')?.errors?.['required'] && formLogin.get('password')?.dirty">Vui lòng nhập mật khẩu</p>
                         <div class="login_submit" style="display: flex; justify-content: space-between">
                           <p class="error" style="color: red; font-weight: bold;" [ngStyle]="{'visibility':checkLogin == true || checkLogin == null ? 'hidden' : 'visible'}">Sai tài khoản mật khẩu</p>
@@ -50,31 +50,31 @@
                   <form method="post" enctype="multipart/form-data" [formGroup]="formRegister" (ngSubmit)="register()">
                       <p>
                         <label>Tên đăng nhập <span>*</span></label>
-                          <input type="text" class="form-control" name="userName" placeholder="Enter username" id="userNameForUR" formControlName="userName">
+                          <input type="text" class="form-control" name="userName" placeholder="Nhập tên đăng nhập" id="userNameForUR" formControlName="userName">
                           <p style="color: red" *ngIf="formRegister.get('userName')?.errors?.['required'] && formRegister.get('userName')?.dirty">Vui lòng nhập tên đăng nhập</p>
                       <p>
                         <label>Mật khẩu <span>*</span></label>
-                          <input type="password" class="form-control" name="password" placeholder="Enter password" id="passwordForUR" formControlName="password">
+                          <input type="password" class="form-control" name="password" placeholder="Nhập mật khẩu" id="passwordForUR" formControlName="password">
                           <p style="color: red" *ngIf="formRegister.get('password')?.errors?.['required'] && formRegister.get('password')?.dirty">Vui lòng nhập mật khẩu</p>
 
                           <label style="margin-top: 5px">Họ tên <span>*</span></label>
                           <input field="" type="text" class="form-control"
-                               name="fullName" placeholder="Nhập tên người nhận hàng" id="fullNameForUR" formControlName="fullName">
+                               name="fullName" placeholder="Nhập họ tên" id="fullNameForUR" formControlName="fullName">
                           <p style="color: red" *ngIf="formRegister.get('fullName')?.errors?.['required'] && formRegister.get('fullName')?.dirty">Vui lòng nhập họ tên</p>
 
                           <label style="margin-top: 25px;">Địa chỉ <span>*</span></label>
                           <input field="" type="text" class="form-control"
-                               name="address" placeholder="Nhập địa chỉ người nhận hàng" id="addressForUR" formControlName="address">
+                               name="address" placeholder="Nhập địa chỉ" id="addressForUR" formControlName="address">
                           <p style="color: red" *ngIf="formRegister.get('address')?.errors?.['required'] && formRegister.get('address')?.dirty">Vui lòng nhập địa chỉ</p>
 
                           <label style="margin-top: 25px;">Số điện thoại<span>*</span></label>
                           <input field="" type="text" class="form-control"
-                               name="phone" placeholder="Nhập số điện thoại người nhận hàng" id="phoneForUR" formControlName="phone">
+                               name="phone" placeholder="Nhập số điện thoại liên hệ" id="phoneForUR" formControlName="phone">
                           <p style="color: red" *ngIf="formRegister.get('phone')?.errors?.['required'] && formRegister.get('phone')?.dirty">Vui lòng nhập số điện thoại</p>
 
                           <label style="margin-top: 25px;"> Địa chỉ email <span>*</span></label>
                           <input field="" type="text" class="form-control"
-                               name="email" placeholder="Nhập địa chỉ email" id="phoneForUR" formControlName="email">
+                               name="email" placeholder="Nhập địa chỉ email liên hệ" id="phoneForUR" formControlName="email">
                           <p style="color: red" *ngIf="formRegister.get('email')?.errors?.['required'] && formRegister.get('email')?.dirty">Vui lòng nhập địa chỉ email</p>
                       <div class="login_submit">
                           <button style="margin-top: 10px;" *ngIf="formRegister.valid" type="submit">Đăng ký</button>
