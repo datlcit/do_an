@@ -57,8 +57,4 @@ export class HomeComponent implements OnInit {
       }
     })
   }
-
-  clickToDetail(productId: any){
-    this.router.navigate(['productDetail/'+productId]);
-  }
 }

@@ -118,21 +118,23 @@
           <div class="tab-pane fade show active" id="Products3" role="tabpanel">
               <div class="row">
                 <div class="class_ngFor col-4" *ngFor="let p of newProduct">
-                  <article (click)="clickToDetail(p.productId)" class="single_product">
-                    <figure>
-                        <div style="display: flex; justify-content:center" class="product_thumb">
-                            <a class="primary_img" href="javascript:void(0)"><img
-                                    src="{{p.productImage}}" alt=""></a>
-                        </div>
-                        <figcaption class="product_content">
-                            <div class="price_box">
-                                <!-- <span class="old_price">{{p.old_price_view}} VND</span> <br> -->
-                                <span class="current_price">{{p.price}} VND</span>
-                            </div>
-                            <h3 class="product_name"><a href="product-details.html">{{p.productName}} hàng chính hãng 100%</a></h3>
-                        </figcaption>
-                    </figure>
-                  </article>
+                  <a href="/productDetail/{{p.productId}}">
+                    <article class="single_product">
+                      <figure>
+                          <div style="display: flex; justify-content:center" class="product_thumb">
+                              <a class="primary_img" href="/productDetail/{{p.productId}}"><img
+                                      src="{{p.productImage}}" alt=""></a>
+                          </div>
+                          <figcaption class="product_content">
+                              <div class="price_box">
+                                  <!-- <span class="old_price">{{p.old_price_view}} VND</span> <br> -->
+                                  <span class="current_price">{{p.price}} VND</span>
+                              </div>
+                              <h3 class="product_name"><a href="/productDetail/{{p.productId}}">{{p.productName}} hàng chính hãng 100%</a></h3>
+                          </figcaption>
+                      </figure>
+                    </article>
+                  </a>
                 </div>
               </div>
           </div>
@@ -155,21 +157,23 @@
         <div class="tab-pane fade show active" id="Bestseller" role="tabpanel">
             <div class="row editStyle">
                 <div class="class_ngFor col-4" *ngFor="let p of bestSellerProduct">
-                  <article (click)="clickToDetail(p.productId)" class="single_product">
-                    <figure>
-                        <div style="display: flex; justify-content:center" class="product_thumb">
-                            <a class="primary_img" href="javascript:void(0)"><img
-                                    src="{{p.productImage}}" alt=""></a>
-                        </div>
-                        <figcaption class="product_content">
-                            <div class="price_box">
-                                <!-- <span class="old_price">{{p.old_price_view}} VND</span> <br> -->
-                                <span class="current_price">{{p.price}} VND</span>
-                            </div>
-                            <h3 class="product_name"><a href="product-details.html">{{p.productName}} hàng chính hãng 100%</a></h3>
-                        </figcaption>
-                    </figure>
-                  </article>
+                  <a href="/productDetail/{{p.productId}}">
+                    <article class="single_product">
+                      <figure>
+                          <div style="display: flex; justify-content:center" class="product_thumb">
+                              <a class="primary_img" href="/productDetail/{{p.productId}}"><img
+                                      src="{{p.productImage}}" alt=""></a>
+                          </div>
+                          <figcaption class="product_content">
+                              <div class="price_box">
+                                  <!-- <span class="old_price">{{p.old_price_view}} VND</span> <br> -->
+                                  <span class="current_price">{{p.price}} VND</span>
+                              </div>
+                              <h3 class="product_name"><a href="/productDetail/{{p.productId}}">{{p.productName}} hàng chính hãng 100%</a></h3>
+                          </figcaption>
+                      </figure>
+                    </article>
+                  </a>
                 </div>
 
             </div>

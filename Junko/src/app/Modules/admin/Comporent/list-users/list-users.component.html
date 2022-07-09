@@ -32,7 +32,9 @@
                       <td>{{c.admin}}</td>
                       <td>{{c.createAt}}</td>
                       <td>{{c.customerId}}</td>
-                      <td>{{c.status}}</td>
+                      <td>
+                        <input [ngStyle]="{'color':c.status == true ? 'black' : 'red'}" style="border: none; width: 50px" type="text" disabled [(ngModel)]="c.status" name="status">
+                      </td>
                       <thead class="editButton">
                         <a (click)="enable(c.userId)" *ngIf="c.admin != true && c.status == false" class="btn btn-primary btn-sm"
                           href="javascript:void(0)" style="margin: 0 3px">Kích hoạt</a>
