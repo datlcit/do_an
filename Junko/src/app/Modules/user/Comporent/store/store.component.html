@@ -74,6 +74,7 @@
               <!--shop toolbar end-->
               <div class="row shop_wrapper">
                   <div class="col-lg-3 col-md-4 col-12 class_ngFor" *ngFor="let p of shop_product">
+                    <a href="/productDetail/{{p.productId}}">
                       <article class="single_product">
                           <figure>
                               <div class="product_thumb editProductThumb">
@@ -87,14 +88,14 @@
                                   </div>
                                   <div class="product_ratings">
                                       <ul>
-                                          <li><a href="#"><i class="ion-android-star-outline"></i></a></li>
-                                          <li><a href="#"><i class="ion-android-star-outline"></i></a></li>
-                                          <li><a href="#"><i class="ion-android-star-outline"></i></a></li>
-                                          <li><a href="#"><i class="ion-android-star-outline"></i></a></li>
-                                          <li><a href="#"><i class="ion-android-star-outline"></i></a></li>
+                                          <li><a href="/productDetail/{{p.productId}}"><i class="ion-android-star-outline"></i></a></li>
+                                          <li><a href="/productDetail/{{p.productId}}"><i class="ion-android-star-outline"></i></a></li>
+                                          <li><a href="/productDetail/{{p.productId}}"><i class="ion-android-star-outline"></i></a></li>
+                                          <li><a href="/productDetail/{{p.productId}}"><i class="ion-android-star-outline"></i></a></li>
+                                          <li><a href="/productDetail/{{p.productId}}"><i class="ion-android-star-outline"></i></a></li>
                                       </ul>
                                   </div>
-                                  <h3 class="product_name grid_name"><a href="product-details.html">{{p.productName}}</a></h3>
+                                  <h3 class="product_name grid_name"><a href="/productDetail/{{p.productId}}">{{p.productName}}</a></h3>
                               </div>
                               <div class="product_content list_content">
                                   <div class="left_caption">
@@ -102,41 +103,24 @@
                                           <!-- <span class="old_price">{{p.old_price_view}}</span> -->
                                           <span class="current_price">{{p.price}} VNĐ</span>
                                       </div>
-                                      <h3 class="product_name"><a href="product-details.html">{{p.productName}} hàng chính hãng 100%</a></h3>
+                                      <h3 class="product_name"><a href="/productDetail/{{p.productId}}">{{p.productName}} hàng chính hãng 100%</a></h3>
                                       <div class="product_ratings">
                                           <ul>
-                                              <li><a href="#"><i class="ion-android-star-outline"></i></a></li>
-                                              <li><a href="#"><i class="ion-android-star-outline"></i></a></li>
-                                              <li><a href="#"><i class="ion-android-star-outline"></i></a></li>
-                                              <li><a href="#"><i class="ion-android-star-outline"></i></a></li>
-                                              <li><a href="#"><i class="ion-android-star-outline"></i></a></li>
+                                              <li><a href="/productDetail/{{p.productId}}"><i class="ion-android-star-outline"></i></a></li>
+                                              <li><a href="/productDetail/{{p.productId}}"><i class="ion-android-star-outline"></i></a></li>
+                                              <li><a href="/productDetail/{{p.productId}}"><i class="ion-android-star-outline"></i></a></li>
+                                              <li><a href="/productDetail/{{p.productId}}"><i class="ion-android-star-outline"></i></a></li>
+                                              <li><a href="/productDetail/{{p.productId}}"><i class="ion-android-star-outline"></i></a></li>
                                           </ul>
                                       </div>
                                       <div class="product_desc">
                                           <p>{{p.description}}</p>
                                       </div>
                                   </div>
-                                  <div class="right_caption">
-                                      <div (click)="addTotal(p.price)"class="add_to_cart">
-                                          <button title="add to cart">Thêm vào giỏ hàng</button>
-                                      </div>
-                                      <div class="action_links editShopList">
-                                          <ul>
-                                              <li (click)="addToWishList(p.productId)" class="wishlist wishlistShopList"><button href="wishlist.html"
-                                                      title="Add to Wishlist"><i class="fa fa-heart-o"
-                                                          aria-hidden="true"></i>Yêu thích</button></li>
-                                              <!-- <li class="compare"><a href="#" title="compare"><span
-                                                          class="ion-levels"></span> Compare</a></li> -->
-                                              <li class="quick_button"><a href="#" data-bs-toggle="modal"
-                                                      data-bs-target="#modal_box" title="quick view"> <span
-                                                          class="ion-ios-search-strong"></span> Xem nhanh sản phẩm</a>
-                                              </li>
-                                          </ul>
-                                      </div>
-                                  </div>
                               </div>
                           </figure>
                       </article>
+                    </a>
                   </div>
               </div>
 

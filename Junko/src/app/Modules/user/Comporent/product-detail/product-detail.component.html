@@ -47,7 +47,7 @@
                       <div class="product_variant color">
                           <h3>Lựa chọn màu</h3>
                           <ul style="margin-top: 10px;" class="ul-color">
-                            <li *ngFor="let c of dataProduct.color" (click)="chooseColor(c)"><p>{{c}}</p></li>
+                            <li [ngStyle]="{'background-color':dataHasOneImg.color == c ? 'gold' : 'black'}" *ngFor="let c of dataProduct.color" (click)="chooseColor(c)"><p>{{c}}</p></li>
                           </ul>
 
                       </div>
