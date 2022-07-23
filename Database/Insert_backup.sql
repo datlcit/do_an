@@ -123,6 +123,44 @@ insert into UserRoles(userId, roleId) values
 
 select * from UserRoles
 
+select * from Product
+
+select * from ConfigurationDetail
+
+insert into ConfigurationDetail(screenTechnology, cpu, wideScreen, resolution, mobileNetwork, simSlotNumber, battery, connector, productId) values
+(N'OLED', N'Apple A14 Bionic 6 nhân', N'6.1', N'1170 x 2532 Pixels', N'Hỗ trợ 5G', N'1 Nano SIM & 1 eSIM', N'2815 mAh', N'Lightning', 'P101'),
+(N'OLED', N'Apple A14 Bionic 6 nhân', N'6.1', N'1170 x 2532 Pixels', N'Hỗ trợ 5G', N'1 Nano SIM & 1 eSIM', N'2815 mAh', N'Lightning', 'P102'),
+(N'OLED', N'Apple A14 Bionic 6 nhân', N'6.1', N'1170 x 2532 Pixels', N'Hỗ trợ 5G', N'1 Nano SIM & 1 eSIM', N'2815 mAh', N'Lightning', 'P103'),
+(N'OLED', N'Apple A14 Bionic 6 nhân', N'5.4', N'Full HD+ (1080 x 2340 Pixels)', N'Hỗ trợ 5G', N'1 Nano SIM & 1 eSIM', N'2227 mAh', N'Lightning', 'P111'),
+(N'OLED', N'Apple A14 Bionic 6 nhân', N'5.4', N'Full HD+ (1080 x 2340 Pixels)', N'Hỗ trợ 5G', N'1 Nano SIM & 1 eSIM', N'2227 mAh', N'Lightning', 'P112'),
+(N'OLED', N'Apple A14 Bionic 6 nhân', N'5.4', N'Full HD+ (1080 x 2340 Pixels)', N'Hỗ trợ 5G', N'1 Nano SIM & 1 eSIM', N'2227 mAh', N'Lightning', 'P113'),
+(N'OLED', N'Apple A15 Bionic 6 nhân', N'6.1 inch', N'1170 x 2532 Pixels', N'Hỗ trợ 5G', N'1 Nano SIM & 1 eSIM', N'3,095 mAh', N'Lightning', 'P121'),
+(N'OLED', N'Apple A15 Bionic 6 nhân', N'6.1 inch', N'1170 x 2532 Pixels', N'Hỗ trợ 5G', N'1 Nano SIM & 1 eSIM', N'3,095 mAh', N'Lightning', 'P122'),
+(N'OLED', N'Apple A15 Bionic 6 nhân', N'6.1 inch', N'1170 x 2532 Pixels', N'Hỗ trợ 5G', N'1 Nano SIM & 1 eSIM', N'3,095 mAh', N'Lightning', 'P123'),
+(N'OLED', N'Apple A15 Bionic 6 nhân', N'6.7 inch', N'1284 x 2778 Pixels', N'Hỗ trợ 5G', N'1 Nano SIM & 1 eSIM', N'4.400 mAh', N'Lightning', 'P131'),
+(N'OLED', N'Apple A15 Bionic 6 nhân', N'6.7 inch', N'1284 x 2778 Pixels', N'Hỗ trợ 5G', N'1 Nano SIM & 1 eSIM', N'4.400 mAh', N'Lightning', 'P132'),
+(N'OLED', N'Apple A15 Bionic 6 nhân', N'6.7 inch', N'1284 x 2778 Pixels', N'Hỗ trợ 5G', N'1 Nano SIM & 1 eSIM', N'4.400 mAh', N'Lightning', 'P133'),
+(N'OLED', N'Apple A15 Bionic 6 nhân', N'6.7 inch', N'1284 x 2778 Pixels', N'Hỗ trợ 5G', N'1 Nano SIM & 1 eSIM', N'4.400 mAh', N'Lightning', 'P134'),
+(N'Dynamic AMOLED 2X', N'Snapdragon 888 8 nhân', N'6.7', N'Full HD+ (1080 x 2640 Pixels)', N'Hỗ trợ 5G', N'1 Nano SIM & 1 eSIM', N'3300 mAh', N'Type-C', 'P201'),
+(N'Dynamic AMOLED 2X', N'Snapdragon 888 8 nhân', N'6.7', N'Full HD+ (1080 x 2640 Pixels)', N'Hỗ trợ 5G', N'1 Nano SIM & 1 eSIM', N'3300 mAh', N'Type-C', 'P202'),
+(N'Dynamic AMOLED 2X', N'Snapdragon 888 8 nhân', N'7.6 inch', N'Full HD+ (1768 x 2208 Pixels)', N'Hỗ trợ 5G', N'2 Nano SIM', N'4400 mAh', N'Type-C', 'P211'),
+(N'Dynamic AMOLED 2X', N'Snapdragon 888 8 nhân', N'7.6 inch', N'Full HD+ (1768 x 2208 Pixels)', N'Hỗ trợ 5G', N'2 Nano SIM', N'4400 mAh', N'Type-C', 'P212'),
+(N'Dynamic AMOLED 2X, 10 - 120 Hz, Infinity O', N'Snapdragon® 8 Gen 1 (4nm)', N'6.1', N'2340 x 1080', N'Hỗ trợ 5G', N'1 nano SIM + 1 e-SIM', N'3700 mAh', N'Type-C', 'P221'),
+(N'Dynamic AMOLED 2X, 10 - 120 Hz, Infinity O', N'Snapdragon® 8 Gen 1 (4nm)', N'6.1', N'2340 x 1080', N'Hỗ trợ 5G', N'1 nano SIM + 1 e-SIM', N'3700 mAh', N'Type-C', 'P222'),
+(N'Dynamic AMOLED 2X', N'Snapdragon® 8 Gen 1 (4nm)', N'6.8', N'3088 x 1440', N'5G', N'1 nano SIM + 1 e-SIM', N'5000 mAh', N'Type-C', 'P231'),
+(N'Dynamic AMOLED 2X', N'Snapdragon® 8 Gen 1 (4nm)', N'6.8', N'3088 x 1440', N'5G', N'1 nano SIM + 1 e-SIM', N'5000 mAh', N'Type-C', 'P232'),
+(N'Dynamic AMOLED 2X', N'Snapdragon® 8 Gen 1 (4nm)', N'6.8', N'3088 x 1440', N'5G', N'1 nano SIM + 1 e-SIM', N'5000 mAh', N'Type-C', 'P233'),
+(N'AMOLED 90Hz', N'Snapdragon 680 8 nhân', N'6.43 inches', N'1080 x 2400 pixels (FullHD+)', N'LTE', N'2 SIM (Nano-SIM)', N'Li-Po 5000 mAh', N'Type-C', 'P301'),
+(N'AMOLED 90Hz', N'Snapdragon 680 8 nhân', N'6.43 inches', N'1080 x 2400 pixels (FullHD+)', N'LTE', N'2 SIM (Nano-SIM)', N'Li-Po 5000 mAh', N'Type-C', 'P302'),
+(N'AMOLED', N'MediaTek Helio G96 8 nhân', N'6.67', N'Full HD+ (1080 x 2400 Pixels)', N'Hỗ trợ 4G', N'2 Nano SIM (SIM 2 chung khe thẻ nhớ)', N'5000 mAh', N'Type-C', 'P311'),
+(N'AMOLED', N'Snapdragon 695 5G 8 nhân', N'6.67', N'Full HD+ (1080 x 2400 Pixels)', N'Hỗ trợ 5G', N'2 Nano SIM (SIM 2 chung khe thẻ nhớ)', N'5000 mAh', N'Type-C', 'P312'),
+(N'AMOLED', N'Qualcomm SM8450 Snapdragon 8 Gen 1 (4 nm), 8 nhân', N'6.28 inches', N'1080 x 2400 pixels', N'1, 2, 3, 4, 5, 7, 8, 12, 17, 18, 19, 26, 34, 38, 39, 40, 41, 42', N'2 SIM, Nano SIM', N'Li-Po 4500mAh', N'Type-C', 'P321'),
+(N'LTPO AMOLED, 120Hz, HDR10+', N'Qualcomm SM8450 Snapdragon 8 Gen1 (4 nm), 8 nhân', N'6.73 inches', N'QuadHD+ (1440 x 3200 pixels)', N'LTE', N'2 Nano SIM', N'Li-Po 4600 mAh, sạc nhanh 120W', N'Type-C', 'P322'),
+(N'IPS LCD', N'MediaTek Helio G35 8 nhân', N'6.53', N'HD+ (720 x 1600 Pixels)', N'Hỗ trợ 4G', N'2 Nano SIM', N'5000 mAh', N'Type-C', 'P331'),
+(N'IPS LCD', N'MediaTek Helio G35 8 nhân', N'6.53', N'HD+ (720 x 1600 Pixels)', N'Hỗ trợ 4G', N'2 Nano SIM', N'5000 mAh', N'Type-C', 'P332'),
+(N'AMOLED', N'Snapdragon 778G 5G 8 nhân', N'6,55 inch', N'Full HD+ (1080 x 2400 Pixels)', N'Hỗ trợ 5G', N'2 Nano SIM (SIM 2 chung khe thẻ nhớ)', N'4250 mAh', N'Type-C', 'P341'),
+(N'AMOLED', N'Snapdragon 778G 5G 8 nhân', N'6,55 inch', N'Full HD+ (1080 x 2400 Pixels)', N'Hỗ trợ 5G', N'2 Nano SIM (SIM 2 chung khe thẻ nhớ)', N'4250 mAh', N'Type-C', 'P342')
+
 UPDATE Product
 SET description = N'Thiết kế được làm mới lại hoàn toàn
 Nhắc tới Apple, người dùng sẽ luôn nghĩ tới những thiết bị iPhone đẳng cấp, mang trên mình một thiết kế vô cùng sang trọng, hiện đại và thời thượng. Và iPhone 12 Series của năm nay cũng không phải là một ngoại lệ. Mẫu iPhone 12 64GB sở hữu một thiết kế đã được “lột xác” hoàn toàn so với các thế hệ tiền nhiệm trước đây với cạnh được vát phẳng, vuông thành sắc cạnh, mang tới một cảm giác cực kì bền bỉ và chắc chắn. Thiết kế này khiến cho người dùng có thể dễ dàng liên tưởng tới những mẫu iPhone huyền thoại trước đây đã làm nên tên tuổi của Apple như iPhone 4 hoặc iPhone 5.

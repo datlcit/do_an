@@ -1,3 +1,14 @@
-/* .ul-color li:first-child{
+.button-cfg{
+  width: 300px;
+  margin-top: 20px;
+  background-color: black;
+  color: #FFFFFF;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+.button-cfg:hover{
+  color: #000;
   background-color: gold;
-} */
+}

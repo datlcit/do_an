@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ConfigurationDetailAdminService } from 'src/app/Modules/admin/adminServices/configuration-detail-admin.service';
 import { join } from 'src/assets/plugins/uplot/uPlot';
 import { LazyLoadServiceService } from '../../userServices/lazy-load-service.service';
 import { ProductService } from '../../userServices/product.service';
@@ -11,7 +12,7 @@ import { ProductService } from '../../userServices/product.service';
 })
 export class ProductDetailComponent implements OnInit {
 
-  constructor(private lazyLoad: LazyLoadServiceService, private router: ActivatedRoute, private productService: ProductService) { }
+  constructor(private lazyLoad: LazyLoadServiceService, private router: ActivatedRoute, private productService: ProductService, private cfgService: ConfigurationDetailAdminService) { }
 
   dataProduct: any;
   ngOnInit(): void {
@@ -22,7 +23,7 @@ export class ProductDetailComponent implements OnInit {
 
     this.getProduct();
     this.getDataHasOneImg();
-
+    this.loadConfg();
   }
   mainImg:any;
   //function đẩy đối tượng vào trang
@@ -102,6 +103,18 @@ export class ProductDetailComponent implements OnInit {
 
 replaceImg(img:any){
   this.mainImg = img;
+}
+
+cfg: any = null;
+loadConfg(){
+  this.cfgService.get().subscribe(res =>{
+    for(let c of res){
+      if(c.product.productId == this.router.snapshot.params['productId']){
+        this.cfg = c;
+        break;
+      }
+    }
+  })
 }
 
 }

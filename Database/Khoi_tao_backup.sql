@@ -145,3 +145,17 @@ create table FeedBack(
 	status bit
 )
 go
+
+create table ConfigurationDetail(
+	configurationDetailId int primary key identity(1,1),
+	screenTechnology ntext,
+	cpu ntext,
+	wideScreen ntext,
+	resolution ntext,
+	mobileNetwork ntext,
+	simSlotNumber ntext,
+	battery ntext,
+	connector ntext,
+	productId varchar(10) foreign key references Product(productId)
+)
+go

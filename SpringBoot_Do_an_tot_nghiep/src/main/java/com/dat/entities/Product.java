@@ -76,6 +76,10 @@ public class Product {
 	@JsonIgnore
 	@OneToMany(mappedBy = "product", fetch = FetchType.EAGER)
 	private List<Cart> carts;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "product", fetch = FetchType.EAGER)
+	private List<ConfigurationDetail> configurationDetails;
 
 	public Product() {
 		this.createAt = new Date(System.currentTimeMillis());
@@ -86,7 +90,7 @@ public class Product {
 	public Product(String productId, String productName, String productImage, double price, String ram, String storage,
 			String color, String description, Date createAt, Date updateAt, int quantity, boolean status,
 			int numberOfSales, Category category, List<FeedBack> feedBacks, List<OrderDetail> orderDetails,
-			List<Cart> carts) {
+			List<Cart> carts, List<ConfigurationDetail> configurationDetails) {
 		super();
 		this.productId = productId;
 		this.productName = productName;
@@ -105,6 +109,7 @@ public class Product {
 		this.feedBacks = feedBacks;
 		this.orderDetails = orderDetails;
 		this.carts = carts;
+		this.configurationDetails = configurationDetails;
 	}
 
 	public String getProductId() {
@@ -243,6 +248,14 @@ public class Product {
 		this.carts = carts;
 	}
 
-		
+	public List<ConfigurationDetail> getConfigurationDetails() {
+		return configurationDetails;
+	}
+
+	public void setConfigurationDetails(List<ConfigurationDetail> configurationDetails) {
+		this.configurationDetails = configurationDetails;
+	}
+
+	
 	
 }

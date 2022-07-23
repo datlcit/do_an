@@ -71,7 +71,27 @@
                                   linked</a></li>
                       </ul>
                   </div>
-
+                  <button class="button-cfg" data-bs-toggle="collapse" href="#config-area" role="button" aria-expanded="false" aria-controls="main_all_tours_map">NHẤN ĐỂ XEM CẤU HÌNH SẢN PHẨM</button>
+                  <div class="collapse" id="config-area">
+                    <div class="config-detail" style="margin-top: 20px; display: flex; justify-content: center; background-color: steelblue; border-radius: 5px;">
+                      <div class="config-detail-img" style="display: flex; justify-content: center; align-items: center;">
+                        <img style="width: 300px;" src="{{dataProduct.productImage[0]}}" alt="">
+                      </div>
+                      <div class="content-detail" style="color: #fff; padding: 15px 0px;">
+                        <p style="text-transform: uppercase; font-weight: bold;"><span style="margin: 20px 0px;">Thông tin cấu hình sản phẩm</span><br>{{dataProduct.productName}}</p>
+                        <p><span style="font-weight: bold; margin: 20px 0px;">Công nghệ màn hình:</span> {{cfg.screenTechnology}}</p>
+                        <p><span style="font-weight: bold; margin: 20px 0px;">CPU:</span> {{cfg.cpu}}</p>
+                        <p><span style="font-weight: bold; margin: 20px 0px;">Độ rộng màn hình:</span> {{cfg.wideScreen}}</p>
+                        <p><span style="font-weight: bold; margin: 20px 0px;">Độ phân giải:</span> {{cfg.resolution}}</p>
+                        <p><span style="font-weight: bold; margin: 20px 0px;">RAM:</span> {{dataProduct.ram}}</p>
+                        <p><span style="font-weight: bold; margin: 20px 0px;">Bộ nhớ trong (ROM):</span> {{dataProduct.storage}}</p>
+                        <p><span style="font-weight: bold; margin: 20px 0px;">Mạng di động:</span> {{cfg.mobileNetwork}}</p>
+                        <p><span style="font-weight: bold; margin: 20px 0px;">Số khe SIM:</span> {{cfg.simSlotNumber}}</p>
+                        <p><span style="font-weight: bold; margin: 20px 0px;">Pin:</span> {{cfg.battery}}</p>
+                        <p><span style="font-weight: bold; margin: 20px 0px;">Cổng kết nối/sạc:</span> {{cfg.connector}}</p>
+                      </div>
+                    </div>
+                  </div>
               </div>
           </div>
           <div class="col-12">

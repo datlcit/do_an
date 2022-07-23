@@ -160,6 +160,7 @@ drop table Cart
 drop table Customer
 drop table UserRoles
 drop table Users
+drop table ConfigurationDetail
 
 select * from Product p
 order by p.productName desc
