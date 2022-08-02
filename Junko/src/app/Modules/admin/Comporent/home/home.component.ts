@@ -21,6 +21,7 @@ export class HomeComponent implements OnInit {
   listOrders: Array<any> = [];
   countOrder:number = 0;
   totalPrice:number = 0;
+  totalString:any = null;
   loadOrders(){
     this.orderService.get().subscribe(res => {
       this.listOrders = res;
@@ -28,6 +29,7 @@ export class HomeComponent implements OnInit {
         this.countOrder++;
         this.totalPrice += o.total;
       }
+      this.totalString = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(this.totalPrice)
     })
   }
 

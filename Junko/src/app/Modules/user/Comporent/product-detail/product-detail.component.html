@@ -41,7 +41,7 @@
 
                       <h1>{{dataProduct.productName}}</h1>
                       <div class="price_box">
-                          <span class="current_price">{{dataProduct.price}} đ </span> <br>
+                          <span class="current_price">{{priceString}}</span> <br>
 
                       </div>
                       <div class="product_variant color">
@@ -54,6 +54,10 @@
                       <div class="product_variant quantity">
                           <a (click)="buy(dataHasOneImg)" (click)="addTotal(dataProduct.price)" class="button">Thêm vào giỏ hàng</a>
 
+                      </div>
+
+                      <div style="margin-bottom: 20px;">
+                        <p style="font-weight: bold; font-size: medium">Đã bán được: {{dataProduct.numberOfSales}} sản phẩm</p>
                       </div>
 
                   </form>
@@ -77,11 +81,11 @@
                       <div class="config-detail-img" style="display: flex; justify-content: center; align-items: center;">
                         <img style="width: 300px;" src="{{dataProduct.productImage[0]}}" alt="">
                       </div>
-                      <div class="content-detail" style="color: #fff; padding: 15px 0px;">
+                      <div class="content-detail" style="color: #fff; padding: 15px 10px 15px 0px;">
                         <p style="text-transform: uppercase; font-weight: bold;"><span style="margin: 20px 0px;">Thông tin cấu hình sản phẩm</span><br>{{dataProduct.productName}}</p>
                         <p><span style="font-weight: bold; margin: 20px 0px;">Công nghệ màn hình:</span> {{cfg.screenTechnology}}</p>
                         <p><span style="font-weight: bold; margin: 20px 0px;">CPU:</span> {{cfg.cpu}}</p>
-                        <p><span style="font-weight: bold; margin: 20px 0px;">Độ rộng màn hình:</span> {{cfg.wideScreen}}</p>
+                        <p><span style="font-weight: bold; margin: 20px 0px;">Kích thước màn hình:</span> {{cfg.wideScreen}}</p>
                         <p><span style="font-weight: bold; margin: 20px 0px;">Độ phân giải:</span> {{cfg.resolution}}</p>
                         <p><span style="font-weight: bold; margin: 20px 0px;">RAM:</span> {{dataProduct.ram}}</p>
                         <p><span style="font-weight: bold; margin: 20px 0px;">Bộ nhớ trong (ROM):</span> {{dataProduct.storage}}</p>
@@ -94,12 +98,12 @@
                   </div>
               </div>
           </div>
-          <div class="col-12">
+          <!-- <div class="col-12">
             <div style="margin-top: 20px" class="product_desc">
               <strong style="font-size: 20px; text-align: center;">Mô tả sản phẩm</strong>
               <p style="font-size: 20px; line-height: 1.8; margin-top: 20px;">{{dataProduct.description}} </p>
-          </div>
-          </div>
+            </div>
+          </div> -->
       </div>
   </div>
   </div>

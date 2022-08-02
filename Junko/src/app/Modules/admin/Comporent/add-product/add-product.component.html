@@ -2,35 +2,35 @@
   <div style="display: flex">
       <div class="container" style="padding: 0; position: relative">
           <div th:include="layout_admin/navi_bar:: navi_bar"></div>
-          <div class="container">
+          <div class="container" style="display: flex">
               <div class="row"
-                   style="border: 1px darkgrey solid; border-radius: 10px; width: 50%; margin: 30px auto; padding: 20px;">
+                   style="border: 1px darkgrey solid; border-radius: 10px; width: 50%; margin: 30px 30px 20px 0px; padding: 20px;">
                   <div class="col-sm-12">
                       <h2 class="myclass">Thêm sản phẩm</h2>
                       <form method="post" enctype="multipart/form-data" [formGroup]="formAddProduct" (ngSubmit)="addProduct()">
                         <div class="form-group">
                           <label>Mã sản phẩm</label>
-                          <input class="form-control" name="productId" placeholder="Nhập mã sản phảm" id="productId" value="" formControlName="productId">
+                          <input class="form-control" name="productId" placeholder="Nhập mã sản phẩm" id="productId" value="" formControlName="productId">
                           <p style="color: red" *ngIf="formAddProduct.get('productId')?.errors?.['required'] && formAddProduct.get('productId')?.dirty">Vui lòng nhập ID sản phẩm</p>
                         </div>
 
                           <div class="form-group">
                               <label>Tên sản phẩm</label>
-                              <input class="form-control" name="productName" placeholder="Nhập tên sản phảm" id="productName" value="" formControlName="productName">
+                              <input class="form-control" name="productName" placeholder="Nhập tên sản phẩm" id="productName" value="" formControlName="productName">
                               <p style="color: red" *ngIf="formAddProduct.get('productName')?.errors?.['required'] && formAddProduct.get('productName')?.dirty">Vui lòng nhập tên sản phẩm</p>
                           </div>
 
 
                           <div class="form-group">
                               <label>Mô tả</label>
-                              <input type="text" class="form-control" name="description" placeholder="Nhập mô tả sản phảm" id="description" value="" formControlName="description">
+                              <input type="text" class="form-control" name="description" placeholder="Nhập mô tả sản phẩm" id="description" value="" formControlName="description">
                               <p style="color: red" *ngIf="formAddProduct.get('description')?.errors?.['required'] && formAddProduct.get('description')?.dirty">Vui lòng nhập mô tả sản phẩm</p>
                           </div>
 
 
                           <div class="form-group">
-                              <label>Ảnh sản phẩm</label>
-                              <input type="text" class="form-control" name="productImage" placeholder="Đưa link ảnh sản phảm" id="productImage" value="" formControlName="productImage">
+                              <label>Ảnh sản phẩm (hai link ảnh cách nhau một dấu cách)</label>
+                              <input type="text" class="form-control" name="productImage" placeholder="Đưa link ảnh sản phẩm" id="productImage" value="" formControlName="productImage">
                               <p style="color: red" *ngIf="formAddProduct.get('productImage')?.errors?.['required'] && formAddProduct.get('productImage')?.dirty">Vui lòng nhập ảnh sản phẩm</p>
                           </div>
 
@@ -57,8 +57,8 @@
 
 
                         <div class="form-group">
-                          <label>Màu</label>
-                          <input type="text" class="form-control" name="color" placeholder="Nhập màu của sản phảm" id="color" value="" formControlName="color">
+                          <label>Màu (hai màu cách nhau một dấu chấm phẩy ";")</label>
+                          <input type="text" class="form-control" name="color" placeholder="Nhập màu của sản phẩm" id="color" value="" formControlName="color">
                           <p style="color: red" *ngIf="formAddProduct.get('color')?.errors?.['required'] && formAddProduct.get('color')?.dirty">Vui lòng nhập màu sản phẩm</p>
                         </div>
 
@@ -88,6 +88,76 @@
                             <button [disabled]="formAddProduct.invalid" type="submit" class="btn btn-primary">Lưu sản phẩm</button>
                             <a class="btn btn-primary" routerLink="/admin/listProducts">Xem danh sách sản phẩm</a>
                           </div>
+                      </form>
+                  </div>
+              </div>
+              <div class="row"
+                   style="border: 1px darkgrey solid; border-radius: 10px; width: 50%; margin: 30px 20px 200px 0px; padding: 20px;">
+                  <div class="col-sm-12">
+                      <h2 class="myclass">Thêm cấu hình sản phẩm</h2>
+                      <form method="post" enctype="multipart/form-data" [formGroup]="formAddCfg" (ngSubmit)="addCfg()">
+                        <div class="form-group">
+                          <label>Mã sản phẩm</label>
+                          <input type="text" class="form-control" name="productId" placeholder="Nhập mã sản phẩm" id="productId" formControlName="productId">
+                          <p style="color: red" *ngIf="formAddCfg.get('productId')?.errors?.['required'] && formAddCfg.get('productId')?.dirty">Vui lòng nhập ID sản phẩm</p>
+                        </div>
+                        <div class="form-group">
+                          <label>Công nghệ màn hình</label>
+                          <input type="text" class="form-control" name="screenTechnology" placeholder="Nhập công nghệ màn hình" id="screenTechnology" value="" formControlName="screenTechnology">
+                          <p style="color: red" *ngIf="formAddCfg.get('screenTechnology')?.errors?.['required'] && formAddCfg.get('screenTechnology')?.dirty">Vui lòng công nghệ màn hình sản phẩm</p>
+                        </div>
+
+                          <div class="form-group">
+                              <label>CPU</label>
+                              <input type="text" class="form-control" name="cpu" placeholder="Nhập CPU" id="cpu" value="" formControlName="cpu">
+                              <p style="color: red" *ngIf="formAddCfg.get('cpu')?.errors?.['required'] && formAddCfg.get('cpu')?.dirty">Vui lòng nhập CPU sản phẩm</p>
+                          </div>
+
+
+                          <div class="form-group">
+                              <label>Kích thước màn hình</label>
+                              <input type="text" class="form-control" name="wideScreen" placeholder="Nhập kích thước màn hình" id="wideScreen" value="" formControlName="wideScreen">
+                              <p style="color: red" *ngIf="formAddCfg.get('wideScreen')?.errors?.['required'] && formAddCfg.get('wideScreen')?.dirty">Vui lòng nhập kích thước màn hình sản phẩm</p>
+                          </div>
+
+
+                          <div class="form-group">
+                              <label>Độ phân giải</label>
+                              <input type="text" class="form-control" name="resolution" placeholder="Nhập độ phân giải" id="resolution" value="" formControlName="resolution">
+                              <p style="color: red" *ngIf="formAddCfg.get('resolution')?.errors?.['required'] && formAddCfg.get('resolution')?.dirty">Vui lòng nhập độ phân giải sản phẩm</p>
+                          </div>
+
+
+                          <div class="form-group">
+                              <label>Mạng di động</label>
+                              <input type="text" class="form-control" name="mobileNetwork" placeholder="Nhập mạng di động" id="mobileNetwork" value="" formControlName="mobileNetwork">
+                              <p style="color: red" *ngIf="formAddCfg.get('mobileNetwork')?.errors?.['required'] && formAddCfg.get('mobileNetwork')?.dirty">Vui lòng nhập mạng di động sản phẩm</p>
+                          </div>
+
+
+                          <div class="form-group">
+                            <label>Số khe sim</label>
+                            <input type="text" class="form-control" name="simSlotNumber" placeholder="Nhập số khe sim" id="simSlotNumber" value="" formControlName="simSlotNumber">
+                            <p style="color: red" *ngIf="formAddCfg.get('simSlotNumber')?.errors?.['required'] && formAddCfg.get('simSlotNumber')?.dirty">Vui lòng nhập số khe sim sản phẩm</p>
+                          </div>
+
+
+                        <div class="form-group">
+                          <label>Pin</label>
+                          <input type="text" class="form-control" name="battery" placeholder="Nhập dung lượng pin" id="battery" value="" formControlName="battery">
+                          <p style="color: red" *ngIf="formAddCfg.get('battery')?.errors?.['required'] && formAddCfg.get('battery')?.dirty">Vui lòng nhập dung lượng pin sản phẩm</p>
+                        </div>
+
+
+                        <div class="form-group">
+                          <label>Cổng kết nối/sạc</label>
+                          <input type="text" class="form-control" name="connector" placeholder="Nhập cổng kết nối/sạc" id="connector" value="" formControlName="connector">
+                          <p style="color: red" *ngIf="formAddCfg.get('connector')?.errors?.['required'] && formAddCfg.get('connector')?.dirty">Vui lòng nhập cổng kết nối/sạc sản phẩm</p>
+                        </div>
+                        <div class="editButton">
+                          <button [disabled]="formAddCfg.invalid" type="submit" class="btn btn-primary">Lưu cấu hình</button>
+                          <a class="btn btn-primary" routerLink="/admin/listProducts">Xem danh sách sản phẩm</a>
+                        </div>
                       </form>
                   </div>
               </div>

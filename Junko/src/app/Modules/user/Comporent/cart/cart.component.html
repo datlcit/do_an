@@ -46,7 +46,7 @@
                                         </a>
                                       </td>
                                       <td class="product_name"><a href="/productDetail/{{c.product.productId}}">{{c.product.productName}}</a></td>
-                                      <td class="product-price">{{c.product.price}}</td>
+                                      <td class="product-price">{{c.product.price}} ₫</td>
                                       <td class="product-color">{{c.product.color}}</td>
                                       <td class="product_quantity">
                                         <form>
@@ -54,7 +54,7 @@
                                             <input (click)="loadTotal()" min="1" type="number" (change)="updateCart()"  [(ngModel)]="c.quantity"  name="quantity" />
                                         </form>
                                       </td>
-                                      <td class="product_total">{{c.product.price * c.quantity}} VNĐ</td>
+                                      <td class="product_total">{{c.product.price * c.quantity}} ₫</td>
                                   </tr>
                                   <tr *ngIf="data.length==0">
                                     <td colspan="6">Chưa có sản phẩm trong giỏ</td>
@@ -90,23 +90,23 @@
                           <div class="coupon_inner">
                               <div class="cart_subtotal">
                                   <p>Tổng phụ</p>
-                                  <p class="cart_amount">{{subtotal}} VNĐ</p>
+                                  <p class="cart_amount">{{subtotal}} ₫</p>
                               </div>
                               <div *ngIf="subtotal != 0" class="cart_subtotal ">
                                   <p>Vận chuyển</p>
-                                  <p class="cart_amount"><span>Phí giao hàng:</span> 50000 VNĐ</p>
+                                  <p class="cart_amount"><span>Phí giao hàng:</span> 50000 ₫</p>
                               </div>
 
                               <div *ngIf="codePromotion != 0 && codePromotion.code != 'NONE' && emptyText != ''" class="cart_subtotal ">
                                 <p>Giảm giá</p>
-                                <p class="cart_amount"><span>Mã {{codePromotion.code}}:</span>-{{codePromotion.maxDiscount}} VNĐ</p>
+                                <p class="cart_amount"><span>Mã {{codePromotion.code}}:</span>-{{codePromotion.maxDiscount}} ₫</p>
                               </div>
 
                               <div *ngIf="subtotal != 0" class="cart_subtotal">
                                   <p>Đơn giá</p>
-                                  <p class="cart_amount">{{subtotal + 50000 - lastSalePrice}} VNĐ</p>
+                                  <p class="cart_amount">{{subtotal + 50000 - lastSalePrice}} ₫</p>
                               </div>
-                              <div *ngIf="subtotal != 0" class="checkout_btn">
+                              <div class="checkout_btn">
                                   <a href="javascript:void(0)" (click)="checkUser()">Tới trang thanh toán </a>
                               </div>
                           </div>

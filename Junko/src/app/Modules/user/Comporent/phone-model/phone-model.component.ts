@@ -38,6 +38,7 @@ export class PhoneModelComponent implements OnInit {
       for(let i=0;i<this.shop_product.length;i++){
         this.img = this.shop_product[i].productImage.split(" ");
         this.shop_product[i].productImage = this.img[0];
+        this.shop_product[i].price = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(this.shop_product[i].price);
       }
     })
   }

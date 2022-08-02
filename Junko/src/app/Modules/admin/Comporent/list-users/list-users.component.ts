@@ -27,6 +27,16 @@ export class ListUsersComponent implements OnInit {
     this.userAdminService.findById(id).subscribe(res => {
       if(res.status == true){
         res.status = false;
+        res.userRoles =
+          {
+            user: {
+              userId: res.userId
+            },
+            role: {
+              roleId: 2
+            }
+          }
+        console.log(res)
       }
       this.userAdminService.edit(id, res).subscribe(res2=>{
         this.loadUsers();

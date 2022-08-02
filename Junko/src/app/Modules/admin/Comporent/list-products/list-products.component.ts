@@ -24,6 +24,7 @@ export class ListProductsComponent implements OnInit {
       for(let i=0;i<this.listProducts.length;i++){
         this.colors[i] = this.listProducts[i].color.replace(/;/g, ", ");
         this.listProducts[i].color = this.colors[i];
+        this.listProducts[i].price = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(this.listProducts[i].price);
       }
     })
   }

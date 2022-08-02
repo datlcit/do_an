@@ -20,6 +20,9 @@ export class ListOrdersComponent implements OnInit {
     this.orderAdminService.get().subscribe(res => {
 
       this.listOrders = res;
+      for(let o of this.listOrders){
+        o.total = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(o.total);
+      }
     })
   }
 

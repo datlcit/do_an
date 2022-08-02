@@ -34,8 +34,7 @@ export class SidebarComponent implements OnInit {
       this.userService.get().subscribe(res => {
         for(let u of res){
           if(userName == u.userName){
-            if(u.authorities[0].authority == 'ROLE_ADMIN'){
-              // alert("Chào mừng tới giao diện admin!");
+            if(u.admin == true){
             } else {
               this.router.navigate(['/store']);
               alert("Bạn không có quyền truy cập trang này!");

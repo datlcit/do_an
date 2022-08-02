@@ -41,13 +41,13 @@ public class ConfigurationDetailController {
 	// Tao 1 doi tuong moi
 	@PostMapping
 	@CrossOrigin(origins = "*", allowedHeaders = "*", methods = RequestMethod.POST)
-	public ResponseEntity<List<ConfigurationDetail>> addCategory(@RequestBody ConfigurationDetail config) {
+	public ResponseEntity<ConfigurationDetail> addCategory(@RequestBody ConfigurationDetail config) {
 		service.save(config);
-		return new ResponseEntity<>(service.getAll(), HttpStatus.OK);
+		return new ResponseEntity<>(config, HttpStatus.OK);
 	}
 	
 	// Update doi tuong
-	@PutMapping(value = "/{categoryId}")
+	@PutMapping(value = "/{configurationDetailId}")
 	@CrossOrigin(origins = "*", allowedHeaders = "*", methods = RequestMethod.PUT)
 	public ResponseEntity<List<ConfigurationDetail>> editCategory(@PathVariable("configurationDetailId") int configurationDetailId,  @RequestBody ConfigurationDetail model) {
 		service.save(model);

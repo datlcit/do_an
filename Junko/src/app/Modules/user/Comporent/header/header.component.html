@@ -15,7 +15,7 @@
                       <div class="top_right text-right">
                           <ul class="ul-ngang">
                               <li style="display: flex; align-items: center;">
-                                <a href="/login" *ngIf="currentUser == ''"> Đăng nhập</a>
+                                <a href="/login" *ngIf="currentUser == ''"> Đăng nhập/Đăng ký</a>
                                 <p style="text-transform: lowercase; margin: 0" *ngIf="currentUser != ''"> {{currentUser}}</p>
                                 <ul *ngIf="currentUser != ''" class="menu-con">
                                   <li *ngIf="authority == 'ROLE_ADMIN'"> <a href="/admin">Tới trang quản trị</a> </li>
@@ -57,7 +57,7 @@
                                         </div>
                                         <div class="productNameAndPrice" style="margin-left: 200px; padding-right: 20px;">
                                             <p style="margin-top: 20px">{{p.productName}}</p>
-                                            <p>{{p.price}} VNĐ</p>
+                                            <p>{{p.price}}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -70,7 +70,7 @@
                               </div> -->
                               <div class="mini_cart_wrapper">
                                   <a href="/cart"><i class="fa fa-shopping-bag"
-                                          aria-hidden="true"></i>{{total+proPrice}} VNĐ <i class="fa fa-angle-down"></i></a>
+                                          aria-hidden="true"></i>{{total+proPrice}} ₫ <i class="fa fa-angle-down"></i></a>
                                   <span class="cart_quantity">{{countCart+countPro}}</span>
 
                                   <!--mini cart-->
@@ -82,13 +82,13 @@
                                           <div class="cart_info">
                                               <a href="/productDetail/{{c.product.productId}}">{{c.product.productName}}</a>
                                               <p style="font-size: 13px; margin: 0">Màu: <span>{{c.product.color}}</span></p>
-                                              <p>Số lượng: {{c.quantity}} X <span> {{c.product.price}} </span></p>
+                                              <p>Số lượng: {{c.quantity}} X <span> {{c.product.price}} ₫</span></p>
                                           </div>
                                       </div>
                                       <div class="mini_cart_table">
                                           <div class="cart_total mt-10">
                                               <span>Tổng:</span>
-                                              <span class="price">{{total+proPrice}} VNĐ</span>
+                                              <span class="price">{{total+proPrice}} ₫</span>
                                           </div>
                                       </div>
 
@@ -215,39 +215,8 @@
                       <div class="main_menu menu_position">
                           <nav>
                               <ul>
-                                  <li><a href="{{local}}/home" class="">Trang chủ</a>
-                                      <!-- <ul class="sub_menu">
-                                          <li><a href="index.html">Home shop 1</a></li>
-                                          <li><a href="index-2.html">Home shop 2</a></li>
-                                          <li><a href="index-3.html">Home shop 3</a></li>
-                                          <li><a href="index-4.html">Home shop 4</a></li>
-                                          <li><a href="index-5.html">Home shop 5</a></li>
-                                      </ul> -->
-                                  </li>
-                                  <li class="mega_items"><a  href="{{local}}/store">Cửa hàng</a>
-                                      <!-- <div class="mega_menu">
-                                          <ul class="mega_menu_inner">
-                                              <li><a href="#">Iphone</a>
-                                                  <ul>
-                                                      <li><a href="shop-fullwidth.html">Iphone 12 Series</a></li>
-                                                      <li><a href="shop-fullwidth-list.html">Iphone 12 Series</a></li>
-                                                  </ul>
-                                              </li>
-                                              <li><a href="#">Samsung</a>
-                                                  <ul>
-                                                      <li><a href="cart.html">Samsung Galaxy Z Series</a></li>
-                                                      <li><a href="wishlist.html">Samsung Galaxy S22 Series</a></li>
-                                                  </ul>
-                                              </li>
-                                              <li><a href="#">Xiaomi</a>
-                                                  <ul>
-                                                      <li><a href="product-details.html">Redmi Note 11 Series</a></li>
-                                                      <li><a href="product-sidebar.html">Xiaomi 12 Series</a></li>
-                                                  </ul>
-                                              </li>
-                                          </ul>
-                                      </div> -->
-                                  </li>
+                                  <li><a href="{{local}}/home" class="">Trang chủ</a></li>
+                                  <li class="mega_items"><a  href="{{local}}/store">Cửa hàng</a></li>
                               </ul>
                           </nav>
                       </div>

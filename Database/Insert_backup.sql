@@ -1515,3 +1515,11 @@ Xiaomi 11 Lite 5G NE có pin 4.250mAh, xuất xưởng cùng chiếc điện tho
 
 '
 WHERE productId = 'P342';
+
+insert into Product(productId, productName, productImage, price, ram, storage, color, description, quantity, status, categoryId) values
+('P401', 'Nokia G21- 4GB/128GBB', 'https://cdn.hoanghamobile.com/i/productlist/dsp/Uploads/2022/03/01/nokia-g21-2.png https://cdn.hoanghamobile.com/i/preview/Uploads/2022/04/18/image-removebg-preview_637858769092281966.png https://cdn.hoanghamobile.com/i/productlist/dsp/Uploads/2022/03/01/nokia-g21-8.png', 3480000, '4GB', '128GB', N'
+Xanh Bắc Âu;Tím cực quang', N'Điện thoại di động Nokia G21- 4GB/128GB - Chính Hãng
+', 50, 1, 1)
+
+insert into ConfigurationDetail(screenTechnology, cpu, wideScreen, resolution, mobileNetwork, simSlotNumber, battery, connector, productId) values
+(N'20:9 màn hình giọt nước | Tốc độ làm tươi màn hình 90Hz', N'Vi xử lý Unisoc T606 (2xA75 and 6xA55 1.6G', N'6.5 inches', N'HD+', N'Tốc độ mạng, GSM: 850, 900, 1800, 1900, WCDMA: 1, 5, 8, LTE FDD: 1, 3, 5, 7, 8, 20, 28, 38, 40, 41 (full), LTE CAT4', N'SIM Nano SIM + Nano SIM hoặc Nano SIM + MicroSD', N'5050 mAh4', N'Cổng giao tiếp USB Type-C | jack cắm tai nghe 3.5mm', 'P401')

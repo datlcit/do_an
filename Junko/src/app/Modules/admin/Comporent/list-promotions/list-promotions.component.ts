@@ -18,6 +18,9 @@ export class ListPromotionsComponent implements OnInit {
   loadPromotions(){
     this.promotionAdminService.get().subscribe(res => {
       this.listPromotions = res;
+      for(let p of this.listPromotions){
+        p.maxDiscount = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(p.maxDiscount);
+      }
     })
   }
 

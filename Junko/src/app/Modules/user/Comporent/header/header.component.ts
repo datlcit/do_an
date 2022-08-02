@@ -93,6 +93,7 @@ export class HeaderComponent implements OnInit {
         for(let i=0;i<this.searchProduct.length;i++){
           this.img = this.searchProduct[i].productImage.split(" ");
           this.searchProduct[i].productImage = this.img[0];
+          this.searchProduct[i].price = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(this.searchProduct[i].price);
         }
         console.log(this.searchProduct);
       })

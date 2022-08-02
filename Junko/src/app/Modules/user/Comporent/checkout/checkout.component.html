@@ -70,25 +70,25 @@
                                 <tbody>
                                     <tr *ngFor="let c of data">
                                         <td> {{c.product.productName}} - {{c.product.color}} <strong> × {{c.quantity}}</strong></td>
-                                        <td> {{c.product.price * c.quantity}} VNĐ</td>
+                                        <td> {{c.product.price * c.quantity}} ₫</td>
                                     </tr>
                                 </tbody>
                                 <tfoot>
                                     <tr>
                                         <th>Tổng phụ</th>
-                                        <td style="color: darkorange"><strong>{{subtotal}} VNĐ</strong></td>
+                                        <td style="color: darkorange"><strong>{{subtotal}} ₫</strong></td>
                                     </tr>
                                     <tr>
                                         <th>Phí giao hàng</th>
-                                        <td style="color: deepskyblue"><strong>50000 VNĐ</strong></td>
+                                        <td style="color: deepskyblue"><strong>50000 ₫</strong></td>
                                     </tr>
                                     <tr>
                                       <th>Mã giảm giá ({{this.promotionCurrent.code}})</th>
-                                      <td style="color: brown"><strong>- {{lastDiscount}} VNĐ</strong></td>
+                                      <td style="color: brown"><strong>- {{lastDiscount}} ₫</strong></td>
                                     </tr>
                                     <tr class="order_total">
                                         <th>Tổng giá trị đơn hàng</th>
-                                        <td style="color: red"><strong>{{subtotal + 50000 - lastDiscount}} VNĐ</strong></td>
+                                        <td style="color: red"><strong>{{subtotal + 50000 - lastDiscount}} ₫</strong></td>
                                     </tr>
                                 </tfoot>
                             </table>

@@ -26,6 +26,8 @@ export class ProductDetailComponent implements OnInit {
     this.loadConfg();
   }
   mainImg:any;
+  priceString: any = null;
+
   //function đẩy đối tượng vào trang
   getProduct(){
     const productId = this.router.snapshot.params['productId'];
@@ -34,7 +36,8 @@ export class ProductDetailComponent implements OnInit {
       this.dataProduct.productImage = this.dataProduct.productImage.split(" ");
       this.mainImg = this.dataProduct.productImage[0];
       this.dataProduct.color = this.dataProduct.color.split(";");
-      console.log(this.dataProduct)
+
+      this.priceString = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(this.dataProduct.price);
     });
   }
 

@@ -34,6 +34,8 @@ export class StoreComponent implements OnInit {
       for(let i=0;i<this.shop_product.length;i++){
         this.img = this.shop_product[i].productImage.split(" ");
         this.shop_product[i].productImage = this.img[0];
+        this.shop_product[i].price = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(this.shop_product[i].price);
+        console.log(this.shop_product[i])
       }
       // //Phân trang
       // // Tính tổng số trang
@@ -100,6 +102,7 @@ export class StoreComponent implements OnInit {
       for(let i=0;i<this.shop_product.length;i++){
         this.img = this.shop_product[i].productImage.split(" ");
         this.shop_product[i].productImage = this.img[0];
+        this.shop_product[i].price = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(this.shop_product[i].price);
       }
     })
   }
@@ -111,6 +114,7 @@ export class StoreComponent implements OnInit {
       for(let i=0;i<this.shop_product.length;i++){
         this.img = this.shop_product[i].productImage.split(" ");
         this.shop_product[i].productImage = this.img[0];
+        this.shop_product[i].price = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(this.shop_product[i].price);
       }
     })
   }
@@ -122,6 +126,7 @@ export class StoreComponent implements OnInit {
       for(let i=0;i<this.shop_product.length;i++){
         this.img = this.shop_product[i].productImage.split(" ");
         this.shop_product[i].productImage = this.img[0];
+        this.shop_product[i].price = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(this.shop_product[i].price);
       }
     })
   }
@@ -133,6 +138,7 @@ export class StoreComponent implements OnInit {
       for(let i=0;i<this.shop_product.length;i++){
         this.img = this.shop_product[i].productImage.split(" ");
         this.shop_product[i].productImage = this.img[0];
+        this.shop_product[i].price = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(this.shop_product[i].price);
       }
     })
   }
@@ -150,6 +156,7 @@ export class StoreComponent implements OnInit {
       for(let i=0;i<res.length;i++){
         this.img = this.shop_product[i].productImage.split(" ");
         this.shop_product[i].productImage = this.img[0];
+        this.shop_product[i].price = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(this.shop_product[i].price);
       }
     })
   }
@@ -174,6 +181,7 @@ export class StoreComponent implements OnInit {
       for(let i=0;i<this.shop_product.length;i++){
         this.img = this.shop_product[i].productImage.split(" ");
         this.shop_product[i].productImage = this.img[0];
+        this.shop_product[i].price = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(this.shop_product[i].price);
       }
       return this.shop_product;
     })

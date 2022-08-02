@@ -39,9 +39,9 @@ export class CheckoutComponent implements OnInit {
   data: any[] = [];
 
   ngOnInit(): void {
-    this.getPromotion()
     this.loadCart();
     this.loadTotal();
+    this.getPromotion();
     this.loadCustomer();
     let id = this.route.snapshot.params['customerId'];
     this.customerService.findById(id).subscribe(res => console.log(res));
@@ -133,6 +133,12 @@ export class CheckoutComponent implements OnInit {
   promotionCurrent:any = {promotionId: 1};
   lastDiscount: any = 0;
   getPromotion(){
+
+    if(this.subtotal == 0){
+      alert("Bạn chưa có sản phẩm nào trong giỏ!");
+      this.router.navigate(['store']);
+    }
+
     if(localStorage['code'] != undefined){
       this.promotionService.get().subscribe(res=>{
         for(let p of res){

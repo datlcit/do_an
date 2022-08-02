@@ -18,7 +18,7 @@ export class ListOrderDetailsComponent implements OnInit {
   }
 
   listOrderDetails: Array<any> = [];
-  total: number = 0;
+  total: any = 0;
   loadOrderDetails(){
     this.orderDetailService.get().subscribe(res => {
 
@@ -32,6 +32,7 @@ export class ListOrderDetailsComponent implements OnInit {
       console.log(this.listOrderDetails)
       for(let od of this.listOrderDetails){
         this.total += od.price*od.quantity;
+        od.price = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(od.price);
       }
       this.total += 50000;
     })

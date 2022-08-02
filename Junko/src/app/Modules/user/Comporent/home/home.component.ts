@@ -27,6 +27,7 @@ export class HomeComponent implements OnInit {
   }
   newProduct: any[] = [];
   img: Array<any> = [];
+
   loadNewProducts(){
     this.service.newProduct().subscribe(res =>{
       for(let p of res){
@@ -38,7 +39,9 @@ export class HomeComponent implements OnInit {
       for(let i=0;i<this.newProduct.length;i++){
         this.img = this.newProduct[i].productImage.split(" ");
         this.newProduct[i].productImage = this.img[0];
+        this.newProduct[i].price = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(this.newProduct[i].price);
       }
+      console.log(this.newProduct)
     })
   }
 
@@ -54,6 +57,7 @@ export class HomeComponent implements OnInit {
       for(let i=0;i<this.bestSellerProduct.length;i++){
         this.img = this.bestSellerProduct[i].productImage.split(" ");
         this.bestSellerProduct[i].productImage = this.img[0];
+        this.bestSellerProduct[i].price = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(this.bestSellerProduct[i].price);
       }
     })
   }

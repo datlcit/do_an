@@ -27,12 +27,12 @@
                                       <td>{{od.product.productName}}</td>
                                       <td>{{od.color}}</td>
                                       <td>{{od.quantity}}</td>
-                                      <td>{{od.price}} VNĐ <br><p style="text-transform: lowercase; color: green">x {{od.quantity}} sản phẩm</p></td>
+                                      <td>{{od.price}} <br><p style="text-transform: lowercase; color: green">x {{od.quantity}} sản phẩm</p></td>
                                       <td>{{od.createAt}}</td>
                                   </tr>
-                                  <tr><td colspan="7" style="text-align: center; color: blue">Phí vận chuyển: 50000 VNĐ</td></tr>
-                                  <tr><td colspan="7" style="text-align: center; color: blue">Giảm giá: - {{order.promotion.maxDiscount}} VNĐ</td></tr>
-                                  <tr><td colspan="7" style="text-align: center; color: red">TỔNG CỘNG: {{total - order.promotion.maxDiscount}} VNĐ</td></tr>
+                                  <tr><td colspan="7" style="text-align: center; color: blue">Phí vận chuyển: 50000 ₫</td></tr>
+                                  <tr><td colspan="7" style="text-align: center; color: blue">Giảm giá: - {{order.promotion.maxDiscount}} ₫</td></tr>
+                                  <tr><td colspan="7" style="text-align: center; color: red">TỔNG CỘNG: {{total - order.promotion.maxDiscount}} ₫</td></tr>
                               </tbody>
                           </table>
                       </div>

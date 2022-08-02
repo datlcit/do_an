@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CategoryAdminService } from '../../adminServices/category-admin.service';
+import { ConfigurationDetailAdminService } from '../../adminServices/configuration-detail-admin.service';
 import { ProductAdminService } from '../../adminServices/product-admin.service';
 
 @Component({
@@ -18,7 +19,8 @@ export class AddProductComponent implements OnInit {
     private categoryAdminService: CategoryAdminService,
     private http: HttpClient,
     private router: Router,
-    private producAdmintService: ProductAdminService
+    private producAdmintService: ProductAdminService,
+    private cfgAdminService: ConfigurationDetailAdminService
   ) { }
 
   ngOnInit(): void {
@@ -47,7 +49,6 @@ export class AddProductComponent implements OnInit {
   addProduct(){
     this.producAdmintService.add(this.formAddProduct.value).subscribe(res=>{
       console.log(this.formAddProduct.value);
-      this.router.navigateByUrl('/admin/listProducts')
     })
   }
 
@@ -56,7 +57,29 @@ export class AddProductComponent implements OnInit {
   loadCategories(){
     this.categoryAdminService.get().subscribe(res =>{
       this.categories = res;
-      console.log(this.categories);
     })
+  }
+
+  formAddCfg = this.fb.group({
+    productId: ['', Validators.required],
+    screenTechnology: ['', Validators.required],
+    cpu: ['', Validators.required],
+    wideScreen: ['', Validators.required],
+    resolution: ['', Validators.required],
+    mobileNetwork: ['', Validators.required],
+    simSlotNumber: ['', Validators.required],
+    battery: ['', Validators.required],
+    connector: ['', Validators.required]
+  });
+
+  addCfg(){
+    this.cfgAdminService.add(this.formAddCfg.value).subscribe(res=>{
+      this.cfgAdminService.findById(res.configurationDetailId).subscribe(res2 => {
+        res2.product = {productId: this.formAddCfg.value.productId}
+        this.cfgAdminService.edit(res.configurationDetailId, res2).subscribe(res3=>{
+        })
+      })
+    })
+    this.router.navigateByUrl('/admin/listProducts')
   }
 }
